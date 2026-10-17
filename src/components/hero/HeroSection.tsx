@@ -118,7 +118,7 @@ export const HeroSection: React.FC = () => {
           />
 
           <p className="mt-3 sm:mt-4 max-w-xl text-center text-xs sm:text-base text-[#f8fafc] font-medium leading-relaxed drop-shadow-md px-2">
-            Full-Stack & Mobile Developer. Membangun platform web skalabel, aplikasi mobile Flutter, dan infrastruktur Linux.
+            Mahasiswa S1 Sistem Informasi Universitas Islam Indragiri. Membangun sistem informasi modern, arsitektur web skalabel, dan manajemen basis data.
           </p>
 
           <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3.5 px-2">

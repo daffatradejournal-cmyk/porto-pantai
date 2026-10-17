@@ -2,6 +2,7 @@ import { useState, useRef, useCallback, useImperativeHandle, forwardRef } from '
 import { motion } from 'framer-motion';
 import type { PanInfo } from 'framer-motion';
 import type { DuckExpression } from './SwimmingDuck';
+import { profileData } from '../../data/portfolioData';
 
 export interface HeroPhysicsStageHandle {
   handleDuckDrop: (clientX: number, clientY: number, velocity: number) => void;
@@ -19,20 +20,23 @@ interface LetterData {
   wobble: number;
 }
 
-const INITIAL_LETTERS: Omit<LetterData, 'posX' | 'posY' | 'wobble'>[] = [
-  { id: 'r1', char: 'R', wordIdx: 0, letterIdx: 0 },
-  { id: 'e1', char: 'E', wordIdx: 0, letterIdx: 1 },
-  { id: 'y1', char: 'Y', wordIdx: 0, letterIdx: 2 },
-  { id: 'h1', char: 'H', wordIdx: 0, letterIdx: 3 },
-  { id: 'a1', char: 'A', wordIdx: 0, letterIdx: 4 },
-  { id: 'n1', char: 'N', wordIdx: 0, letterIdx: 5 },
-  { id: 'd1', char: 'D', wordIdx: 0, letterIdx: 6 },
-  { id: 'a2', char: 'A', wordIdx: 1, letterIdx: 0 },
-  { id: 's1', char: 'S', wordIdx: 1, letterIdx: 1 },
-  { id: 't1', char: 'T', wordIdx: 1, letterIdx: 2 },
-  { id: 'r2', char: 'R', wordIdx: 1, letterIdx: 3 },
-  { id: 'a3', char: 'A', wordIdx: 1, letterIdx: 4 },
-];
+const buildLettersFromName = (fullName: string): Omit<LetterData, 'posX' | 'posY' | 'wobble'>[] => {
+  const words = (fullName || 'MUHAMMAD DAFFA').trim().toUpperCase().split(/\s+/);
+  const result: Omit<LetterData, 'posX' | 'posY' | 'wobble'>[] = [];
+  words.forEach((word, wordIdx) => {
+    word.split('').forEach((char, letterIdx) => {
+      result.push({
+        id: `w${wordIdx}-l${letterIdx}-${char.toLowerCase()}`,
+        char,
+        wordIdx,
+        letterIdx
+      });
+    });
+  });
+  return result;
+};
+
+const INITIAL_LETTERS: Omit<LetterData, 'posX' | 'posY' | 'wobble'>[] = buildLettersFromName(profileData.name || 'MUHAMMAD DAFFA');
 
 interface HeroPhysicsStageProps {
   onSplash: (clientX: number, clientY: number, intensity: number) => void;
@@ -291,7 +295,7 @@ export const HeroPhysicsStage = forwardRef<HeroPhysicsStageHandle, HeroPhysicsSt
           }}
           whileHover={{ scale: 1.12 }}
           whileTap={{ scale: 1.25 }}
-          className="relative inline-block cursor-grab active:cursor-grabbing select-none p-1 sm:p-2.5 mx-0.5 sm:mx-1.5 md:mx-2.5 pointer-events-auto"
+          className="relative inline-block cursor-grab active:cursor-grabbing select-none p-0.5 min-[390px]:p-1 sm:p-2 md:p-2.5 mx-0.5 sm:mx-1 md:mx-1.5 lg:mx-2 pointer-events-auto"
         >
           <motion.div
             animate={
@@ -314,25 +318,25 @@ export const HeroPhysicsStage = forwardRef<HeroPhysicsStageHandle, HeroPhysicsSt
             <div className="absolute -bottom-3 left-2 right-2 h-3 bg-[#0284c7]/50 rounded-full blur-[3px]" />
 
             <span
-              className="absolute top-1 sm:top-2 left-0.5 text-[40px] min-[390px]:text-[48px] sm:text-7xl md:text-8xl font-black text-[#041628] tracking-tight select-none pointer-events-none"
+              className="absolute top-1 sm:top-2 left-0.5 text-[32px] min-[390px]:text-[38px] sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#041628] tracking-tight select-none pointer-events-none"
               aria-hidden="true"
             >
               {letter.char}
             </span>
             <span
-              className="absolute top-0.5 sm:top-1.5 left-0.5 text-[40px] min-[390px]:text-[48px] sm:text-7xl md:text-8xl font-black text-[#0369a1] tracking-tight select-none pointer-events-none"
+              className="absolute top-0.5 sm:top-1.5 left-0.5 text-[32px] min-[390px]:text-[38px] sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#0369a1] tracking-tight select-none pointer-events-none"
               aria-hidden="true"
             >
               {letter.char}
             </span>
             <span
-              className="absolute top-0.5 left-0 text-[40px] min-[390px]:text-[48px] sm:text-7xl md:text-8xl font-black text-[#0284c7] tracking-tight select-none pointer-events-none"
+              className="absolute top-0.5 left-0 text-[32px] min-[390px]:text-[38px] sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#0284c7] tracking-tight select-none pointer-events-none"
               aria-hidden="true"
             >
               {letter.char}
             </span>
 
-            <span className="relative z-10 block text-[40px] min-[390px]:text-[48px] sm:text-7xl md:text-8xl font-black text-white tracking-tight drop-shadow-[0_6px_16px_rgba(2,132,199,0.35)]">
+            <span className="relative z-10 block text-[32px] min-[390px]:text-[38px] sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight drop-shadow-[0_6px_16px_rgba(2,132,199,0.35)]">
               {letter.char}
             </span>
           </motion.div>
@@ -342,11 +346,11 @@ export const HeroPhysicsStage = forwardRef<HeroPhysicsStageHandle, HeroPhysicsSt
 
     return (
       <div className="relative z-20 w-full flex flex-col items-center justify-center">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-y-0.5 sm:gap-y-0 gap-x-4 sm:gap-x-8 md:gap-x-10 py-1 sm:py-6 max-w-full px-1">
-          <div className="flex items-center justify-center">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-y-1 sm:gap-y-0 gap-x-3 sm:gap-x-6 md:gap-x-8 lg:gap-x-10 py-1 sm:py-6 max-w-full px-1">
+          <div className="flex items-center justify-center flex-nowrap">
             {word1.map(renderLetter)}
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center flex-nowrap">
             {word2.map(renderLetter)}
           </div>
         </div>
