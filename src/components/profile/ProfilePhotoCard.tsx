@@ -63,7 +63,7 @@ export const ProfilePhotoCard: React.FC<ProfilePhotoCardProps> = ({ isFlooded })
 
         <div className="mt-3 px-2 flex items-center justify-between text-[11px] font-mono text-[#8c6239]">
           <span>FOTO PROFIL</span>
-          <span>ID // REYHAND ASTRA</span>
+          <span>ID // {profileData.name.toUpperCase()}</span>
         </div>
       </div>
 

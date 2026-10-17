@@ -1,8 +1,6 @@
-# Template Portfolio Pantai 🏖️🌊
+# Porto Pantai — Muhammad Daffa 🏖️🌊
 
-Template website portofolio interaktif bertema pesisir pantai dan neo-brutalisme modern. Dilengkapi dengan simulasi ombak 2D canvas, fisika gerak dinamis, karakter pantai interaktif, dan arsitektur kode React 19 + TypeScript + Vite yang rapi.
-
-Template ini sepenuhnya **open source (Lisensi MIT)** dan siap dipakai untuk portofolio pribadi Anda.
+Website portofolio interaktif bertema pesisir pantai dan neo-brutalisme modern milik **Muhammad Daffa**, mahasiswa S1 Sistem Informasi Universitas Islam Indragiri. Dilengkapi dengan simulasi ombak 2D canvas, fisika gerak dinamis, karakter pantai interaktif, dan arsitektur kode React 19 + TypeScript + Vite.
 
 ---
 
@@ -30,12 +28,12 @@ Template ini sepenuhnya **open source (Lisensi MIT)** dan siap dipakai untuk por
 
 ---
 
-## Cara Menggunakan Template Ini
+## Cara Menjalankan
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/ryhndastra/template-porto-pantai.git
-cd template-porto-pantai
+git clone https://github.com/daffatradejournal-cmyk/porto-pantai.git
+cd porto-pantai
 ```
 
 ### 2. Install Dependensi
@@ -99,4 +97,4 @@ Website ini adalah Single Page Application (SPA) murni berbasis Vite. Anda bisa 
 
 ## Lisensi
 
-Dirilis di bawah lisensi [MIT](LICENSE). Bebas digunakan, dimodifikasi, dan didistribusikan untuk keperluan pribadi maupun komersial. Dibuat dengan cinta oleh [Reyhand Astra](https://github.com/ryhndastra).
+Dirilis di bawah lisensi [MIT](LICENSE). Dikembangkan oleh **[Muhammad Daffa](https://github.com/daffatradejournal-cmyk)**. Template asli diadaptasi dari karya Reyhand Astra.

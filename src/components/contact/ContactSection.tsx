@@ -63,7 +63,7 @@ export const ContactSection: React.FC = () => {
   const mailtoLink = `mailto:${profileData.contact.email}?subject=${encodeURIComponent(
     selectedTopic.subject
   )}&body=${encodeURIComponent(
-    `Halo Reyhand,\n\nSaya ingin berdiskusi mengenai topik: ${selectedTopic.label}.\n\n[Tulis pesan Anda di sini]\n\nSalam,\n`
+    `Halo Daffa,\n\nSaya ingin berdiskusi mengenai topik: ${selectedTopic.label}.\n\n[Tulis pesan Anda di sini]\n\nSalam,\n`
   )}`;
 
   return (

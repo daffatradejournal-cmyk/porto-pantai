@@ -1,25 +1,25 @@
 import type { ProfileData, Project, TechItem, ExperienceItem } from '../types/portfolio';
 
 export const profileData: ProfileData = {
-  name: 'Reyhand Astra',
-  tagline: 'Full-Stack & Mobile Developer',
-  education: 'Teknik Informatika (S1) • Universitas Widyatama',
+  name: 'Muhammad Daffa',
+  tagline: 'S1 Sistem Informasi • Web & System Developer',
+  education: 'S1 Sistem Informasi • Universitas Islam Indragiri',
   status: 'Available for Engineering Roles & Projects',
-  bio: 'Informatics engineering undergraduate focused on building end-to-end web platforms and mobile applications with resilient architecture, clean code, and Linux-driven workflows.',
+  bio: 'Mahasiswa S1 Sistem Informasi Universitas Islam Indragiri yang berfokus pada pengembangan sistem informasi, perancangan aplikasi web modern, analisis proses bisnis, dan manajemen basis data dengan arsitektur yang andal dan clean code.',
   experienceStart: 'Active Developer',
-  avatarUrl: '/avatar.svg',
+  avatarUrl: '/daffa.jpg',
   interests: [
+    'Sistem Informasi',
     'Web Architecture',
-    'Mobile Systems',
-    'Linux Ecosystem',
-    'Software Reliability',
-    'Reactive Interfaces'
+    'Database Engineering',
+    'Business Process Analysis',
+    'System Design'
   ],
   contact: {
-    email: 'ryhndastra@gmail.com',
-    github: 'https://github.com/ryhndastra',
-    linkedin: 'https://linkedin.com/in/reyhand-astra',
-    location: 'Indonesia'
+    email: 'daffatradejournal@gmail.com',
+    github: 'https://github.com/daffatradejournal-cmyk',
+    linkedin: 'https://linkedin.com/in/muhammad-daffa',
+    location: 'Indragiri Hilir, Riau, Indonesia'
   }
 };
 
@@ -279,7 +279,7 @@ export const projectsData: Project[] = [
     ],
     challenges: 'Proyek aplikasi mobile pertama; mempelajari Flutter dan reaktif state management dari nol bersama kelompok di bawah tenggat waktu akademik yang ketat.',
     role: 'Mobile Developer & Technical Lead',
-    githubUrl: 'https://github.com/ryhndastra/villanakey',
+    githubUrl: 'https://github.com/daffatradejournal-cmyk/porto-pantai',
     isMobileApp: true,
     demoStatusLabel: 'Aplikasi Mobile Native (Demo/APK on request)',
     imageUrl: '/projects/villa.png',
@@ -323,7 +323,7 @@ export const projectsData: Project[] = [
     ],
     challenges: 'Menggarap seluruh arsitektur web dan integrasi API secara mandiri di tengah jadwal padat antara perkuliahan semester aktif dan bootcamp.',
     role: 'Lead Web Full-Stack Developer',
-    githubUrl: 'https://github.com/ryhndastra/kalorin-ai',
+    githubUrl: 'https://github.com/daffatradejournal-cmyk/porto-pantai',
     demoUrl: 'https://kalorin-ai.vercel.app',
     imageUrl: '/projects/kalorinLogo.png',
     imageFit: 'contain',
@@ -338,20 +338,20 @@ export const projectsData: Project[] = [
 
 export const experienceData: ExperienceItem[] = [
   {
-    id: 'edu-widyatama',
+    id: 'edu-unisi',
     period: '2023 - Sekarang',
-    role: 'S1 Teknik Informatika',
-    organization: 'Universitas Widyatama (Angkatan 2023)',
+    role: 'S1 Sistem Informasi',
+    organization: 'Universitas Islam Indragiri',
     badge: 'Pendidikan Formal',
     category: 'education',
     description:
-      'Menempuh studi sarjana Teknik Informatika dengan pendalaman fundamental ilmu komputer, struktur data, algoritma, rekayasa perangkat lunak, dan mengambil penjurusan spesialisasi Database / Data Analyst.',
+      'Menempuh studi sarjana S1 Sistem Informasi dengan pendalaman pada analisis proses bisnis, perancangan sistem informasi, manajemen basis data, rekayasa perangkat lunak, dan pengembangan aplikasi web modern.',
     highlights: [
-      'Penjurusan Database & Data Analyst',
-      'Pemodelan Data Relasional & Optimasi Query SQL',
-      'Fundamental Rekayasa Perangkat Lunak & Algoritma'
+      'Spesialisasi Analisis Sistem & Rekayasa Sistem Informasi',
+      'Pemodelan Data Relasional, Manajemen Basis Data & SQL',
+      'Fundamental Rekayasa Perangkat Lunak & Pengembangan Web'
     ],
-    tech: ['Database Systems', 'Data Analysis', 'SQL', 'Algorithms', 'Software Engineering', 'System Design']
+    tech: ['Information Systems', 'System Analysis', 'Database Systems', 'SQL', 'Software Engineering', 'System Design']
   },
   {
     id: 'exp-dicoding-dbs',

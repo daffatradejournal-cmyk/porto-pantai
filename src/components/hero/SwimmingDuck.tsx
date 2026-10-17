@@ -21,7 +21,7 @@ const DUCK_DIALOGUES = [
   'Kepiting! Habis latihan voli pantai jangan lupa nyebur renang bareng di sini!',
   'Lapangan voli pasir di samping lagi rame turnamen kepiting!',
   'Kwek! Kalau ada bug di kode, suruh ngobrol sama bebek karet!',
-  'Berenang santai sambil nemenin kamu lihat portofolio Reyhand ~',
+  'Berenang santai sambil nemenin kamu lihat portofolio Daffa ~',
   'Ombaknya tenang banget, cocok buat santai di pantai!',
   'Awas kecipratan air ya kalau aku lagi ngebut berenang!'
 ];
