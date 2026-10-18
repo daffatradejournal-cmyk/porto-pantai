@@ -207,43 +207,46 @@ export const projectsData: Project[] = [
   {
     id: 'pasartembilahan',
     title: 'PasarTembilahan',
-    subtitle: 'Platform E-Commerce & Rantai Distribusi Komoditas UMKM Indragiri Hilir',
+    subtitle: 'Platform E-Commerce & Rantai Pasok Ekspor Komoditas UMKM Indragiri Hilir',
     category: 'fullstack',
-    summary: 'Platform e-commerce dan rantai pasok komoditas daerah yang menghubungkan sentra petani kelapa, olahan perkebunan gambut, dan UMKM khas Indragiri Hilir langsung ke pasar nasional dan ekspor.',
-    description: 'Inisiatif sistem informasi untuk memotong rantai tengkulak, menyediakan kalkulasi estimasi ongkos kirim jalur perairan sungai (speedboat/pompong), integrasi pembayaran otomatis Midtrans, serta dashboard analitik performa stok bagi UMKM dan Koperasi Tani.',
+    summary: 'Platform e-commerce & rantai pasok komoditas daerah yang menghubungkan sentra petani kelapa, perkebunan gambut, dan UMKM Indragiri Hilir langsung ke pasar nasional dan ekspor global.',
+    description: 'Studi kasus komprehensif S1 Sistem Informasi Universitas Islam Indragiri (UNISI) untuk memodernisasi tata kelola perdagangan komoditas unggulan Kabupaten Indragiri Hilir (Negeri Hamparan Kelapa Dunia). Menghubungkan langsung petani kelapa butir, sentra kopra putih asapan, produsen VCO, kopi liberika gambut, hingga pengrajin lokal ke pasar konsumen nasional serta importir mancanegara (Singapura, Malaysia, Tiongkok, MEA) melalui gerbang logistik Pelabuhan Samudera Kuala Enok dan Parit 21.',
     architecture: [
-      'Arsitektur web modern Next.js / React TypeScript dengan RESTful API Route Handlers',
-      'Kalkulator estimasi ongkir multimodal perairan sungai Inhil (speedboat & pompong Parit 21) dan darat',
-      'Integrasi payment gateway Midtrans Snap otomatis (QRIS & Virtual Account Bank Syariah)',
-      'Dashboard analitik performa omzet harian dan peringatan stok kritis gudang bagi pelaku UMKM',
-      'Skema basis data relasional ternormalisasi 3NF dengan constraint CHECK/UNIQUE dan audit mutasi stok'
+      'Frontend modern performa tinggi berbasis Next.js App Router, React 19, TypeScript, dan Tailwind CSS',
+      'Kalkulator kargo multimodal perairan sungai (sampan/pompong parit) hingga kargo laut kontainer (FCL/LCL)',
+      'Hub Perdagangan Ekspor B2B & RFQ (Request for Quotation) untuk kontrak kuotasi kontainer skala internasional',
+      'Integrasi payment gateway Midtrans Snap otomatis (Virtual Account, QRIS, & e-Wallet terverifikasi)',
+      'Seller Centre Petani & UMKM untuk kontrol inventaris komoditas, stok real-time, dan manajemen pemrosesan pesanan',
+      'Desain antarmuka responsif mengadopsi Shopee Design System yang familiar dan mudah digunakan oleh masyarakat lokal'
     ],
     stack: [
       'Next.js',
       'React',
       'TypeScript',
       'Tailwind CSS',
-      'PostgreSQL',
-      'MySQL',
-      'Midtrans API',
-      'RESTful API'
+      'Midtrans Payment',
+      'River & Sea Cargo',
+      'B2B RFQ Engine',
+      'Vercel Cloud'
     ],
     highlights: [
-      'Inisiatif Capstone Rekayasa Sistem Informasi Universitas Islam Indragiri (UNISI)',
-      'Katalog digital multi-kategori (Kelapa butir, kopra ekspor, VCO, amplang udang, kopi gambut)',
-      'Perhitungan logistik spesifik jalur perairan sungai Inhil & pembayaran terotomatisasi'
+      'Studi Kasus S1 Sistem Informasi Universitas Islam Indragiri (UNISI)',
+      '11+ Komoditas Unggulan Inhil (Kelapa Butir, Kopra Putih Asapan, VCO, Kopi Liberika, Pinang Betara, Amplang Udang)',
+      'Kalkulator Kargo Sungai-Laut Terintegrasi Pelabuhan Samudera Kuala Enok & Parit 21',
+      'Hub Ekspor Global Menjangkau 8 Negara Tujuan (Singapura, Malaysia, Tiongkok, MEA)'
     ],
-    challenges: 'Mengintegrasikan variabilitas logistik perairan pasang surut khas Inhil dengan kalkulasi ongkir dinamis serta webhook callback payment gateway secara real-time.',
-    role: 'Lead Full-Stack Developer & System Analyst',
-    demoUrl: 'http://localhost:3000',
+    challenges: 'Merancang algoritma kalkulator logistik perairan sungai pasang-surut yang akurat khas geografis Indragiri Hilir serta mengintegrasikan alur transaksi ritel konsumen dan kuotasi ekspor partai besar (B2B) dalam satu ekosistem web yang efisien.',
+    role: 'Lead System Analyst & Full-Stack Developer',
+    demoUrl: 'https://studikasusimpor.vercel.app/',
     githubUrl: 'https://github.com/daffatradejournal-cmyk/studikasusimpor',
-    imageUrl: '/projects/CibendaMart.png',
+    isPrivateRepo: false,
+    imageUrl: '/projects/pasartembilahan.jpg',
     imageFit: 'cover',
     featured: true,
     metrics: [
-      { label: 'Focus', value: 'Business Process & E-Commerce' },
-      { label: 'Architecture', value: 'RESTful API & Relational DB' },
-      { label: 'Target', value: 'UMKM & Komoditas Daerah' }
+      { label: 'Cakupan Pasar', value: 'Lokal, Nasional & Ekspor' },
+      { label: 'Arsitektur Sistem', value: 'Next.js & Midtrans API' },
+      { label: 'Jalur Logistik', value: 'Sungai & Kuala Enok' }
     ]
   },
   {
