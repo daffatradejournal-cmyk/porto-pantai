@@ -33,7 +33,7 @@ export const techStackData: TechItem[] = [
     color: '#3178C6',
     roleTag: 'Type Contracts',
     usageContext: 'Type-safe contracts across full-stack applications and component props',
-    projectLinks: ['cimart', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'kalorin-ai']
   },
   {
     name: 'React',
@@ -43,7 +43,7 @@ export const techStackData: TechItem[] = [
     color: '#0284c7',
     roleTag: 'Component UI',
     usageContext: 'Component-driven UI, state management, custom hooks, and interactive flows',
-    projectLinks: ['cimart', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'kalorin-ai']
   },
   {
     name: 'Next.js',
@@ -53,7 +53,7 @@ export const techStackData: TechItem[] = [
     color: '#0f172a',
     roleTag: 'App Framework',
     usageContext: 'Server-side rendering, static generation, and edge routing',
-    projectLinks: ['cimart']
+    projectLinks: ['pasartembilahan']
   },
   {
     name: 'Flutter',
@@ -73,7 +73,7 @@ export const techStackData: TechItem[] = [
     color: '#06b6d4',
     roleTag: 'Design Tokens',
     usageContext: 'Modern utility-first styling, design tokens, and fluid responsive layouts',
-    projectLinks: ['cimart', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'kalorin-ai']
   },
   {
     name: 'JavaScript',
@@ -83,7 +83,7 @@ export const techStackData: TechItem[] = [
     color: '#eab308',
     roleTag: 'Scripting Core',
     usageContext: 'Core web scripting, DOM events, and asynchronous event loops',
-    projectLinks: ['cimart']
+    projectLinks: ['pasartembilahan']
   },
 
   // backend engine layer
@@ -95,7 +95,7 @@ export const techStackData: TechItem[] = [
     color: '#ef4444',
     roleTag: 'MVC & REST Engine',
     usageContext: 'Robust REST APIs, Inertia backend routing, authentication, and transaction handling',
-    projectLinks: ['cimart']
+    projectLinks: ['pasartembilahan']
   },
   {
     name: 'Node.js',
@@ -137,7 +137,7 @@ export const techStackData: TechItem[] = [
     color: '#0284c7',
     roleTag: 'Transactional DB',
     usageContext: 'E-commerce relational database schemas, ACID transactions, and optimized indexing',
-    projectLinks: ['cimart']
+    projectLinks: ['pasartembilahan']
   },
   {
     name: 'Firebase',
@@ -147,7 +147,7 @@ export const techStackData: TechItem[] = [
     color: '#f59e0b',
     roleTag: 'NoSQL & Real-Time Sync',
     usageContext: 'Cloud Firestore real-time calendar syncing, FCM push notifications, and Auth',
-    projectLinks: ['villanakey', 'cimart']
+    projectLinks: ['villanakey', 'pasartembilahan']
   },
   {
     name: 'Prisma ORM',
@@ -169,7 +169,7 @@ export const techStackData: TechItem[] = [
     color: '#eab308',
     roleTag: 'System OS',
     usageContext: 'Primary Unix environment, Bash scripting, system service management, and workflow',
-    projectLinks: ['cimart', 'villanakey', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'villanakey', 'kalorin-ai']
   },
   {
     name: 'Docker',
@@ -179,7 +179,7 @@ export const techStackData: TechItem[] = [
     color: '#0284c7',
     roleTag: 'Containerization',
     usageContext: 'Containerized deployment, multi-stage builds, and consistent staging environments',
-    projectLinks: ['cimart']
+    projectLinks: ['pasartembilahan']
   },
   {
     name: 'Git',
@@ -189,7 +189,7 @@ export const techStackData: TechItem[] = [
     color: '#f97316',
     roleTag: 'Version Control',
     usageContext: 'Version control, feature branching workflows, code reviews, and CI/CD pipelines',
-    projectLinks: ['cimart', 'villanakey', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'villanakey', 'kalorin-ai']
   },
   {
     name: 'Vercel',
@@ -205,51 +205,45 @@ export const techStackData: TechItem[] = [
 
 export const projectsData: Project[] = [
   {
-    id: 'cimart',
-    title: 'CiMart (CibendaMart)',
-    subtitle: 'Rural E-Commerce Platform for Desa Cibenda, Pangandaran',
+    id: 'pasartembilahan',
+    title: 'PasarTembilahan',
+    subtitle: 'Platform E-Commerce & Rantai Distribusi Komoditas UMKM Indragiri Hilir',
     category: 'fullstack',
-    summary: 'Platform e-commerce desa yang dibangun atas permintaan Wakil Rektor & Prodi untuk memberdayakan transaksi komoditas sembako, hasil tani, ternak, ikan, dan UMKM warga Desa Cibenda.',
-    description: 'Proyek inisiatif digitalisasi desa yang dimandatkan langsung oleh pimpinan kampus bekerjasama dengan perangkat Desa Cibenda. Platform ini menjembatani produsen desa langsung dengan pembeli regional melalui integrasi peta dan pembayaran terotomatisasi.',
+    summary: 'Platform e-commerce dan rantai pasok komoditas daerah yang menghubungkan sentra petani kelapa, olahan perkebunan gambut, dan UMKM khas Indragiri Hilir langsung ke pasar nasional dan ekspor.',
+    description: 'Inisiatif sistem informasi untuk memotong rantai tengkulak, menyediakan kalkulasi estimasi ongkos kirim jalur perairan sungai (speedboat/pompong), integrasi pembayaran otomatis Midtrans, serta dashboard analitik performa stok bagi UMKM dan Koperasi Tani.',
     architecture: [
-      'Backend monolitik Laravel dengan routing frontend React TypeScript via Inertia.js',
-      'WebSockets untuk sinkronisasi pesanan dan status transaksi real-time',
-      'Firebase Cloud Messaging (FCM) untuk push notification otomatis',
-      'Integrasi Leaflet / OpenStreetMap untuk pemetaan titik pengantaran desa',
-      'Payment gateway Midtrans otomatis dengan otentikasi Google OAuth',
-      'Containerisasi Docker untuk memastikan reliabilitas deployment antar server'
+      'Arsitektur web modern Next.js / React TypeScript dengan RESTful API Route Handlers',
+      'Kalkulator estimasi ongkir multimodal perairan sungai Inhil (speedboat & pompong Parit 21) dan darat',
+      'Integrasi payment gateway Midtrans Snap otomatis (QRIS & Virtual Account Bank Syariah)',
+      'Dashboard analitik performa omzet harian dan peringatan stok kritis gudang bagi pelaku UMKM',
+      'Skema basis data relasional ternormalisasi 3NF dengan constraint CHECK/UNIQUE dan audit mutasi stok'
     ],
     stack: [
-      'Laravel',
-      'Inertia.js',
+      'Next.js',
       'React',
       'TypeScript',
-      'MySQL',
       'Tailwind CSS',
-      'Docker',
-      'FCM',
-      'WebSockets',
-      'Leaflet / OSM',
-      'Midtrans',
-      'Google OAuth'
+      'PostgreSQL',
+      'MySQL',
+      'Midtrans API',
+      'RESTful API'
     ],
     highlights: [
-      'Inisiatif resmi atas penugasan Warek & Prodi Teknik Informatika',
-      'Mendukung komoditas sembako, pertanian, peternakan, perikanan, dan kerajinan',
-      'Sistem pembayaran digital instan dan pemetaan akurat level desa'
+      'Inisiatif Capstone Rekayasa Sistem Informasi Universitas Islam Indragiri (UNISI)',
+      'Katalog digital multi-kategori (Kelapa butir, kopra ekspor, VCO, amplang udang, kopi gambut)',
+      'Perhitungan logistik spesifik jalur perairan sungai Inhil & pembayaran terotomatisasi'
     ],
-    challenges: 'Dikerjakan dan diarsiteki secara mandiri dari nol hingga tahap produksi karena keterbatasan anggota tim.',
-    role: 'Full-Stack Engineer',
-    demoUrl: 'https://cimart.desa.id',
-    isPrivateRepo: true,
-    privateRepoReason: 'Repository privat karena hak cipta institusi & kerahasiaan data',
+    challenges: 'Mengintegrasikan variabilitas logistik perairan pasang surut khas Inhil dengan kalkulasi ongkir dinamis serta webhook callback payment gateway secara real-time.',
+    role: 'Lead Full-Stack Developer & System Analyst',
+    demoUrl: 'http://localhost:3000',
+    githubUrl: 'https://github.com/daffatradejournal-cmyk/studikasusimpor',
     imageUrl: '/projects/CibendaMart.png',
     imageFit: 'cover',
     featured: true,
     metrics: [
-      { label: 'Engineering', value: 'Full-Stack Developer' },
-      { label: 'Architecture', value: 'Laravel Inertia' },
-      { label: 'Payment API', value: 'Midtrans Iris' }
+      { label: 'Focus', value: 'Business Process & E-Commerce' },
+      { label: 'Architecture', value: 'RESTful API & Relational DB' },
+      { label: 'Target', value: 'UMKM & Komoditas Daerah' }
     ]
   },
   {
@@ -370,20 +364,20 @@ export const experienceData: ExperienceItem[] = [
     tech: ['React', 'TypeScript', 'Node.js', 'Supabase', 'Prisma ORM', 'Tailwind CSS', 'REST API']
   },
   {
-    id: 'exp-cimart-mbkm',
+    id: 'exp-pasartembilahan',
     period: 'Jul 2026 - Sekarang',
-    role: 'Full-Stack Developer',
-    organization: 'Inisiatif MBKM / KKN Tematik & Capstone Kampus Desa Cibenda',
-    badge: 'MBKM / Capstone Kampus',
+    role: 'Lead Full-Stack Developer & System Analyst',
+    organization: 'Inisiatif Riset Komoditas Daerah & UNISI Sistem Informasi',
+    badge: 'Proyek Flagship Sistem Informasi',
     category: 'project',
     description:
-      'Inisiatif MBKM / KKN Tematik resmi dari kampus yang menjadi Capstone Project untuk digitalisasi komoditas ekonomi warga Desa Cibenda, Pangandaran. Dikerjakan secara mandiri dari perancangan arsitektur sistem, integrasi payment gateway Midtrans, notifikasi FCM, hingga deployment produksi.',
+      'Inisiatif rekayasa sistem informasi untuk mendigitalisasi rantai distribusi dan marketplace e-commerce komoditas UMKM di Kabupaten Indragiri Hilir. Merancang arsitektur sistem end-to-end, skema basis data relasional ternormalisasi, kalkulator ongkir jalur perairan sungai (speedboat/pompong), integrasi Midtrans Snap, dan dashboard analitik koperasi.',
     highlights: [
-      'Mandat Resmi Pimpinan Kampus & Perangkat Desa',
-      'Development Arsitektur End-to-End',
-      'Integrasi Payment Gateway Midtrans & WebSockets'
+      'Digitalisasi Komoditas Kelapa & Perkebunan Gambut Inhil',
+      'Perancangan RESTful API & Relational Database Schema',
+      'Integrasi Payment Gateway Midtrans & Analitik Real-Time'
     ],
-    tech: ['Laravel', 'Inertia.js', 'React', 'MySQL', 'Docker', 'WebSockets', 'Midtrans', 'Leaflet']
+    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'MySQL', 'Midtrans API', 'RESTful API']
   },
   {
     id: 'exp-rework-cybersecurity',
