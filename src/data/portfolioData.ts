@@ -240,7 +240,7 @@ export const projectsData: Project[] = [
     demoUrl: 'https://studikasusimpor.vercel.app/',
     githubUrl: 'https://github.com/daffatradejournal-cmyk/studikasusimpor',
     isPrivateRepo: false,
-    imageUrl: '/projects/pasartembilahan.jpg',
+    imageUrl: '/projects/pasartembilahan.png',
     imageFit: 'cover',
     featured: true,
     metrics: [
