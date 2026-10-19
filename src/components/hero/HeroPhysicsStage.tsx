@@ -295,7 +295,7 @@ export const HeroPhysicsStage = forwardRef<HeroPhysicsStageHandle, HeroPhysicsSt
           }}
           whileHover={{ scale: 1.12 }}
           whileTap={{ scale: 1.25 }}
-          className="relative inline-block cursor-grab active:cursor-grabbing select-none p-0.5 min-[390px]:p-1 sm:p-2 md:p-2.5 mx-0.5 sm:mx-1 md:mx-1.5 lg:mx-2 pointer-events-auto"
+          className="relative inline-block cursor-grab active:cursor-grabbing select-none p-0.5 min-[380px]:p-1 sm:p-1.5 min-[960px]:p-1 min-[1040px]:p-1.5 xl:p-2 2xl:p-2.5 mx-0.5 min-[960px]:mx-0.5 min-[1150px]:mx-1 xl:mx-1.5 2xl:mx-2 pointer-events-auto"
         >
           <motion.div
             animate={
@@ -318,25 +318,25 @@ export const HeroPhysicsStage = forwardRef<HeroPhysicsStageHandle, HeroPhysicsSt
             <div className="absolute -bottom-3 left-2 right-2 h-3 bg-[#0284c7]/50 rounded-full blur-[3px]" />
 
             <span
-              className="absolute top-1 sm:top-2 left-0.5 text-[32px] min-[390px]:text-[38px] sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#041628] tracking-tight select-none pointer-events-none"
+              className="absolute top-1 sm:top-2 left-0.5 text-[28px] min-[380px]:text-[34px] min-[480px]:text-[40px] sm:text-5xl md:text-[54px] min-[960px]:text-[36px] min-[1040px]:text-[42px] min-[1150px]:text-[50px] xl:text-[64px] 2xl:text-8xl font-black text-[#041628] tracking-tight select-none pointer-events-none"
               aria-hidden="true"
             >
               {letter.char}
             </span>
             <span
-              className="absolute top-0.5 sm:top-1.5 left-0.5 text-[32px] min-[390px]:text-[38px] sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#0369a1] tracking-tight select-none pointer-events-none"
+              className="absolute top-0.5 sm:top-1.5 left-0.5 text-[28px] min-[380px]:text-[34px] min-[480px]:text-[40px] sm:text-5xl md:text-[54px] min-[960px]:text-[36px] min-[1040px]:text-[42px] min-[1150px]:text-[50px] xl:text-[64px] 2xl:text-8xl font-black text-[#0369a1] tracking-tight select-none pointer-events-none"
               aria-hidden="true"
             >
               {letter.char}
             </span>
             <span
-              className="absolute top-0.5 left-0 text-[32px] min-[390px]:text-[38px] sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#0284c7] tracking-tight select-none pointer-events-none"
+              className="absolute top-0.5 left-0 text-[28px] min-[380px]:text-[34px] min-[480px]:text-[40px] sm:text-5xl md:text-[54px] min-[960px]:text-[36px] min-[1040px]:text-[42px] min-[1150px]:text-[50px] xl:text-[64px] 2xl:text-8xl font-black text-[#0284c7] tracking-tight select-none pointer-events-none"
               aria-hidden="true"
             >
               {letter.char}
             </span>
 
-            <span className="relative z-10 block text-[32px] min-[390px]:text-[38px] sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight drop-shadow-[0_6px_16px_rgba(2,132,199,0.35)]">
+            <span className="relative z-10 block text-[28px] min-[380px]:text-[34px] min-[480px]:text-[40px] sm:text-5xl md:text-[54px] min-[960px]:text-[36px] min-[1040px]:text-[42px] min-[1150px]:text-[50px] xl:text-[64px] 2xl:text-8xl font-black text-white tracking-tight drop-shadow-[0_6px_16px_rgba(2,132,199,0.35)]">
               {letter.char}
             </span>
           </motion.div>
@@ -345,8 +345,8 @@ export const HeroPhysicsStage = forwardRef<HeroPhysicsStageHandle, HeroPhysicsSt
     };
 
     return (
-      <div className="relative z-20 w-full flex flex-col items-center justify-center">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-y-1 sm:gap-y-0 gap-x-3 sm:gap-x-6 md:gap-x-8 lg:gap-x-10 py-1 sm:py-6 max-w-full px-1">
+      <div className="relative z-20 w-full flex flex-col items-center justify-center overflow-visible">
+        <div className="flex flex-col min-[960px]:flex-row items-center justify-center gap-y-1.5 min-[960px]:gap-y-0 gap-x-2 sm:gap-x-4 min-[960px]:gap-x-4 min-[1040px]:gap-x-6 xl:gap-x-8 2xl:gap-x-10 py-1 sm:py-4 max-w-full px-2">
           <div className="flex items-center justify-center flex-nowrap">
             {word1.map(renderLetter)}
           </div>

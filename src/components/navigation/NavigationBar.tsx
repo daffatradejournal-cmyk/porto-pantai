@@ -160,7 +160,8 @@ export const NavigationBar: React.FC = () => {
             ) : (
               <>
                 <Copy className="w-3.5 h-3.5 text-[#fff9d4] group-hover:rotate-6 transition-transform" />
-                <span className="text-white font-medium">{profileData.contact.email}</span>
+                <span className="hidden xl:inline text-white font-medium">{profileData.contact.email}</span>
+                <span className="xl:hidden text-white font-medium text-xs">Salin Email</span>
               </>
             )}
           </button>

@@ -108,7 +108,7 @@ export const HeroSection: React.FC = () => {
 
       <BeachDecorations />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col items-center justify-center -translate-y-16 sm:-translate-y-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4 md:px-6 w-full flex-1 flex flex-col items-center justify-center -translate-y-12 sm:-translate-y-16 md:-translate-y-20 lg:-translate-y-24">
         <div className="w-full flex flex-col items-center text-center">
           <HeroPhysicsStage
             ref={stageRef}
