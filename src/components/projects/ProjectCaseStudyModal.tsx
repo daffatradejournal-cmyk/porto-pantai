@@ -133,7 +133,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
           <div className="space-y-2">
             <h4 className="text-[11px] sm:text-xs font-mono uppercase font-black text-[#0f172a] flex items-center gap-2">
               <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0284c7]" />
-              <span>Latar Belakang &amp; Mandat Proyek</span>
+              <span>Latar Belakang &amp; Inisiatif Proyek</span>
             </h4>
             <p className="text-xs sm:text-base text-[#334155] leading-relaxed bg-[#fff9d4] p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border-2 border-[#0f172a]/30 font-medium">
               {project.description}

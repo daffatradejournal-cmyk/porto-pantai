@@ -210,7 +210,7 @@ export const projectsData: Project[] = [
     subtitle: 'Platform E-Commerce & Rantai Pasok Ekspor Komoditas UMKM Indragiri Hilir',
     category: 'fullstack',
     summary: 'Platform e-commerce & rantai pasok komoditas daerah yang menghubungkan sentra petani kelapa, perkebunan gambut, dan UMKM Indragiri Hilir langsung ke pasar nasional dan ekspor global.',
-    description: 'Studi kasus komprehensif S1 Sistem Informasi Universitas Islam Indragiri (UNISI) untuk memodernisasi tata kelola perdagangan komoditas unggulan Kabupaten Indragiri Hilir (Negeri Hamparan Kelapa Dunia). Menghubungkan langsung petani kelapa butir, sentra kopra putih asapan, produsen VCO, kopi liberika gambut, hingga pengrajin lokal ke pasar konsumen nasional serta importir mancanegara (Singapura, Malaysia, Tiongkok, MEA) melalui gerbang logistik Pelabuhan Samudera Kuala Enok dan Parit 21.',
+    description: 'Inisiatif rancang bangun sistem informasi & platform e-commerce komoditas yang dikembangkan secara mandiri untuk memodernisasi tata kelola perdagangan komoditas unggulan Kabupaten Indragiri Hilir (Negeri Hamparan Kelapa Dunia). Menghubungkan langsung petani kelapa butir, sentra kopra putih asapan, produsen VCO, kopi liberika gambut, hingga pengrajin lokal ke pasar konsumen nasional serta importir mancanegara (Singapura, Malaysia, Tiongkok, MEA) melalui gerbang logistik Pelabuhan Samudera Kuala Enok dan Parit 21.',
     architecture: [
       'Frontend modern performa tinggi berbasis Next.js App Router, React 19, TypeScript, dan Tailwind CSS',
       'Kalkulator kargo multimodal perairan sungai (sampan/pompong parit) hingga kargo laut kontainer (FCL/LCL)',
@@ -230,7 +230,7 @@ export const projectsData: Project[] = [
       'Vercel Cloud'
     ],
     highlights: [
-      'Studi Kasus S1 Sistem Informasi Universitas Islam Indragiri (UNISI)',
+      'Inisiatif Rancang Bangun Sistem Informasi E-Commerce Komoditas Daerah',
       '11+ Komoditas Unggulan Inhil (Kelapa Butir, Kopra Putih Asapan, VCO, Kopi Liberika, Pinang Betara, Amplang Udang)',
       'Kalkulator Kargo Sungai-Laut Terintegrasi Pelabuhan Samudera Kuala Enok & Parit 21',
       'Hub Ekspor Global Menjangkau 8 Negara Tujuan (Singapura, Malaysia, Tiongkok, MEA)'
