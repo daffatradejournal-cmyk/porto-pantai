@@ -237,7 +237,7 @@ export const projectsData: Project[] = [
     ],
     challenges: 'Merancang algoritma kalkulator logistik perairan sungai pasang-surut yang akurat khas geografis Indragiri Hilir serta mengintegrasikan alur transaksi ritel konsumen dan kuotasi ekspor partai besar (B2B) dalam satu ekosistem web yang efisien.',
     role: 'Lead System Analyst & Full-Stack Developer',
-    demoUrl: 'https://studikasusimpor.vercel.app/',
+    demoUrl: 'https://pasartembilahan.vercel.app/',
     githubUrl: 'https://github.com/daffatradejournal-cmyk/studikasusimpor',
     isPrivateRepo: false,
     imageUrl: '/projects/pasartembilahan.png',
