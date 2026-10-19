@@ -33,7 +33,7 @@ export const techStackData: TechItem[] = [
     color: '#3178C6',
     roleTag: 'Type Contracts',
     usageContext: 'Type-safe contracts across full-stack applications and component props',
-    projectLinks: ['pasartembilahan', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'kasirpintar', 'kalorin-ai']
   },
   {
     name: 'React',
@@ -43,7 +43,7 @@ export const techStackData: TechItem[] = [
     color: '#0284c7',
     roleTag: 'Component UI',
     usageContext: 'Component-driven UI, state management, custom hooks, and interactive flows',
-    projectLinks: ['pasartembilahan', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'kasirpintar', 'kalorin-ai']
   },
   {
     name: 'Next.js',
@@ -73,7 +73,7 @@ export const techStackData: TechItem[] = [
     color: '#06b6d4',
     roleTag: 'Design Tokens',
     usageContext: 'Modern utility-first styling, design tokens, and fluid responsive layouts',
-    projectLinks: ['pasartembilahan', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'kasirpintar', 'kalorin-ai']
   },
   {
     name: 'JavaScript',
@@ -250,42 +250,49 @@ export const projectsData: Project[] = [
     ]
   },
   {
-    id: 'villanakey',
-    title: 'villaNaKey',
-    subtitle: 'Aplikasi Mobile Booking & Manajemen Reservasi Villa Keluarga',
-    category: 'mobile',
-    summary: 'Aplikasi mobile booking khusus untuk mendukung operasional bisnis hospitality villa pribadi keluarga dengan sinkronisasi kalender real-time tanpa risiko double-booking.',
-    description: 'Dikembangkan sebagai proyek akhir kampus untuk mendigitalisasi pemesanan villa keluarga, mengeliminasi risiko double-booking, dan mempermudah pengecekan jadwal reservasi bagi pengelola dan tamu.',
+    id: 'kasirpintar',
+    title: 'Kasir Pintar',
+    subtitle: 'Aplikasi Web POS & Smart Stock Management UMKM (Offline-First)',
+    category: 'fullstack',
+    summary: 'Aplikasi kasir pintar (Point of Sale) & manajemen inventaris cerdas berbasis web (offline-first) dengan pemindai barcode kamera, cetak struk thermal 58mm/80mm, e-receipt WhatsApp, dan rekap finansial real-time.',
+    description: 'Inisiatif rancang bangun aplikasi kasir digital (Point of Sale) & manajemen inventaris cerdas berbasis web yang dirancang khusus untuk memodernisasi kios pasar, warung sembako, dan ritel UMKM dari pembukuan manual menjadi sistem otomatis berkecepatan tinggi tanpa ketergantungan koneksi internet (100% Offline-First). Dilengkapi scan barcode kamera ponsel/laptop, kontrol stok visual anti-kehabisan barang, cetak struk thermal portabel 58mm/80mm, serta kalkulasi margin laba bersih otomatis.',
     architecture: [
-      'Aplikasi mobile multi-platform dibangun dengan Flutter dan Dart SDK',
-      'Firebase Authentication untuk otentikasi aman pengelola dan tamu',
-      'Cloud Firestore NoSQL real-time database untuk sinkronisasi instan jadwal reservasi',
-      'Komponen custom calendar interaktif dengan highlight tanggal booking aktif'
+      'Frontend web responsif performa tinggi dibangun dengan React 19, TypeScript, Tailwind CSS, dan Vite bundling',
+      'Arsitektur Offline-First Local Storage Engine dengan persistensi data lokal tanpa latensi dan tanpa ketergantungan koneksi internet',
+      'Integrasi kamera pemindai barcode otomatis (live scan) menggunakan library html5-qrcode untuk transaksi kasir kilat',
+      'Format cetak struk kasir native printer thermal portabel 58mm/80mm serta pengiriman e-receipt resmi WhatsApp 1-klik',
+      'Manajemen inventaris dinamis dengan indikator visual stok (habis/menipis/aman) dan tombol cepat kulakan/tambah stok',
+      'Dashboard analitik finansial real-time: rekap omzet kotor, laba bersih harian, dan fitur Void Nota dengan pengembalian stok otomatis'
     ],
     stack: [
-      'Flutter',
-      'Dart',
-      'Firebase Auth',
-      'Cloud Firestore',
-      'Mobile Architecture'
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Vite',
+      'Barcode Scanner',
+      'Thermal Print 58mm',
+      'Offline-First',
+      'Vercel Cloud'
     ],
     highlights: [
-      'Digunakan langsung pada operasional villa pribadi keluarga',
-      'Sinkronisasi status booking instan tanpa latency',
-      'Kalender interaktif visual untuk kemudahan reservasi tanggal'
+      'Inisiatif Rancang Bangun Sistem Kasir Digital & Manajemen Stok UMKM',
+      '100% Offline-First (Transaksi Super Cepat & Data Tersimpan Lokal)',
+      'Integrasi Scan Barcode Kamera & Pilihan Pembayaran Tunai / QRIS',
+      'Cetak Struk Printer Thermal 58mm/80mm & E-Receipt WhatsApp Otomatis',
+      'Analitik Keuangan Harian (Omzet, Laba Bersih, & Void Rollback)'
     ],
-    challenges: 'Proyek aplikasi mobile pertama; mempelajari Flutter dan reaktif state management dari nol bersama kelompok di bawah tenggat waktu akademik yang ketat.',
-    role: 'Mobile Developer & Technical Lead',
-    githubUrl: 'https://github.com/daffatradejournal-cmyk/porto-pantai',
-    isMobileApp: true,
-    demoStatusLabel: 'Aplikasi Mobile Native (Demo/APK on request)',
-    imageUrl: '/projects/villa.png',
-    imageFit: 'contain',
+    challenges: 'Merancang arsitektur POS yang sepenuhnya independen dari jaringan internet (offline-first) dengan integritas data local storage yang andal, mekanisme rollback stok otomatis saat transaksi dibatalkan (void), integrasi kamera barcode scanner lintas platform, serta layout cetak thermal printer 58mm yang rapi dan presisi.',
+    role: 'Lead Full-Stack Developer & UI/UX Designer',
+    demoUrl: 'https://kasirpintartbh.vercel.app/',
+    githubUrl: 'https://github.com/daffatradejournal-cmyk/kasirpintartbh',
+    isPrivateRepo: false,
+    imageUrl: '/projects/kasirpintar.png',
+    imageFit: 'cover',
     featured: true,
     metrics: [
-      { label: 'Mobile Engine', value: 'Flutter & Dart' },
-      { label: 'Database Sync', value: 'Real-Time NoSQL' },
-      { label: 'State & Cloud', value: 'Firebase Suite' }
+      { label: 'Operasional', value: '100% Offline-First' },
+      { label: 'Format Output', value: 'Thermal & WhatsApp' },
+      { label: 'Kecepatan POS', value: 'Instan (< 1 Detik)' }
     ]
   },
   {
