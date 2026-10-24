@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 const outputPath = path.resolve('public', 'cv.pdf');
+const altOutputPath = path.resolve('public', 'CV Muhammad Daffa.pdf');
 const photoPath = path.resolve('public', 'daffa.jpg');
 
 const doc = new PDFDocument({
@@ -12,7 +13,7 @@ const doc = new PDFDocument({
   info: {
     Title: 'Curriculum Vitae - Muhammad Daffa',
     Author: 'Muhammad Daffa',
-    Subject: 'CV S1 Sistem Informasi & Web Developer - Modern & ATS Friendly',
+    Subject: 'CV S1 Sistem Informasi & Web Developer - ATS Friendly',
     Keywords: 'Muhammad Daffa, Sistem Informasi, Web Developer, Fullstack, Next.js, React, TypeScript, UNISI'
   }
 });
@@ -22,7 +23,7 @@ doc.pipe(stream);
 
 const contentWidth = 595.28 - 72; // 523.28 pt
 
-// Modern Executive Color Palette
+// Colors
 const COLOR_PRIMARY = '#0f172a';    // Slate 900
 const COLOR_SECONDARY = '#0284c7';  // Sky 600
 const COLOR_TEXT = '#1e293b';       // Slate 800
@@ -31,11 +32,11 @@ const COLOR_LIGHT_BG = '#f8fafc';   // Slate 50
 const COLOR_BORDER = '#e2e8f0';     // Slate 200
 const COLOR_DIVIDER = '#cbd5e1';    // Slate 300
 
-function renderSectionHeader(title, iconSymbol = '■') {
+function renderSectionHeader(title) {
   doc.moveDown(0.5);
   const startY = doc.y;
 
-  // Modern accent block
+  // Blue accent indicator block
   doc.rect(36, startY + 1, 4, 12).fillColor(COLOR_SECONDARY).fill();
 
   doc
@@ -58,12 +59,12 @@ function renderSectionHeader(title, iconSymbol = '■') {
 }
 
 // ==========================================
-// 1. MODERN HEADER WITH PHOTO & CONTACT
+// 1. HEADER WITH PROPORTIONAL PHOTO
 // ==========================================
 const headerTopY = 32;
-const headerHeight = 78;
+const headerHeight = 84;
 
-// Subtle header backdrop card
+// Backdrop Card
 doc
   .roundedRect(36, headerTopY, contentWidth, headerHeight, 8)
   .fillColor(COLOR_LIGHT_BG)
@@ -71,8 +72,8 @@ doc
   .lineWidth(0.8)
   .fillAndStroke();
 
-// Profile Photo (Circular with double ring accent)
-const photoSize = 58;
+// Photo Configuration
+const photoSize = 64; // Diameter
 const photoX = 46;
 const photoY = headerTopY + 10;
 const photoCenterX = photoX + photoSize / 2;
@@ -80,71 +81,68 @@ const photoCenterY = photoY + photoSize / 2;
 
 if (fs.existsSync(photoPath)) {
   doc.save();
-  // Clip circular mask
+  // 1. Circular Mask
   doc.circle(photoCenterX, photoCenterY, photoSize / 2).clip();
-  doc.image(photoPath, photoX, photoY, {
-    width: photoSize,
-    height: photoSize
+
+  // 2. Aspect-Ratio Preserving Scaling (daffa.jpg is 768 x 1024, ratio 3:4)
+  // Scaling width to photoSize (64) -> height becomes 64 * 1024 / 768 = 85.33
+  // Setting Y-offset to frame the face naturally without distortion
+  const scaledWidth = photoSize;
+  const scaledHeight = photoSize * (1024 / 768);
+  const offsetY = (scaledHeight - photoSize) * 0.28;
+
+  // Render image proportionally (NO GEPENG!)
+  doc.image(photoPath, photoX, photoY - offsetY, {
+    width: scaledWidth
   });
   doc.restore();
 
-  // Outer decorative accent ring
+  // 3. Double ring border accent
   doc
-    .circle(photoCenterX, photoCenterY, photoSize / 2 + 2)
+    .circle(photoCenterX, photoCenterY, photoSize / 2 + 1.5)
     .lineWidth(1.8)
     .strokeColor(COLOR_SECONDARY)
     .stroke();
 }
 
 // Header Texts (Right of Photo)
-const textStartX = 116;
-let currentHeaderY = headerTopY + 8;
+const textStartX = 124;
 
 doc
   .font('Helvetica-Bold')
-  .fontSize(18)
+  .fontSize(19)
   .fillColor(COLOR_PRIMARY)
-  .text('MUHAMMAD DAFFA', textStartX, currentHeaderY, {
+  .text('MUHAMMAD DAFFA', textStartX, headerTopY + 9, {
     characterSpacing: 0.8
   });
 
-currentHeaderY = doc.y + 1;
-
-// Role Badge
 doc
   .font('Helvetica-Bold')
-  .fontSize(9)
+  .fontSize(9.2)
   .fillColor(COLOR_SECONDARY)
-  .text('S1 SISTEM INFORMASI  •  WEB & SYSTEM DEVELOPER', textStartX, currentHeaderY, {
+  .text('S1 SISTEM INFORMASI  •  WEB & SYSTEM DEVELOPER', textStartX, doc.y + 1, {
     characterSpacing: 0.4
   });
 
-currentHeaderY = doc.y + 2.5;
-
-// Contact info row 1
 doc
   .font('Helvetica')
-  .fontSize(8.2)
+  .fontSize(8.3)
   .fillColor(COLOR_MUTED)
-  .text('Indragiri Hilir, Riau, Indonesia   |   Email: ', textStartX, currentHeaderY, {
+  .text('Indragiri Hilir, Riau, Indonesia   |   Email: ', textStartX, doc.y + 2.5, {
     continued: true
   });
 doc
   .font('Helvetica-Bold')
   .fillColor(COLOR_PRIMARY)
   .text('daffatradejournal@gmail.com', {
-    link: 'mailto:daffatradejournal@gmail.com',
-    underline: false
+    link: 'mailto:daffatradejournal@gmail.com'
   });
 
-currentHeaderY = doc.y + 2;
-
-// Contact info row 2 (Socials)
 doc
   .font('Helvetica')
-  .fontSize(8.2)
+  .fontSize(8.1)
   .fillColor(COLOR_MUTED)
-  .text('GitHub: ', textStartX, currentHeaderY, { continued: true });
+  .text('GitHub: ', textStartX, doc.y + 1.5, { continued: true });
 doc
   .font('Helvetica-Bold')
   .fillColor(COLOR_SECONDARY)
@@ -218,7 +216,6 @@ skills.forEach((s) => {
 // ==========================================
 renderSectionHeader('Proyek Unggulan & Rekayasa Sistem');
 
-// Helper for Project Card
 function renderProjectBlock(title, year, role, stack, liveUrl, repoUrl, points) {
   const pY = doc.y;
 
@@ -253,7 +250,7 @@ function renderProjectBlock(title, year, role, stack, liveUrl, repoUrl, points) 
   doc.moveDown(0.35);
 }
 
-// Project 1: PasarTembilahan
+// Project 1: PasarTembilahan (Page 1)
 renderProjectBlock(
   'PasarTembilahan — Platform E-Commerce & Rantai Pasok Ekspor Komoditas UMKM',
   '2026',
@@ -268,7 +265,7 @@ renderProjectBlock(
   ]
 );
 
-// Project 2: Kasir Pintar
+// Project 2: Kasir Pintar (Page 1)
 renderProjectBlock(
   'Kasir Pintar — Aplikasi Web POS & Smart Stock Management UMKM (Offline-First)',
   '2026',
@@ -283,7 +280,9 @@ renderProjectBlock(
   ]
 );
 
-// Force Page 2 for clean structure and readable spacing
+// ==========================================
+// PAGE 2
+// ==========================================
 doc.addPage();
 
 // Project 3: Hitung Sehat v2 (Top of Page 2)
@@ -327,25 +326,21 @@ const milestones = [
   {
     period: '2026 – Sekarang',
     title: 'S1 Sistem Informasi — Universitas Islam Indragiri (UNISI)',
-    badge: 'Pendidikan Formal',
     desc: 'Memperdalam fondasi akademis rekayasa sistem informasi, analisis proses bisnis, dan perancangan perangkat lunak modern.'
   },
   {
     period: 'Pertengahan 2026',
     title: 'Inisiatif Solusi Digital UMKM & Rantai Pasok Daerah (PasarTembilahan & Kasir Pintar)',
-    badge: 'Proyek Flagship',
     desc: 'Merancang dan meluncurkan platform e-commerce ekspor komoditas serta sistem POS web offline-first yang siap operasional.'
   },
   {
     period: 'Awal 2026',
     title: 'Eksplorasi Fullstack Web Modern & Microservices AI (Hitung Sehat v2)',
-    badge: 'Eksplorasi AI & Web',
     desc: 'Membangun arsitektur microservices modular terpisah antara frontend React/Vite, backend Node/Express, dan AI service FastAPI/Gemini.'
   },
   {
     period: '2025',
     title: 'Awal Mula Belajar Coding & IT Fundamentals (Otodidak)',
-    badge: 'Awal Perjalanan',
     desc: 'Memulai perjalanan pemrograman secara mandiri dari nol: logika pemrograman, algoritma dasar, HTML5/CSS3, JavaScript ES6+, Linux CLI, dan version control Git/GitHub.'
   }
 ];
@@ -363,6 +358,35 @@ milestones.forEach((m) => {
   doc.moveDown(0.15);
 });
 
+// Verification Box on Page 2
+doc.moveDown(0.8);
+const boxY = doc.y;
+const boxHeight = 44;
+
+doc
+  .roundedRect(36, boxY, contentWidth, boxHeight, 6)
+  .fillColor(COLOR_LIGHT_BG)
+  .strokeColor(COLOR_BORDER)
+  .lineWidth(0.7)
+  .fillAndStroke();
+
+doc
+  .font('Helvetica-Bold')
+  .fontSize(8)
+  .fillColor(COLOR_PRIMARY)
+  .text('INTEGRITAS DATA & VERIFIKASI PROYEK:', 46, boxY + 8);
+
+doc
+  .font('Helvetica')
+  .fontSize(7.5)
+  .fillColor(COLOR_MUTED)
+  .text(
+    'Seluruh informasi, arsitektur sistem, dan proyek yang tercantum di atas adalah karya nyata yang dapat diverifikasi secara publik melalui repositori GitHub resmi (github.com/daffatradejournal-cmyk) serta tautan live deployment di Vercel.',
+    46,
+    doc.y + 2,
+    { width: contentWidth - 20, lineGap: 1.5 }
+  );
+
 // ==========================================
 // 7. FOOTER PAGE NUMBERS (ATS COMPLIANT)
 // ==========================================
@@ -374,14 +398,14 @@ for (let i = range.start; i < range.start + range.count; i++) {
   doc
     .strokeColor(COLOR_BORDER)
     .lineWidth(0.5)
-    .moveTo(36, 841.89 - 30)
-    .lineTo(36 + contentWidth, 841.89 - 30)
+    .moveTo(36, 841.89 - 28)
+    .lineTo(36 + contentWidth, 841.89 - 28)
     .stroke();
 
   doc.font('Helvetica').fontSize(7.5).fillColor(COLOR_MUTED).text(
     `Muhammad Daffa — Curriculum Vitae  |  S1 Sistem Informasi UNISI  |  Halaman ${i + 1} dari ${range.count}`,
     36,
-    841.89 - 22,
+    841.89 - 20,
     { align: 'center', width: contentWidth }
   );
 }
@@ -389,5 +413,7 @@ for (let i = range.start; i < range.start + range.count; i++) {
 doc.end();
 
 stream.on('finish', () => {
-  console.log(`CV PDF with photo generated successfully with ${range.count} pages at: ${outputPath}`);
+  // Also create a copy named "CV Muhammad Daffa.pdf" in public/
+  fs.copyFileSync(outputPath, altOutputPath);
+  console.log(`CV PDF with proportional photo generated successfully with ${range.count} pages at: ${outputPath} and ${altOutputPath}`);
 });
