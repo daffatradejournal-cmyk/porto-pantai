@@ -157,8 +157,8 @@ doc
 doc
   .font('Helvetica-Bold')
   .fillColor(COLOR_SECONDARY)
-  .text('linkedin.com/in/muhammad-daffa', {
-    link: 'https://linkedin.com/in/muhammad-daffa'
+  .text('linkedin.com/in/muhammad-daffa-898515404', {
+    link: 'https://www.linkedin.com/in/muhammad-daffa-898515404'
   });
 
 // Position cursor below header

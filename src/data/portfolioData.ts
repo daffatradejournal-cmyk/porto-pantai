@@ -18,7 +18,7 @@ export const profileData: ProfileData = {
   contact: {
     email: 'daffatradejournal@gmail.com',
     github: 'https://github.com/daffatradejournal-cmyk',
-    linkedin: 'https://linkedin.com/in/muhammad-daffa',
+    linkedin: 'https://www.linkedin.com/in/muhammad-daffa-898515404',
     location: 'Indragiri Hilir, Riau, Indonesia'
   }
 };
