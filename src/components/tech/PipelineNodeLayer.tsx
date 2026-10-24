@@ -17,7 +17,13 @@ import {
   SiDocker,
   SiLinux,
   SiGit,
-  SiVercel
+  SiVercel,
+  SiVite,
+  SiExpress,
+  SiPython,
+  SiFastapi,
+  SiRedis,
+  SiGithub
 } from '@icons-pack/react-simple-icons';
 import type { TechItem, TechLayer } from '../../types/portfolio';
 import type { FlowDomainId } from './PipelineFlowPresets';
@@ -39,7 +45,13 @@ const iconMap: Record<string, React.FC<{ size?: number; color?: string; classNam
   docker: SiDocker,
   linux: SiLinux,
   git: SiGit,
-  vercel: SiVercel
+  vercel: SiVercel,
+  vite: SiVite,
+  express: SiExpress,
+  python: SiPython,
+  fastapi: SiFastapi,
+  redis: SiRedis,
+  github: SiGithub
 };
 
 interface PipelineNodeLayerProps {
@@ -73,8 +85,8 @@ export const PipelineNodeLayer: React.FC<PipelineNodeLayerProps> = ({
   const isLayerActiveInDomain =
     activeDomain === 'all' ||
     (activeDomain === 'web' && layerId === 'client') ||
-    (activeDomain === 'mobile' && layerId === 'client') ||
-    (activeDomain === 'backend' && (layerId === 'backend' || layerId === 'database')) ||
+    (activeDomain === 'backend' && layerId === 'backend') ||
+    (activeDomain === 'database' && layerId === 'database') ||
     (activeDomain === 'devops' && layerId === 'devops');
 
   const handleInspectClick = (e: React.MouseEvent) => {
@@ -168,7 +180,7 @@ export const PipelineNodeLayer: React.FC<PipelineNodeLayerProps> = ({
             const isToolActive =
               activeDomain === 'all' ||
               (activeDomain === 'web' && tech.category === 'frontend') ||
-              (activeDomain === 'mobile' && tech.category === 'mobile') ||
+              (activeDomain === 'database' && tech.layer === 'database') ||
               (activeDomain === 'backend' && tech.category === 'backend') ||
               (activeDomain === 'devops' && tech.category === 'tools');
 

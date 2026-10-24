@@ -32,7 +32,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'typescript',
     color: '#3178C6',
     roleTag: 'Type Contracts',
-    usageContext: 'Type-safe contracts across full-stack applications and component props',
+    usageContext: 'Kontrak tipe data yang ketat untuk payload transaksi, inventaris, dan respons API',
     projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
   {
@@ -42,7 +42,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'react',
     color: '#0284c7',
     roleTag: 'Component UI',
-    usageContext: 'Component-driven UI, state management, custom hooks, and interactive flows',
+    usageContext: 'Komponen UI interaktif, manajemen state, custom hooks, dan alur transaksi responsif',
     projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
   {
@@ -52,18 +52,18 @@ export const techStackData: TechItem[] = [
     iconKey: 'nextdotjs',
     color: '#0f172a',
     roleTag: 'App Framework',
-    usageContext: 'Server-side rendering, static generation, and edge routing',
+    usageContext: 'Server-side rendering, routing terstruktur App Router, dan SEO optimization komoditas',
     projectLinks: ['pasartembilahan']
   },
   {
-    name: 'Flutter',
-    category: 'mobile',
+    name: 'Vite',
+    category: 'frontend',
     layer: 'client',
-    iconKey: 'flutter',
-    color: '#0284c7',
-    roleTag: 'Native Mobile',
-    usageContext: 'Cross-platform native mobile apps for iOS and Android with 60fps reactive UI',
-    projectLinks: ['villanakey']
+    iconKey: 'vite',
+    color: '#646CFF',
+    roleTag: 'Modern Bundler',
+    usageContext: 'Peralatan build super cepat dan HMR instan untuk web app kasir POS dan tracking nutrisi',
+    projectLinks: ['kasirpintar', 'hitungsehat']
   },
   {
     name: 'Tailwind CSS v4',
@@ -72,7 +72,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'tailwindcss',
     color: '#06b6d4',
     roleTag: 'Design Tokens',
-    usageContext: 'Modern utility-first styling, design tokens, and fluid responsive layouts',
+    usageContext: 'Styling modern utility-first, token desain modular, dan tata letak responsif neo-brutalisme',
     projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
   {
@@ -82,21 +82,11 @@ export const techStackData: TechItem[] = [
     iconKey: 'javascript',
     color: '#eab308',
     roleTag: 'Scripting Core',
-    usageContext: 'Core web scripting, DOM events, and asynchronous event loops',
-    projectLinks: ['pasartembilahan']
+    usageContext: 'Manipulasi DOM, asynchronous event handling, integrasi barcode scanner, dan Web APIs',
+    projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
 
   // backend engine layer
-  {
-    name: 'Laravel',
-    category: 'backend',
-    layer: 'backend',
-    iconKey: 'laravel',
-    color: '#ef4444',
-    roleTag: 'MVC & REST Engine',
-    usageContext: 'Robust REST APIs, Inertia backend routing, authentication, and transaction handling',
-    projectLinks: ['pasartembilahan']
-  },
   {
     name: 'Node.js',
     category: 'backend',
@@ -104,7 +94,37 @@ export const techStackData: TechItem[] = [
     iconKey: 'nodejs',
     color: '#22c55e',
     roleTag: 'Server Runtime',
-    usageContext: 'High-throughput microservices, real-time WebSockets, and build automation tooling',
+    usageContext: 'Runtime asynchronous I/O berkecepatan tinggi untuk orkestrasi microservice & backend core',
+    projectLinks: ['hitungsehat']
+  },
+  {
+    name: 'Express.js',
+    category: 'backend',
+    layer: 'backend',
+    iconKey: 'express',
+    color: '#0f172a',
+    roleTag: 'REST API Engine',
+    usageContext: 'Routing API endpoint, middleware validasi request, dan kontrol akses token otentikasi',
+    projectLinks: ['hitungsehat']
+  },
+  {
+    name: 'Python',
+    category: 'backend',
+    layer: 'backend',
+    iconKey: 'python',
+    color: '#3776AB',
+    roleTag: 'AI & Data Processing',
+    usageContext: 'Pemrosesan data numerik gizi, evaluasi metrik kesehatan, dan inferensi model AI',
+    projectLinks: ['hitungsehat']
+  },
+  {
+    name: 'FastAPI',
+    category: 'backend',
+    layer: 'backend',
+    iconKey: 'fastapi',
+    color: '#009688',
+    roleTag: 'AI Microservice API',
+    usageContext: 'Microservice API asynchronous berbasis ASGI untuk pipeline computer vision dan inferensi AI',
     projectLinks: ['hitungsehat']
   },
 
@@ -116,7 +136,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'postgresql',
     color: '#2563eb',
     roleTag: 'Relational Core',
-    usageContext: 'Relational data modeling, complex queries, indexing, and transactional integrity',
+    usageContext: 'Pemodelan data relasional, integritas referensial rekam nutrisi, dan kueri terindeks',
     projectLinks: ['hitungsehat']
   },
   {
@@ -125,8 +145,8 @@ export const techStackData: TechItem[] = [
     layer: 'database',
     iconKey: 'supabase',
     color: '#10b981',
-    roleTag: 'Cloud Postgres & Auth',
-    usageContext: 'Managed Postgres backend, row-level security policies, real-time subscriptions, and auth',
+    roleTag: 'Cloud Postgres & RLS',
+    usageContext: 'Managed Postgres backend, kebijakan Row-Level Security (RLS), dan auto-generated APIs',
     projectLinks: ['hitungsehat']
   },
   {
@@ -136,7 +156,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'mysql',
     color: '#0284c7',
     roleTag: 'Transactional DB',
-    usageContext: 'E-commerce relational database schemas, ACID transactions, and optimized indexing',
+    usageContext: 'Skema database relasional e-commerce komoditas, transaksi ACID, dan indexing inventaris',
     projectLinks: ['pasartembilahan']
   },
   {
@@ -145,9 +165,9 @@ export const techStackData: TechItem[] = [
     layer: 'database',
     iconKey: 'firebase',
     color: '#f59e0b',
-    roleTag: 'NoSQL & Real-Time Sync',
-    usageContext: 'Cloud Firestore real-time calendar syncing, FCM push notifications, and Auth',
-    projectLinks: ['hitungsehat', 'pasartembilahan']
+    roleTag: 'Auth & Realtime',
+    usageContext: 'Layanan otentikasi pengguna aman dan sinkronisasi data cloud real-time',
+    projectLinks: ['hitungsehat']
   },
   {
     name: 'Prisma ORM',
@@ -156,30 +176,30 @@ export const techStackData: TechItem[] = [
     iconKey: 'prisma',
     color: '#6366f1',
     roleTag: 'Type-Safe ORM',
-    usageContext: 'Type-safe database migrations, declarative schema modeling, and optimized queries',
+    usageContext: 'Migrasi skema database deklaratif dan query builder type-safe bebas runtime errors',
+    projectLinks: ['hitungsehat']
+  },
+  {
+    name: 'Redis',
+    category: 'backend',
+    layer: 'database',
+    iconKey: 'redis',
+    color: '#DC382D',
+    roleTag: 'In-Memory Cache',
+    usageContext: 'In-memory caching untuk respons rekomendasi gizi dan session guna memangkas latensi database',
     projectLinks: ['hitungsehat']
   },
 
   // infrastructure and devops layer
   {
-    name: 'Linux',
+    name: 'Vercel',
     category: 'tools',
     layer: 'devops',
-    iconKey: 'linux',
-    color: '#eab308',
-    roleTag: 'System OS',
-    usageContext: 'Primary Unix environment, Bash scripting, system service management, and workflow',
+    iconKey: 'vercel',
+    color: '#0f172a',
+    roleTag: 'Edge Deployment',
+    usageContext: 'Automated CI/CD deployment, edge serverless hosting, dan global CDN delivery',
     projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
-  },
-  {
-    name: 'Docker',
-    category: 'tools',
-    layer: 'devops',
-    iconKey: 'docker',
-    color: '#0284c7',
-    roleTag: 'Containerization',
-    usageContext: 'Containerized deployment, multi-stage builds, and consistent staging environments',
-    projectLinks: ['pasartembilahan']
   },
   {
     name: 'Git',
@@ -188,18 +208,28 @@ export const techStackData: TechItem[] = [
     iconKey: 'git',
     color: '#f97316',
     roleTag: 'Version Control',
-    usageContext: 'Version control, feature branching workflows, code reviews, and CI/CD pipelines',
+    usageContext: 'Version control, feature branching, pelacakan commit, dan manajemen riwayat kode',
     projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
   {
-    name: 'Vercel',
+    name: 'GitHub',
     category: 'tools',
     layer: 'devops',
-    iconKey: 'vercel',
-    color: '#0f172a',
-    roleTag: 'Edge Deployment',
-    usageContext: 'Edge deployment, continuous integration, and global CDN delivery for web apps',
-    projectLinks: ['hitungsehat']
+    iconKey: 'github',
+    color: '#181717',
+    roleTag: 'Repo & Collaboration',
+    usageContext: 'Hosting repositori Git, kolaborasi kode, manajemen issue, dan integrasi webhook CI/CD',
+    projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
+  },
+  {
+    name: 'Linux',
+    category: 'tools',
+    layer: 'devops',
+    iconKey: 'linux',
+    color: '#eab308',
+    roleTag: 'System OS',
+    usageContext: 'Lingkungan command line, scripting otomasi Bash, dan eksekusi tooling pengembangan Unix',
+    projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   }
 ];
 

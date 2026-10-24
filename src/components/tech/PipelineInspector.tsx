@@ -26,7 +26,13 @@ import {
   SiDocker,
   SiLinux,
   SiGit,
-  SiVercel
+  SiVercel,
+  SiVite,
+  SiExpress,
+  SiPython,
+  SiFastapi,
+  SiRedis,
+  SiGithub
 } from '@icons-pack/react-simple-icons';
 import type { TechItem, TechLayer } from '../../types/portfolio';
 import { projectsData } from '../../data/portfolioData';
@@ -49,7 +55,13 @@ const iconMap: Record<string, React.FC<{ size?: number; color?: string; classNam
   docker: SiDocker,
   linux: SiLinux,
   git: SiGit,
-  vercel: SiVercel
+  vercel: SiVercel,
+  vite: SiVite,
+  express: SiExpress,
+  python: SiPython,
+  fastapi: SiFastapi,
+  redis: SiRedis,
+  github: SiGithub
 };
 
 interface PipelineInspectorProps {
@@ -72,51 +84,51 @@ const layerDetailsMap: Record<
 > = {
   client: {
     title: 'Frontend & Web Client',
-    subtitle: 'Web & Mobile',
+    subtitle: 'Modern Web Platform',
     description:
-      'Pengembangan antarmuka web dan mobile menggunakan React, TypeScript, dan Flutter dengan fokus pada interaktivitas dan performa yang responsif.',
+      'Pengembangan antarmuka web modern menggunakan React, Next.js, Vite, TypeScript, dan Tailwind CSS dengan fokus pada performa cepat, responsivitas, dan interaktivitas.',
     guarantees: [
       'Type-safe props & contracts',
-      'Aplikasi Android & iOS',
-      'Desain responsif modern'
+      'Desain responsif & mobile-friendly',
+      'Arsitektur komponen modular'
     ],
-    role: 'Frontend & Mobile'
+    role: 'Frontend Web Engineering'
   },
   backend: {
-    title: 'Backend & Server',
-    subtitle: 'Server & API',
+    title: 'Backend & Server Engine',
+    subtitle: 'RESTful API & Microservices',
     description:
-      'Pengembangan arsitektur backend menggunakan Laravel dan Node.js untuk menangani REST API, routing, dan komunikasi data real-time.',
+      'Pengembangan arsitektur server dan API menggunakan Node.js, Express, dan Python FastAPI untuk pemrosesan data, integrasi AI, dan layanan backend scalable.',
     guarantees: [
-      'Penanganan transaksi database',
-      'Komunikasi WebSockets',
+      'REST API terstruktur & scalable',
+      'Integrasi model AI & pipeline data',
       'Otentikasi aman & API tokens'
     ],
-    role: 'Backend Engineering'
+    role: 'Backend & AI Engineering'
   },
   database: {
-    title: 'Database & Penyimpanan',
-    subtitle: 'Relational & NoSQL',
+    title: 'Database & Cloud Storage',
+    subtitle: 'Relational & In-Memory Cache',
     description:
-      'Pengelolaan basis data relasional PostgreSQL & MySQL, serta database cloud Firestore dan Supabase dengan sinkronisasi real-time.',
+      'Pengelolaan basis data relasional PostgreSQL & MySQL, Supabase, Firebase, serta in-memory cache Redis dengan ORM Prisma untuk efisiensi kueri.',
     guarantees: [
-      'Migrasi skema via Prisma',
-      'Sinkronisasi real-time NoSQL',
+      'Migrasi skema via Prisma ORM',
+      'Caching cepat dengan Redis',
       'Query terindeks dan teroptimasi'
     ],
-    role: 'Database & Storage'
+    role: 'Database & Cloud Architecture'
   },
   devops: {
     title: 'DevOps & Lingkungan Kerja',
-    subtitle: 'Linux & Deployment',
+    subtitle: 'Cloud Deployment & CI/CD',
     description:
-      'Alur kerja pengembangan berbasis sistem operasi Linux, isolasi aplikasi dengan Docker, manajemen kode dengan Git, dan hosting edge Vercel.',
+      'Alur kerja pengembangan modern dengan Git, kolaborasi kode di GitHub, deployment cloud edge di Vercel, serta ekosistem terminal Linux.',
     guarantees: [
-      'Lingkungan kontainer Docker',
-      'Branching & version control Git',
-      'Automasi terminal Unix'
+      'Continuous deployment via Vercel',
+      'Branching & version control Git/GitHub',
+      'Automasi terminal & workflow Linux'
     ],
-    role: 'DevOps & Tools'
+    role: 'DevOps & Cloud Deployment'
   }
 };
 
