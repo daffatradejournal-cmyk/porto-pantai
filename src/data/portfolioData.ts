@@ -33,7 +33,7 @@ export const techStackData: TechItem[] = [
     color: '#3178C6',
     roleTag: 'Type Contracts',
     usageContext: 'Type-safe contracts across full-stack applications and component props',
-    projectLinks: ['pasartembilahan', 'kasirpintar', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
   {
     name: 'React',
@@ -43,7 +43,7 @@ export const techStackData: TechItem[] = [
     color: '#0284c7',
     roleTag: 'Component UI',
     usageContext: 'Component-driven UI, state management, custom hooks, and interactive flows',
-    projectLinks: ['pasartembilahan', 'kasirpintar', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
   {
     name: 'Next.js',
@@ -73,7 +73,7 @@ export const techStackData: TechItem[] = [
     color: '#06b6d4',
     roleTag: 'Design Tokens',
     usageContext: 'Modern utility-first styling, design tokens, and fluid responsive layouts',
-    projectLinks: ['pasartembilahan', 'kasirpintar', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
   {
     name: 'JavaScript',
@@ -105,7 +105,7 @@ export const techStackData: TechItem[] = [
     color: '#22c55e',
     roleTag: 'Server Runtime',
     usageContext: 'High-throughput microservices, real-time WebSockets, and build automation tooling',
-    projectLinks: ['kalorin-ai']
+    projectLinks: ['hitungsehat']
   },
 
   // database and cloud persistence layer
@@ -117,7 +117,7 @@ export const techStackData: TechItem[] = [
     color: '#2563eb',
     roleTag: 'Relational Core',
     usageContext: 'Relational data modeling, complex queries, indexing, and transactional integrity',
-    projectLinks: ['kalorin-ai']
+    projectLinks: ['hitungsehat']
   },
   {
     name: 'Supabase',
@@ -127,7 +127,7 @@ export const techStackData: TechItem[] = [
     color: '#10b981',
     roleTag: 'Cloud Postgres & Auth',
     usageContext: 'Managed Postgres backend, row-level security policies, real-time subscriptions, and auth',
-    projectLinks: ['kalorin-ai']
+    projectLinks: ['hitungsehat']
   },
   {
     name: 'MySQL',
@@ -147,7 +147,7 @@ export const techStackData: TechItem[] = [
     color: '#f59e0b',
     roleTag: 'NoSQL & Real-Time Sync',
     usageContext: 'Cloud Firestore real-time calendar syncing, FCM push notifications, and Auth',
-    projectLinks: ['villanakey', 'pasartembilahan']
+    projectLinks: ['hitungsehat', 'pasartembilahan']
   },
   {
     name: 'Prisma ORM',
@@ -157,7 +157,7 @@ export const techStackData: TechItem[] = [
     color: '#6366f1',
     roleTag: 'Type-Safe ORM',
     usageContext: 'Type-safe database migrations, declarative schema modeling, and optimized queries',
-    projectLinks: ['kalorin-ai']
+    projectLinks: ['hitungsehat']
   },
 
   // infrastructure and devops layer
@@ -169,7 +169,7 @@ export const techStackData: TechItem[] = [
     color: '#eab308',
     roleTag: 'System OS',
     usageContext: 'Primary Unix environment, Bash scripting, system service management, and workflow',
-    projectLinks: ['pasartembilahan', 'villanakey', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
   {
     name: 'Docker',
@@ -189,7 +189,7 @@ export const techStackData: TechItem[] = [
     color: '#f97316',
     roleTag: 'Version Control',
     usageContext: 'Version control, feature branching workflows, code reviews, and CI/CD pipelines',
-    projectLinks: ['pasartembilahan', 'villanakey', 'kalorin-ai']
+    projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
   {
     name: 'Vercel',
@@ -199,7 +199,7 @@ export const techStackData: TechItem[] = [
     color: '#0f172a',
     roleTag: 'Edge Deployment',
     usageContext: 'Edge deployment, continuous integration, and global CDN delivery for web apps',
-    projectLinks: ['kalorin-ai']
+    projectLinks: ['hitungsehat']
   }
 ];
 
@@ -296,18 +296,19 @@ export const projectsData: Project[] = [
     ]
   },
   {
-    id: 'kalorin-ai',
-    title: 'kalorinAi',
-    subtitle: 'Platform Web Nutrisi & Tracking Kalori Berbasis Computer Vision AI',
+    id: 'hitungsehat',
+    title: 'Hitung Sehat',
+    subtitle: 'Platform Web Tracking Nutrisi, Kalori & AI Food Scanner (Hitung Sehat v2)',
     category: 'fullstack',
-    summary: 'Platform pelacak nutrisi cerdas dengan pengenalan citra piring makanan berbasis AI untuk menghitung kalori, makronutrien, serta rekomendasi harian.',
-    description: 'Capstone Project Dicoding CodingCamp 2026 Powered by DBS Foundation yang dikembangkan bersama tim 6 orang (2 Data Analyst, 2 AI Engineer, 2 Fullstack). Fitur mencakup kalkulator BMI, tracking asupan harian, streak, insight AI, dan rekomendasi menu.',
+    summary: 'Aplikasi pencatat kalori dan nutrisi pintar bertenaga AI dengan scan foto makanan, kalkulasi target BMI & protein harian, log makanan, serta rekomendasi kesehatan personal.',
+    description: 'Inisiatif rancang bangun platform web pelacak nutrisi & kesehatan cerdas bertenaga AI (Hitung Sehat v2) yang dirancang untuk membantu pengguna memantau pola makan harian secara mudah, akurat, dan personal. Dilengkapi AI Food Scanner berbasis Computer Vision untuk mendeteksi nilai kalori dan makronutrien langsung dari foto piring makanan, kalkulasi target BMI & kebutuhan protein adaptif, meal logging harian terintegrasi, serta wawasan nutrisi mingguan.',
     architecture: [
-      'Client web modern menggunakan React, Vite, dan Tailwind CSS v4',
-      'Database dan layer data menggunakan Supabase dan Prisma ORM',
+      'Client web modern responsif menggunakan React 19, Vite, dan Tailwind CSS',
+      'Backend modular berbasis Node.js & Express terintegrasi Supabase PostgreSQL serta Prisma ORM',
       'Sistem otentikasi aman menggunakan Firebase Auth',
-      'Pipeline computer vision TensorFlow/Keras di backend Python untuk mendeteksi porsi dan nilai gizi (kalori, protein, lemak, karbohidrat)',
-      'Mesin rekomendasi harian adaptif berdasarkan target kalori pengguna'
+      'Microservice AI berbasis Python FastAPI terintegrasi model TensorFlow/Keras dan Google Gemini API',
+      'Mesin rekomendasi harian adaptif berdasarkan target kalori dan kalkulasi BMI pengguna',
+      'Dual Access Mode: Mode Tamu (Guest Mode) untuk analisis cepat dan Mode Pengguna Terautentikasi'
     ],
     stack: [
       'React',
@@ -321,20 +322,21 @@ export const projectsData: Project[] = [
       'Python'
     ],
     highlights: [
-      'Capstone Project Dicoding CodingCamp 2026 Powered by DBS Foundation',
-      'Deteksi citra makanan otomatis untuk kalkulasi makronutrien instan',
-      'Sistem insight harian dan rekomendasi personal berbasis AI'
+      'Inisiatif Rancang Bangun Platform Nutrisi & Kesehatan Berbasis AI (Hitung Sehat v2)',
+      'AI Food Scanner Otomatis dengan Computer Vision & Google Gemini API',
+      'Kalkulator Target BMI, Kebutuhan Kalori & Estimasi Protein Personal',
+      'Daily Meal Tracking, Weekly Insights & Akses Mode Tamu Cepat'
     ],
-    challenges: 'Menggarap seluruh arsitektur web dan integrasi API secara mandiri di tengah jadwal padat antara perkuliahan semester aktif dan bootcamp.',
+    challenges: 'Merancang integrasi antar-layanan microservice (frontend React, backend Express, dan service AI Python FastAPI) agar mampu memproses analisis citra makanan secara akurat dengan latensi rendah, serta memastikan sinkronisasi data log nutrisi harian tetap konsisten.',
     role: 'Lead Web Full-Stack Developer',
-    githubUrl: 'https://github.com/daffatradejournal-cmyk/porto-pantai',
-    demoUrl: 'https://kalorin-ai.vercel.app',
-    imageUrl: '/projects/kalorinLogo.png',
-    imageFit: 'contain',
+    githubUrl: 'https://github.com/daffatradejournal-cmyk/hitung-sehat-v2',
+    demoUrl: 'https://hitungsehat.vercel.app',
+    imageUrl: '/projects/hitungsehat.png',
+    imageFit: 'cover',
     featured: true,
     metrics: [
-      { label: 'Capstone Team', value: '6 Engineers' },
-      { label: 'AI Inference', value: 'TensorFlow CNN' },
+      { label: 'AI Scanner', value: 'Vision & Gemini' },
+      { label: 'Arsitektur', value: 'Microservice API' },
       { label: 'Web Platform', value: 'React & Vite' }
     ]
   }
@@ -365,11 +367,11 @@ export const experienceData: ExperienceItem[] = [
     badge: 'Intensive Bootcamp',
     category: 'bootcamp',
     description:
-      'Program beasiswa pelatihan intensif Fullstack Developer dari Dicoding dan DBS Foundation. Membangun arsitektur frontend web modern (React & Vite), integrasi API backend type-safe, otentikasi data, dan berkolaborasi dalam Capstone Project kalorinAI.',
+      'Program beasiswa pelatihan intensif Fullstack Developer dari Dicoding dan DBS Foundation. Membangun arsitektur frontend web modern (React & Vite), integrasi API backend type-safe, otentikasi data, dan pengembangan aplikasi web nutrisi cerdas bertenaga AI (Hitung Sehat).',
     highlights: [
       'Lulusan Jalur Fullstack Developer',
       'Integrasi REST API, State Management & Cloud DB',
-      'Kolaborasi Tim Capstone Project kalorinAI'
+      'Pengembangan Aplikasi Web Nutrisi AI (Hitung Sehat)'
     ],
     tech: ['React', 'TypeScript', 'Node.js', 'Supabase', 'Prisma ORM', 'Tailwind CSS', 'REST API']
   },
