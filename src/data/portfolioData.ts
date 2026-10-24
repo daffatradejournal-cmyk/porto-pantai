@@ -5,7 +5,7 @@ export const profileData: ProfileData = {
   tagline: 'S1 Sistem Informasi • Web & System Developer',
   education: 'S1 Sistem Informasi • Universitas Islam Indragiri',
   status: 'Available for Engineering Roles & Projects',
-  bio: 'Mahasiswa S1 Sistem Informasi Universitas Islam Indragiri yang berfokus pada pengembangan sistem informasi, perancangan aplikasi web modern, analisis proses bisnis, dan manajemen basis data dengan arsitektur yang andal dan clean code.',
+  bio: 'Mahasiswa S1 Sistem Informasi yang berfokus pada pengembangan sistem informasi, perancangan aplikasi web modern, analisis proses bisnis, dan manajemen basis data dengan arsitektur yang andal dan clean code.',
   experienceStart: 'Active Developer',
   avatarUrl: '/daffa.jpg',
   interests: [

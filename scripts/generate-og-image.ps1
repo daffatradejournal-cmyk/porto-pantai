@@ -122,7 +122,7 @@ $g.DrawPath($penBadge, $badgePath)
 $fontBadgeName = [System.Drawing.Font]::new("Segoe UI", [float]13.5, [System.Drawing.FontStyle]::Bold)
 $fontBadgeSub = [System.Drawing.Font]::new("Consolas", [float]8.5, [System.Drawing.FontStyle]::Bold)
 $g.DrawString("Muhammad Daffa", $fontBadgeName, $brushBlack, [float]($badgeX + 12), [float]($badgeY + 8))
-$g.DrawString("S1 Sistem Informasi | UNISI", $fontBadgeSub, $brushGold, [float]($badgeX + 12), [float]($badgeY + 34))
+$g.DrawString("Mahasiswa S1 Sistem Informasi", $fontBadgeSub, $brushGold, [float]($badgeX + 12), [float]($badgeY + 34))
 
 # Under Photo Label
 $fontMonoSmall = [System.Drawing.Font]::new("Consolas", [float]8.5, [System.Drawing.FontStyle]::Bold)
@@ -154,7 +154,7 @@ $fontSubtitle = [System.Drawing.Font]::new("Segoe UI", [float]16, [System.Drawin
 $g.DrawString("S1 Sistem Informasi - Web & System Developer", $fontSubtitle, $brushSky, [float]$rightX, [float]162)
 
 $fontUni = [System.Drawing.Font]::new("Segoe UI", [float]12, [System.Drawing.FontStyle]::Regular)
-$g.DrawString("Universitas Islam Indragiri (UNISI) - Indragiri Hilir, Riau", $fontUni, $brushMuted, [float]$rightX, [float]194)
+$g.DrawString("Mahasiswa S1 Sistem Informasi - Indragiri Hilir, Riau", $fontUni, $brushMuted, [float]$rightX, [float]194)
 
 # Divider Line
 $penDivider = New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(60, 15, 23, 42)), 1.5
