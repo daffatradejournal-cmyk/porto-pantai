@@ -159,7 +159,7 @@ export const EditorialProfile: React.FC = () => {
               Profil &amp; Keahlian
             </span>
             <h2 className="text-3xl sm:text-5xl font-black text-[#0f172a] tracking-tight leading-[1.08]">
-              Fullstack &amp; Mobile Developer
+              Web &amp; System Developer
             </h2>
           </div>
 
@@ -172,7 +172,7 @@ export const EditorialProfile: React.FC = () => {
             />
 
             <p className="max-w-xs text-xs text-[#475569] leading-relaxed">
-              Berpengalaman mengembangkan aplikasi web skala penuh, aplikasi mobile, arsitektur database, serta manajemen infrastruktur Linux.
+              Fokus pada perancangan sistem informasi, platform web modern, arsitektur basis data, serta deployment cloud.
             </p>
           </div>
         </motion.div>

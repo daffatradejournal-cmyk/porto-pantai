@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Cpu, Code2 } from 'lucide-react';
+import { Terminal, Database, Code2 } from 'lucide-react';
 
 interface ArchitectureStageProps {
   isFlooded: boolean;
@@ -13,26 +13,26 @@ export const ArchitectureStage: React.FC<ArchitectureStageProps> = ({ isFlooded 
     {
       id: 'web',
       icon: <Code2 className="w-5 h-5 text-[#0284c7]" />,
-      title: 'Fullstack Web Development',
-      subtitle: 'Laravel Monolith & Modern React Ecosystem',
-      desc: 'Membangun aplikasi web end-to-end dengan backend Laravel / Node.js dan frontend modern React, Next.js, serta TypeScript. Terbiasa mengelola pemodelan database relasional, optimasi query SQL, integrasi REST API, dan antarmuka reaktif yang responsif.',
-      tags: ['Laravel', 'Inertia.js', 'React', 'Next.js', 'TypeScript', 'PostgreSQL', 'MySQL', 'Tailwind CSS']
+      title: 'Modern Web & Frontend Engineering',
+      subtitle: 'Next.js, React & High-Speed Vite',
+      desc: 'Membangun antarmuka web modern yang cepat, interaktif, dan responsif menggunakan React 19, Next.js App Router, Vite, TypeScript, dan Tailwind CSS. Berfokus pada komponen modular, user experience intuitif, serta arsitektur offline-first untuk sistem kasir UMKM.',
+      tags: ['Next.js', 'React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Offline-First POS', 'HTML5 Barcode']
     },
     {
-      id: 'mobile',
-      icon: <Cpu className="w-5 h-5 text-[#0284c7]" />,
-      title: 'Mobile App Engineering',
-      subtitle: 'Cross-Platform Android & iOS Applications',
-      desc: 'Mengembangkan aplikasi mobile lintas platform menggunakan Flutter dan Dart. Menangani arsitektur state management reaktif, konsumsi RESTful API, persistensi data lokal/cloud, serta performa aplikasi yang stabil di Android dan iOS.',
-      tags: ['Flutter', 'Dart SDK', 'Mobile Architecture', 'State Management', 'REST APIs', 'Cloud Firestore']
+      id: 'system',
+      icon: <Database className="w-5 h-5 text-[#0284c7]" />,
+      title: 'System Information & Backend API',
+      subtitle: 'RESTful Services & Microservices AI',
+      desc: 'Merancang alur proses bisnis dan layanan backend modular menggunakan Node.js, Express, dan Python FastAPI. Mengintegrasikan basis data relasional PostgreSQL & MySQL, migrasi skema Prisma ORM, in-memory caching Redis, dan model inferensi AI Google Gemini.',
+      tags: ['Node.js', 'Express.js', 'Python', 'FastAPI', 'PostgreSQL', 'MySQL', 'Prisma ORM', 'Redis', 'Gemini AI']
     },
     {
-      id: 'linux',
+      id: 'devops',
       icon: <Terminal className="w-5 h-5 text-[#8c6239]" />,
-      title: 'Linux & DevOps Workflows',
-      subtitle: 'NixOS Daily Driver & Server Management',
-      desc: 'Menggunakan NixOS sebagai sistem operasi harian dengan konfigurasi deklaratif Flakes. Terbiasa dengan manajemen server Linux (Debian/Arch), containerisasi Docker, otomatisasi skrip Bash, dan workflow kolaborasi Git.',
-      tags: ['NixOS Flakes', 'Arch Linux', 'Debian Server', 'Docker', 'Git Branching', 'Bash CLI']
+      title: 'DevOps & Development Workflow',
+      subtitle: 'Git, GitHub CI/CD & Vercel Edge Hosting',
+      desc: 'Alur kerja pengembangan modern dengan version control Git, repositori kolaboratif GitHub, automated CI/CD pipeline, edge serverless hosting di Vercel, serta ekosistem command line Linux untuk otomasi alur kerja.',
+      tags: ['Git Branching', 'GitHub CI/CD', 'Vercel Deployment', 'Linux CLI', 'Bash Scripting', 'Clean Code']
     }
   ];
 
@@ -157,7 +157,7 @@ export const ArchitectureStage: React.FC<ArchitectureStageProps> = ({ isFlooded 
             Clean Architecture
           </span>
           <p className="text-[11px] text-[#64748b] mt-1 leading-relaxed">
-            Struktur kode terorganisir dengan pemisahan dependensi dan modularitas tinggi.
+            Struktur kode terorganisir dengan pemisahan client, REST API, dan basis data secara modular.
           </p>
         </motion.div>
 
@@ -171,10 +171,10 @@ export const ArchitectureStage: React.FC<ArchitectureStageProps> = ({ isFlooded 
           className="p-4 rounded-2xl bg-[#fffdf5] border border-[#e8dbc0] shadow-sm"
         >
           <span className="text-xs font-bold text-[#0f172a] block">
-            Type-Safe Contract
+            Type-Safe Contracts
           </span>
           <p className="text-[11px] text-[#64748b] mt-1 leading-relaxed">
-            Keamanan tipe penuh dari skema database hingga interaksi klien.
+            Keamanan tipe data penuh dari antarmuka komponen, payload transaksi, hingga skema database.
           </p>
         </motion.div>
 
@@ -188,10 +188,10 @@ export const ArchitectureStage: React.FC<ArchitectureStageProps> = ({ isFlooded 
           className="p-4 rounded-2xl bg-[#fffdf5] border border-[#e8dbc0] shadow-sm"
         >
           <span className="text-xs font-bold text-[#0f172a] block">
-            Linux Workflows
+            Cloud &amp; Edge Deployment
           </span>
           <p className="text-[11px] text-[#64748b] mt-1 leading-relaxed">
-            Konfigurasi deklaratif NixOS, containerisasi Docker, dan efisiensi terminal.
+            Automasi deployment via Vercel Edge Network, repositori GitHub, dan lingkungan terminal Linux.
           </p>
         </motion.div>
       </div>
