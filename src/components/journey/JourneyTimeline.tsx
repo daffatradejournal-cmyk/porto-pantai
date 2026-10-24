@@ -7,7 +7,8 @@ import {
   ShieldCheck,
   Calendar,
   CheckCircle2,
-  Compass
+  Compass,
+  Terminal
 } from 'lucide-react';
 import { experienceData } from '../../data/portfolioData';
 import type { ExperienceItem } from '../../types/portfolio';
@@ -32,6 +33,14 @@ const categoryConfig: Record<
     tagText: 'text-[#0f172a]',
     tagBorder: 'border-[#0f172a]'
   },
+  project: {
+    icon: Rocket,
+    nodeBg: 'bg-[#4ade80]',
+    nodeText: 'text-[#0f172a]',
+    tagBg: 'bg-[#dcfce7]',
+    tagText: 'text-[#15803d]',
+    tagBorder: 'border-[#0f172a]'
+  },
   bootcamp: {
     icon: Layers,
     nodeBg: 'bg-[#38bdf8]',
@@ -40,12 +49,12 @@ const categoryConfig: Record<
     tagText: 'text-[#0284c7]',
     tagBorder: 'border-[#0f172a]'
   },
-  project: {
-    icon: Rocket,
-    nodeBg: 'bg-[#4ade80]',
+  foundation: {
+    icon: Terminal,
+    nodeBg: 'bg-[#fb7185]',
     nodeText: 'text-[#0f172a]',
-    tagBg: 'bg-[#dcfce7]',
-    tagText: 'text-[#15803d]',
+    tagBg: 'bg-[#fee2e2]',
+    tagText: 'text-[#dc2626]',
     tagBorder: 'border-[#0f172a]'
   },
   security: {
@@ -113,7 +122,7 @@ export const JourneyTimeline: React.FC = () => {
               Milestone
             </h2>
             <p className="text-xs sm:text-base font-medium text-[#475569] max-w-2xl leading-relaxed">
-              Pendidikan sarjana informatika, program bootcamp intensif, inisiatif mandiri, dan eksplorasi keamanan siber.
+              Perjalanan studi S1 Sistem Informasi, perancangan solusi digital mandiri, eksplorasi fullstack web modern, dan fondasi belajar otodidak.
             </p>
           </div>
         </motion.div>

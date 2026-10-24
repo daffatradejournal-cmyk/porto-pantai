@@ -375,67 +375,67 @@ export const projectsData: Project[] = [
 export const experienceData: ExperienceItem[] = [
   {
     id: 'edu-unisi',
-    period: '2023 - Sekarang',
+    period: '2026 - Sekarang',
     role: 'S1 Sistem Informasi',
-    organization: 'Universitas Islam Indragiri',
+    organization: 'Universitas Islam Indragiri (UNISI)',
     badge: 'Pendidikan Formal',
     category: 'education',
     description:
-      'Menempuh studi sarjana S1 Sistem Informasi dengan pendalaman pada analisis proses bisnis, perancangan sistem informasi, manajemen basis data, rekayasa perangkat lunak, dan pengembangan aplikasi web modern.',
+      'Menempuh pendidikan sarjana S1 Sistem Informasi sebagai mahasiswa baru angkatan 2026. Berfokus pada integrasi proses bisnis dengan teknologi, perancangan arsitektur sistem informasi, manajemen basis data relasional, dan rekayasa perangkat lunak modern.',
     highlights: [
-      'Spesialisasi Analisis Sistem & Rekayasa Sistem Informasi',
-      'Pemodelan Data Relasional, Manajemen Basis Data & SQL',
-      'Fundamental Rekayasa Perangkat Lunak & Pengembangan Web'
+      'Rekayasa Sistem Informasi & Analisis Proses Bisnis',
+      'Perancangan Skema Basis Data Relasional & Manajemen SQL',
+      'Penerapan Prinsip Clean Architecture & Software Engineering'
     ],
-    tech: ['Information Systems', 'System Analysis', 'Database Systems', 'SQL', 'Software Engineering', 'System Design']
+    tech: ['Sistem Informasi', 'System Analysis', 'Database Design', 'SQL', 'Software Engineering', 'System Architecture']
   },
   {
-    id: 'exp-dicoding-dbs',
-    period: 'Feb 2026 - Jul 2026',
-    role: 'Fullstack Developer (Learning Path)',
-    organization: 'Dicoding CodingCamp 2026 Powered by DBS Foundation',
-    badge: 'Intensive Bootcamp',
-    category: 'bootcamp',
-    description:
-      'Program beasiswa pelatihan intensif Fullstack Developer dari Dicoding dan DBS Foundation. Membangun arsitektur frontend web modern (React & Vite), integrasi API backend type-safe, otentikasi data, dan pengembangan aplikasi web nutrisi cerdas bertenaga AI (Hitung Sehat).',
-    highlights: [
-      'Lulusan Jalur Fullstack Developer',
-      'Integrasi REST API, State Management & Cloud DB',
-      'Pengembangan Aplikasi Web Nutrisi AI (Hitung Sehat)'
-    ],
-    tech: ['React', 'TypeScript', 'Node.js', 'Supabase', 'Prisma ORM', 'Tailwind CSS', 'REST API']
-  },
-  {
-    id: 'exp-pasartembilahan',
-    period: 'Jul 2026 - Sekarang',
-    role: 'Lead Full-Stack Developer & System Analyst',
-    organization: 'Inisiatif Riset Komoditas Daerah & UNISI Sistem Informasi',
-    badge: 'Proyek Flagship Sistem Informasi',
+    id: 'exp-flagship-projects',
+    period: 'Pertengahan 2026',
+    role: 'Lead Web Developer & System Designer',
+    organization: 'Inisiatif Solusi Digital UMKM & Rantai Pasok Daerah',
+    badge: 'Proyek Mandiri Flagship',
     category: 'project',
     description:
-      'Inisiatif rekayasa sistem informasi untuk mendigitalisasi rantai distribusi dan marketplace e-commerce komoditas UMKM di Kabupaten Indragiri Hilir. Merancang arsitektur sistem end-to-end, skema basis data relasional ternormalisasi, kalkulator ongkir jalur perairan sungai (speedboat/pompong), integrasi Midtrans Snap, dan dashboard analitik koperasi.',
+      'Merancang dan membangun dua solusi sistem informasi berbasis web untuk kebutuhan nyata masyarakat lokal: PasarTembilahan (platform e-commerce & rantai pasok ekspor komoditas kelapa Inhil) dan Kasir Pintar (aplikasi POS web 100% offline-first dengan integrasi scan barcode kamera serta printer thermal 58mm/80mm).',
     highlights: [
-      'Digitalisasi Komoditas Kelapa & Perkebunan Gambut Inhil',
-      'Perancangan RESTful API & Relational Database Schema',
-      'Integrasi Payment Gateway Midtrans & Analitik Real-Time'
+      'Digitalisasi E-Commerce Komoditas Daerah & Jalur Ekspor Kuala Enok',
+      'Sistem Kasir Offline-First Tanpa Ketergantungan Internet',
+      'Integrasi Hardware Printer Thermal & Kamera Barcode Scanner'
     ],
-    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'MySQL', 'Midtrans API', 'RESTful API']
+    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'POS Offline-First', 'Midtrans API', 'RESTful API']
   },
   {
-    id: 'exp-rework-cybersecurity',
-    period: 'Agu 2026 - Des 2026',
-    role: 'Cyber Security Trainee (Red Team Focus)',
-    organization: 'Cyber Security Bootcamp by Rework Academy',
-    badge: 'Cyber Security Bootcamp',
-    category: 'security',
+    id: 'exp-fullstack-ai',
+    period: 'Awal 2026',
+    role: 'Full-Stack Web Explorer',
+    organization: 'Eksplorasi Fullstack Web & Microservice AI',
+    badge: 'Eksplorasi Teknologi',
+    category: 'bootcamp',
     description:
-      'Pelatihan intensif keamanan siber komprehensif mulai dari fundamental cybersecurity, vulnerability assessment, web application penetration testing (OWASP Top 10), network penetration testing, bug bounty hunting, hingga penyusunan security reporting profesional. Fokus mendalam pada Red Team (Offensive Security) dengan pemahaman komplementer Blue Team (Defensive) dan Purple Team.',
+      'Mendalami arsitektur aplikasi web modern yang lebih kompleks melalui pengembangan proyek Hitung Sehat v2. Mengimplementasikan pemisahan frontend (React & Vite), backend modular (Node.js & Express, Supabase PostgreSQL, Prisma ORM), serta microservice inferensi citra makanan berbasis Python FastAPI dan Google Gemini AI.',
     highlights: [
-      'Web Application & Network Penetration Testing',
-      'Metodologi Bug Bounty & Eksploitasi OWASP Top 10',
-      'Vulnerability Assessment & Security Reporting',
-      'Fokus Offensive Red Team dengan Pemahaman Blue/Purple Team'
+      'Arsitektur Terpisah Client, Backend Express, dan Service AI FastAPI',
+      'Implementasi Type-Safe Database Migration Menggunakan Prisma ORM',
+      'Pemanfaatan In-Memory Caching Redis untuk Mengurangi Latensi API'
     ],
-    tech: ['Web App Pentesting', 'Network Security', 'OWASP Top 10', 'Bug Bounty', 'Red Teaming', 'Linux Security', 'Security Reporting']
+    tech: ['React', 'Vite', 'Node.js', 'Express.js', 'Python', 'FastAPI', 'Supabase', 'Prisma ORM', 'Redis']
+  },
+  {
+    id: 'exp-foundation-coding',
+    period: '2025',
+    role: 'Self-Taught Learner (Otodidak)',
+    organization: 'Awal Mula Belajar Coding & IT Fundamentals',
+    badge: 'Awal Perjalanan',
+    category: 'foundation',
+    description:
+      'Memulai langkah pertama di dunia pemrograman secara otodidak pada tahun 2025. Mengasah logika pemrograman, algoritma dasar, fundamental web (HTML5, semantic markup, modern CSS, JavaScript ES6+), pengenalan lingkungan Unix/Linux terminal, serta manajemen versi kode menggunakan Git dan GitHub.',
+    highlights: [
+      'Pemahaman Kuat Logika Pemrograman & Algoritma Dasar',
+      'Penguasaan Fundamental Web Modern (HTML5, CSS3, JavaScript)',
+      'Manajemen Repositori & Version Control Berbasis Git & GitHub',
+      'Navigasi CLI Linux & Otomasi Alur Kerja Pengembangan'
+    ],
+    tech: ['JavaScript (ES6+)', 'HTML5 & CSS3', 'Git', 'GitHub', 'Linux CLI', 'Problem Solving', 'Data Structures']
   }
 ];
