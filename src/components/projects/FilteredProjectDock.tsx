@@ -16,27 +16,24 @@ interface FilteredProjectDockProps {
   selectedCategory: ProjectCategory;
   onSelectCategory: (category: ProjectCategory) => void;
   onSelectProject: (project: Project) => void;
+  hideBackground?: boolean;
 }
 
 export const FilteredProjectDock: React.FC<FilteredProjectDockProps> = ({
   projects,
   selectedCategory,
   onSelectCategory,
-  onSelectProject
+  onSelectProject,
+  hideBackground = false
 }) => {
-  const [activeProjectId, setActiveProjectId] = useState<string>(projects[0]?.id || 'cimart');
+  const [activeProjectId, setActiveProjectId] = useState<string>(projects[0]?.id || 'pasartembilahan');
 
   const categories: { id: ProjectCategory; label: string; count: number }[] = [
     { id: 'all', label: 'Semua Proyek', count: projects.length },
     {
       id: 'fullstack',
-      label: 'Full-Stack Web',
+      label: 'Sistem Informasi & Web Platform',
       count: projects.filter((p) => p.category === 'fullstack').length
-    },
-    {
-      id: 'mobile',
-      label: 'Mobile Flutter',
-      count: projects.filter((p) => p.category === 'mobile').length
     }
   ];
 
@@ -50,27 +47,26 @@ export const FilteredProjectDock: React.FC<FilteredProjectDockProps> = ({
     filteredProjects.find((p) => p.id === activeProjectId) || filteredProjects[0] || projects[0];
 
   return (
-    <div className="absolute inset-0 w-full h-full flex flex-col justify-start sm:justify-between overflow-hidden select-none">
-      {/* ocean background */}
-      <AnimatedOceanSlideBackground depthLevel={4} />
+    <div className={`relative w-full h-full flex flex-col justify-start sm:justify-between select-none ${hideBackground ? '' : 'overflow-hidden'}`}>
+      {/* ocean background if standalone */}
+      {!hideBackground && <AnimatedOceanSlideBackground depthLevel={4} />}
 
       {/* category and project filter navigation */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full pt-20 sm:pt-24 px-4 sm:px-12 flex flex-col gap-2 sm:gap-3 shrink-0">
+      <div className={`relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-8 flex flex-col gap-2 sm:gap-3 shrink-0 ${hideBackground ? 'pt-2 sm:pt-4' : 'pt-20 sm:pt-24'}`}>
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3">
           <div>
-            <span className="text-[10px] sm:text-xs font-mono font-black uppercase tracking-wider text-[#0f172a] bg-[#fde047] px-2 py-0.5 sm:px-3 sm:py-0.5 rounded-lg border-2 border-[#0f172a] shadow-[2px_2px_0px_#0f172a] inline-block mb-1">
-              04 // INDEKS PORTOFOLIO
+            <span className="text-[10px] sm:text-xs font-mono font-black uppercase tracking-wider text-[#0f172a] bg-[#fde047] px-2.5 py-0.5 rounded-lg border-2 border-[#0f172a] shadow-[2px_2px_0px_#0f172a] inline-block mb-1">
+              04 // INDEKS & ARSIP REKAYASA
             </span>
             <h3 className="text-lg sm:text-2xl font-black text-white sm:text-[#0f172a] tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] sm:drop-shadow-none">
-              Eksplorasi Proyek &amp; Hasil Rekayasa
+              Eksplorasi Katalog Solusi Digital
             </h3>
           </div>
 
           {/* category selection */}
-          <div className="grid grid-cols-3 sm:flex sm:items-center gap-1.5 sm:gap-2 w-full sm:w-auto">
+          <div className="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto">
             {categories.map((cat) => {
-              const shortLabel =
-                cat.id === 'all' ? 'Semua' : cat.id === 'fullstack' ? 'Web' : 'Mobile';
+              const shortLabel = cat.id === 'all' ? 'Semua Proyek' : 'Web & Sistem';
 
               return (
                 <button
@@ -82,7 +78,7 @@ export const FilteredProjectDock: React.FC<FilteredProjectDockProps> = ({
                       cat.id === 'all' ? projects : projects.filter((p) => p.category === cat.id);
                     if (nextFiltered[0]) setActiveProjectId(nextFiltered[0].id);
                   }}
-                  className={`flex items-center justify-center gap-1.5 px-2 py-2 sm:px-3.5 sm:py-1.5 rounded-xl sm:rounded-2xl text-[11px] sm:text-xs font-mono font-black transition-all cursor-pointer border-2 border-[#0f172a] w-full sm:w-auto shrink-0 ${
+                  className={`flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-mono font-black transition-all cursor-pointer border-2 border-[#0f172a] shrink-0 ${
                     selectedCategory === cat.id
                       ? 'bg-[#0284c7] text-white shadow-[2px_2px_0px_#0f172a] sm:shadow-[3px_3px_0px_#0f172a] -translate-y-0.5'
                       : 'bg-[#fffdf5] hover:bg-[#fff9d4] text-[#0f172a] shadow-[1.5px_1.5px_0px_#0f172a] sm:shadow-[2px_2px_0px_#0f172a]'
@@ -105,6 +101,7 @@ export const FilteredProjectDock: React.FC<FilteredProjectDockProps> = ({
           </div>
         </div>
 
+        {/* mobile project pills */}
         <div className="flex lg:hidden items-center gap-2 overflow-x-auto no-scrollbar py-0.5 w-full shrink-0">
           {filteredProjects.map((project, idx) => {
             const isSelected = activeProject.id === project.id;
@@ -135,7 +132,7 @@ export const FilteredProjectDock: React.FC<FilteredProjectDockProps> = ({
       </div>
 
       {/* project inspection stage */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-12 mt-2 sm:mt-auto sm:my-auto flex flex-col lg:grid lg:grid-cols-12 gap-3 sm:gap-5 items-stretch lg:items-center">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-8 mt-2 sm:mt-auto sm:my-auto flex flex-col lg:grid lg:grid-cols-12 gap-3 sm:gap-5 items-stretch lg:items-center">
         {/* desktop project selector */}
         <div className="hidden lg:flex lg:col-span-5 flex-col justify-center space-y-2.5 max-h-[380px] overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-[#0284c7] scrollbar-track-[#fffdf5]/50">
           {filteredProjects.map((project, idx) => {
@@ -158,7 +155,7 @@ export const FilteredProjectDock: React.FC<FilteredProjectDockProps> = ({
                       0{idx + 1}
                     </span>
                     <span className="text-[11px] font-mono font-bold text-[#0284c7]">
-                      {project.category === 'fullstack' ? 'Full-Stack Web' : 'Mobile Flutter'}
+                      Sistem Informasi &amp; Web
                     </span>
                   </div>
 
@@ -215,11 +212,11 @@ export const FilteredProjectDock: React.FC<FilteredProjectDockProps> = ({
               <div className="space-y-2 sm:space-y-2">
                 <ProjectPreviewPlaceholder
                   project={activeProject}
-                  isMobileFrame={activeProject.category === 'mobile'}
+                  isMobileFrame={false}
                   className="h-[210px] min-[400px]:h-[235px] sm:h-auto sm:aspect-[16/9] sm:max-h-[220px] lg:max-h-none w-full"
                 />
 
-                {/* project titles with generous breathing room */}
+                {/* project titles */}
                 <div className="pt-2 sm:pt-2.5">
                   <div className="flex items-center justify-between gap-2">
                     <h4 className="text-base sm:text-xl font-black text-[#0f172a]">
@@ -285,7 +282,7 @@ export const FilteredProjectDock: React.FC<FilteredProjectDockProps> = ({
       </div>
 
       {/* seabed spacing */}
-      <div className="relative z-10 hidden sm:block sm:h-20 w-full shrink-0" />
+      <div className={`relative z-10 w-full shrink-0 ${hideBackground ? 'h-3 sm:h-5' : 'hidden sm:block sm:h-20'}`} />
     </div>
   );
 };
