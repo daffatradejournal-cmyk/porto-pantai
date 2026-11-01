@@ -65,7 +65,7 @@ export const TechGrid: React.FC<TechGridProps> = ({ onOpenProject }) => {
         {/* header */}
         <div className="space-y-4 pb-8 border-b-2 border-[#0f172a]/15">
           <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#fde047] text-[#0f172a] text-xs font-mono font-black border-2 border-[#0f172a] shadow-[3px_3px_0px_#0f172a] w-fit">
-            <span>03 // TECH STACK</span>
+            <span>TECH STACK</span>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">

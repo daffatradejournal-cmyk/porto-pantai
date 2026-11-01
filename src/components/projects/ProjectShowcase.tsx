@@ -1,19 +1,17 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Variants } from 'framer-motion';
 import {
-  ChevronLeft,
-  ChevronRight,
-  Play,
-  Pause,
-  ArrowDown,
   Compass,
-  Sparkles
+  ArrowUpRight,
+  ExternalLink,
+  Lock,
+  BookOpen,
+  Layers,
+  ChevronRight
 } from 'lucide-react';
-import type { Project, ProjectCategory } from '../../types/portfolio';
+import type { Project } from '../../types/portfolio';
 import { projectsData } from '../../data/portfolioData';
-import { FlagshipSlideCard } from './FlagshipProjectParallax';
-import { FilteredProjectDock } from './FilteredProjectDock';
+import { ProjectPreviewPlaceholder } from './ProjectPreviewPlaceholder';
 import { ProjectCaseStudyModal } from './ProjectCaseStudyModal';
 import { AnimatedOceanSlideBackground } from './AnimatedOceanSlideBackground';
 
@@ -22,324 +20,285 @@ interface ProjectShowcaseProps {
 }
 
 export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject }) => {
-  const containerRef = useRef<HTMLElement | null>(null);
-  const [activeSlide, setActiveSlide] = useState<number>(0);
-  const [direction, setDirection] = useState<number>(1);
-  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(false);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('all');
+  const [activeProjectId, setActiveProjectId] = useState<string>(projectsData[0]?.id || 'pasartembilahan');
   const [localActiveProject, setLocalActiveProject] = useState<Project | null>(null);
 
   const handleSelect = onOpenProject || setLocalActiveProject;
-  const activeProject = onOpenProject ? null : localActiveProject;
+  const activeProjectModal = onOpenProject ? null : localActiveProject;
 
-  // featured flagship projects
-  const flagshipProjects = projectsData.filter((p) => p.featured);
-  const totalSlides = flagshipProjects.length + 1; // 3 flagship + 1 index overview
+  const activeProject =
+    projectsData.find((p) => p.id === activeProjectId) || projectsData[0];
 
-  const goToSlide = useCallback((newIndex: number) => {
-    setDirection(newIndex > activeSlide ? 1 : -1);
-    setActiveSlide(newIndex);
-  }, [activeSlide]);
-
-  const handlePrev = useCallback(() => {
-    setDirection(-1);
-    setActiveSlide((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
-  }, [totalSlides]);
-
-  const handleNext = useCallback(() => {
-    setDirection(1);
-    setActiveSlide((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
-  }, [totalSlides]);
-
-  // auto-cruise timer (pauses when user hovers or interacts)
-  useEffect(() => {
-    if (!isAutoPlaying || isHovered) return;
-
-    const timer = setInterval(() => {
-      handleNext();
-    }, 7000);
-
-    return () => clearInterval(timer);
-  }, [isAutoPlaying, isHovered, handleNext]);
-
-  // keyboard arrow navigation when section is in viewport
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // ignore if modal is open or typing in an input
-      if (document.querySelector('[role="dialog"]') || e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
-        return;
-      }
-
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-
-      if (isInView) {
-        if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          handlePrev();
-        } else if (e.key === 'ArrowRight') {
-          e.preventDefault();
-          handleNext();
-        }
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handlePrev, handleNext]);
-
-  // swipe drag gesture handler
-  const handleDragEnd = (_: any, info: { offset: { x: number } }) => {
-    if (info.offset.x < -50) {
-      handleNext();
-    } else if (info.offset.x > 50) {
-      handlePrev();
-    }
-  };
-
-  // dynamic ocean depth per slide
-  const currentDepth = (
-    activeSlide === 0 ? 1 : activeSlide === 1 ? 2 : activeSlide === 2 ? 3 : 4
-  ) as 1 | 2 | 3 | 4;
-
-  // slide motion variants for smooth direction-aware transitions
-  const slideVariants: Variants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? '40%' : '-40%',
-      opacity: 0,
-      scale: 0.98,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        x: { type: 'spring' as const, stiffness: 320, damping: 32 },
-        opacity: { duration: 0.22 },
-        scale: { duration: 0.22 }
-      }
-    },
-    exit: (dir: number) => ({
-      x: dir < 0 ? '40%' : '-40%',
-      opacity: 0,
-      scale: 0.98,
-      transition: {
-        x: { type: 'spring' as const, stiffness: 320, damping: 32 },
-        opacity: { duration: 0.18 },
-        scale: { duration: 0.18 }
-      }
-    })
-  };
-
-  const scrollToNextSection = () => {
-    const stackEl = document.getElementById('stack');
-    if (stackEl) {
-      stackEl.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const activeIndex = projectsData.findIndex((p) => p.id === activeProject.id);
+  const currentDepth = (activeIndex === 0 ? 1 : activeIndex === 1 ? 2 : 3) as 1 | 2 | 3;
 
   return (
     <section
       id="projects"
-      ref={containerRef}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative min-h-[820px] lg:min-h-screen bg-[#0284c7] select-none py-4 sm:py-6 flex flex-col justify-between overflow-hidden"
+      className="relative min-h-screen bg-[#0284c7] select-none flex flex-col justify-between overflow-hidden"
     >
-      {/* dynamic ocean background based on active slide depth */}
+      {/* Dynamic ocean background */}
       <AnimatedOceanSlideBackground depthLevel={currentDepth} />
 
-      {/* 1. Coastal Control Deck Header Bar */}
-      <div className="relative z-30 max-w-7xl mx-auto w-full px-4 sm:px-8 pt-20 sm:pt-24 pb-2">
-        <div className="p-3 sm:p-4 rounded-2xl sm:rounded-[24px] bg-[#fffdf5]/95 backdrop-blur-md border-2 border-[#0f172a] shadow-[4px_4px_0px_#0f172a] sm:shadow-[6px_6px_0px_#0f172a] flex flex-col lg:flex-row lg:items-center justify-between gap-3">
-          
-          {/* Left: Section identifier */}
-          <div className="flex items-center gap-2.5">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#fde047] text-[#0f172a] text-xs font-mono font-black border-2 border-[#0f172a] shadow-[2px_2px_0px_#0f172a]">
+      {/* 1. Header */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-8 pt-20 sm:pt-24 pb-4 sm:pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-4 sm:pb-6 border-b-2 border-[#0f172a]/20">
+          <div>
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#fde047] text-[#0f172a] text-xs font-mono font-black border-2 border-[#0f172a] shadow-[2.5px_2.5px_0px_#0f172a] w-fit mb-2 sm:mb-2.5">
               <Compass className="w-3.5 h-3.5 text-[#0f172a]" />
-              <span>02 // STUDI KASUS</span>
+              <span>STUDI KASUS</span>
             </div>
-            <span className="text-xs font-mono font-bold text-[#0f172a] hidden sm:inline-block">
-              Dermaga Rekayasa Sistem &amp; Solusi Digital
-            </span>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white sm:text-[#0f172a] tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] sm:drop-shadow-none leading-[1.08]">
+              Eksplorasi Proyek &amp; Rekayasa Sistem
+            </h2>
           </div>
 
-          {/* Center: Interactive Project Dock Tabs */}
-          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-0.5 w-full lg:w-auto">
-            {flagshipProjects.map((p, idx) => {
-              const isActive = activeSlide === idx;
+          <p className="max-w-md text-xs sm:text-sm font-medium text-white/90 sm:text-[#334155] leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] sm:drop-shadow-none">
+            Pilih studi kasus di bawah untuk mengamati preview interaktif, arsitektur sistem, dan metrik performa teknis.
+          </p>
+        </div>
+      </div>
+
+      {/* 2. Main Stage (Split View: Buttons on Left, Rich Display on Right) */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-8 pb-12 sm:pb-16 flex-1 flex flex-col justify-center">
+        {/* Mobile Horizontal Selector */}
+        <div className="flex lg:hidden items-center gap-2 overflow-x-auto no-scrollbar py-1 mb-4 w-full shrink-0">
+          {projectsData.map((project, idx) => {
+            const isSelected = activeProject.id === project.id;
+            return (
+              <button
+                key={project.id}
+                type="button"
+                onClick={() => setActiveProjectId(project.id)}
+                className={`flex items-center gap-2 px-3.5 py-2 rounded-xl border-2 border-[#0f172a] text-xs font-mono transition-all shrink-0 whitespace-nowrap cursor-pointer ${
+                  isSelected
+                    ? 'bg-[#fde047] text-[#0f172a] shadow-[3px_3px_0px_#0f172a] font-black -translate-y-0.5'
+                    : 'bg-[#fffdf5]/95 hover:bg-[#fff9d4] text-[#0f172a] shadow-[1.5px_1.5px_0px_#0f172a] font-bold'
+                }`}
+              >
+                <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-[#0f172a]/10">
+                  0{idx + 1}
+                </span>
+                <span>{project.title}</span>
+                <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'rotate-90' : ''}`} />
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Desktop Split View: Left List (5 cols), Right Inspection Card (7 cols) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
+          
+          {/* Left Column: 3 Project Cards */}
+          <div className="hidden lg:flex lg:col-span-5 flex-col justify-center space-y-3">
+            {projectsData.map((project, idx) => {
+              const isSelected = activeProject.id === project.id;
+
               return (
-                <button
-                  key={p.id}
-                  type="button"
-                  onClick={() => goToSlide(idx)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border-2 border-[#0f172a] text-xs font-mono font-bold transition-all shrink-0 cursor-pointer ${
-                    isActive
-                      ? 'bg-[#0284c7] text-white shadow-[2.5px_2.5px_0px_#0f172a] font-black -translate-y-0.5'
-                      : 'bg-[#fff9d4] hover:bg-[#faeed1] text-[#0f172a] shadow-[1.5px_1.5px_0px_#0f172a]'
+                <motion.div
+                  key={project.id}
+                  whileHover={{ x: 4 }}
+                  onClick={() => setActiveProjectId(project.id)}
+                  className={`p-4 rounded-[22px] border-2 border-[#0f172a] cursor-pointer transition-all duration-200 ${
+                    isSelected
+                      ? 'bg-[#fde047] shadow-[5px_5px_0px_#0f172a] -translate-y-1'
+                      : 'bg-[#fffdf5]/95 hover:bg-[#fff9d4] shadow-[3px_3px_0px_#0f172a]'
                   }`}
                 >
-                  <span
-                    className={`text-[10px] px-1 py-0.2 rounded font-black ${
-                      isActive ? 'bg-white/30 text-white' : 'bg-[#0f172a]/10 text-[#0f172a]'
-                    }`}
-                  >
-                    0{idx + 1}
-                  </span>
-                  <span>{p.title}</span>
-                </button>
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-mono font-black text-[#0f172a] bg-[#fffdf5] px-2 py-0.5 rounded-md border border-[#0f172a]">
+                        0{idx + 1}
+                      </span>
+                      <span className="text-[11px] font-mono font-bold text-[#0284c7]">
+                        Sistem Informasi &amp; Web
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-1">
+                      {project.isPrivateRepo ? (
+                        <span className="text-[9.5px] font-mono font-bold text-[#b91c1c] bg-[#fee2e2] px-2 py-0.5 rounded-md border border-[#b91c1c]/40 flex items-center gap-1">
+                          <Lock className="w-2.5 h-2.5" />
+                          <span>Private</span>
+                        </span>
+                      ) : (
+                        <span className="text-[9.5px] font-mono font-bold text-[#15803d] bg-[#dcfce7] px-2 py-0.5 rounded-md border border-[#16a34a]/40 flex items-center gap-1">
+                          <ExternalLink className="w-2.5 h-2.5" />
+                          <span>Open</span>
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-2">
+                    <div>
+                      <h3 className="text-base sm:text-lg font-black text-[#0f172a] leading-tight">
+                        {project.title}
+                      </h3>
+                      <p className="text-[11px] font-mono font-bold text-[#8c6239] mt-1 line-clamp-1">
+                        {project.metrics[0]?.value} • {project.metrics[1]?.value}
+                      </p>
+                    </div>
+
+                    <div
+                      className={`w-7 h-7 rounded-xl flex items-center justify-center border-2 border-[#0f172a] transition-all shrink-0 ${
+                        isSelected
+                          ? 'bg-[#0284c7] text-white shadow-[1.5px_1.5px_0px_#0f172a]'
+                          : 'bg-[#fffdf5] text-[#0f172a]'
+                      }`}
+                    >
+                      <ChevronRight className={`w-4 h-4 transition-transform ${isSelected ? 'rotate-90' : ''}`} />
+                    </div>
+                  </div>
+                </motion.div>
               );
             })}
-
-            {/* Tab 4: Indeks Proyek */}
-            <button
-              type="button"
-              onClick={() => goToSlide(3)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border-2 border-[#0f172a] text-xs font-mono font-bold transition-all shrink-0 cursor-pointer ${
-                activeSlide === 3
-                  ? 'bg-[#0284c7] text-white shadow-[2.5px_2.5px_0px_#0f172a] font-black -translate-y-0.5'
-                  : 'bg-[#fff9d4] hover:bg-[#faeed1] text-[#0f172a] shadow-[1.5px_1.5px_0px_#0f172a]'
-              }`}
-            >
-              <span
-                className={`text-[10px] px-1 py-0.2 rounded font-black ${
-                  activeSlide === 3 ? 'bg-white/30 text-white' : 'bg-[#0f172a]/10 text-[#0f172a]'
-                }`}
-              >
-                04
-              </span>
-              <span>Indeks Rekayasa</span>
-            </button>
           </div>
 
-          {/* Right: Tactile Prev/Next, Clickable Pills & Auto-Cruise */}
-          <div className="flex items-center justify-between lg:justify-end gap-2 sm:gap-2.5">
-            {/* Slide counter */}
-            <div className="text-[11px] font-mono font-black text-[#0f172a] px-2.5 py-1 rounded-xl bg-[#faeed1] border border-[#0f172a] shrink-0">
-              {activeSlide < 3 ? `FLAGSHIP ${activeSlide + 1} / 3` : 'INDEKS REKAYASA'}
-            </div>
-
-            {/* Navigation buttons & progress pills */}
-            <div className="flex items-center gap-1.5">
-              <button
-                type="button"
-                onClick={handlePrev}
-                title="Studi Kasus Sebelumnya (Panah Kiri)"
-                className="w-8 h-8 rounded-xl bg-[#fffdf5] hover:bg-[#fde047] text-[#0f172a] border-2 border-[#0f172a] shadow-[2px_2px_0px_#0f172a] active:shadow-none active:translate-x-0.5 active:translate-y-0.5 flex items-center justify-center transition-all cursor-pointer"
+          {/* Right Column: Full Interactive Project Display */}
+          <div className="w-full lg:col-span-7">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeProject.id}
+                initial={{ opacity: 0, y: 12, scale: 0.99 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -12, scale: 0.99 }}
+                transition={{ duration: 0.18 }}
+                className="p-4 sm:p-6 rounded-2xl sm:rounded-[28px] bg-[#fffdf5] border-2 sm:border-3 border-[#0f172a] shadow-[6px_6px_0px_#0f172a] sm:shadow-[8px_8px_0px_#0f172a] flex flex-col justify-between space-y-3.5 sm:space-y-4"
               >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-
-              {/* Clickable progress pills */}
-              <div className="flex items-center gap-1 px-2 py-1.5 rounded-xl bg-[#faeed1] border border-[#0f172a]">
-                {[0, 1, 2, 3].map((idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => goToSlide(idx)}
-                    title={`Beralih ke slide 0${idx + 1}`}
-                    className={`h-2 rounded-full transition-all cursor-pointer ${
-                      activeSlide === idx
-                        ? 'w-6 bg-[#0284c7] border border-[#0f172a]'
-                        : 'w-2.5 bg-[#0f172a]/20 hover:bg-[#0f172a]/50'
-                    }`}
+                {/* Browser preview mockup */}
+                <div
+                  onClick={() => handleSelect(activeProject)}
+                  className="cursor-pointer group relative"
+                >
+                  <ProjectPreviewPlaceholder
+                    project={activeProject}
+                    isMobileFrame={false}
+                    className="h-[210px] min-[400px]:h-[240px] sm:h-auto sm:aspect-[16/9] w-full shadow-[4px_4px_0px_#0f172a] transition-all duration-300 group-hover:scale-[1.01]"
                   />
-                ))}
-              </div>
 
-              <button
-                type="button"
-                onClick={handleNext}
-                title="Studi Kasus Selanjutnya (Panah Kanan)"
-                className="w-8 h-8 rounded-xl bg-[#fffdf5] hover:bg-[#fde047] text-[#0f172a] border-2 border-[#0f172a] shadow-[2px_2px_0px_#0f172a] active:shadow-none active:translate-x-0.5 active:translate-y-0.5 flex items-center justify-center transition-all cursor-pointer"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
+                  <div className="absolute bottom-3 right-3 px-3 py-1 rounded-xl bg-[#fde047] border-2 border-[#0f172a] text-xs font-mono font-black text-[#0f172a] shadow-[2px_2px_0px_#0f172a] opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 pointer-events-none">
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>Buka Studi Kasus</span>
+                  </div>
+                </div>
 
-              {/* Auto cruise toggle */}
-              <button
-                type="button"
-                onClick={() => setIsAutoPlaying((prev) => !prev)}
-                title={isAutoPlaying ? 'Jeda Mode Berlayar Otomatis' : 'Aktifkan Mode Berlayar Otomatis'}
-                className={`hidden sm:flex items-center gap-1 px-2 py-1 rounded-xl border border-[#0f172a] text-[10px] font-mono font-bold transition-all cursor-pointer ${
-                  isAutoPlaying
-                    ? 'bg-[#dcfce7] text-[#15803d] border-[#16a34a]'
-                    : 'bg-[#fffdf5] text-[#64748b] hover:text-[#0f172a]'
-                }`}
-              >
-                {isAutoPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
-                <span>{isAutoPlaying ? 'Auto' : 'Auto'}</span>
-              </button>
-            </div>
+                {/* Project Title, Role & Subtitle */}
+                <div className="space-y-1">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="text-lg sm:text-2xl lg:text-3xl font-black text-[#0f172a] tracking-tight leading-tight">
+                      {activeProject.title}
+                    </h3>
+
+                    <span className="text-[10px] sm:text-xs font-mono font-bold text-[#0284c7] bg-[#e0f2fe] px-2.5 py-1 rounded-lg border border-[#0284c7]/40">
+                      {activeProject.role}
+                    </span>
+                  </div>
+
+                  <p className="text-[11px] sm:text-xs font-mono font-bold text-[#8c6239] leading-snug">
+                    {activeProject.subtitle}
+                  </p>
+                </div>
+
+                {/* Summary */}
+                <p className="text-xs sm:text-sm text-[#334155] leading-relaxed font-medium line-clamp-3 sm:line-clamp-none">
+                  {activeProject.summary}
+                </p>
+
+                {/* 3 Metric cards */}
+                <div className="grid grid-cols-3 gap-2">
+                  {activeProject.metrics.map((m, mIdx) => {
+                    const stickerBg =
+                      mIdx === 0
+                        ? 'bg-[#e0f2fe] border-[#0284c7]'
+                        : mIdx === 1
+                        ? 'bg-[#fef9c3] border-[#ca8a04]'
+                        : 'bg-[#dcfce7] border-[#16a34a]';
+
+                    const labelColor =
+                      mIdx === 0
+                        ? 'text-[#0369a1]'
+                        : mIdx === 1
+                        ? 'text-[#854d0e]'
+                        : 'text-[#15803d]';
+
+                    return (
+                      <div
+                        key={mIdx}
+                        className={`p-1.5 sm:p-2.5 rounded-xl ${stickerBg} border-2 border-[#0f172a] text-center shadow-[2px_2px_0px_#0f172a] flex flex-col justify-center min-h-[46px] sm:min-h-[54px]`}
+                      >
+                        <div className={`text-[8.5px] sm:text-[10px] font-mono font-bold uppercase ${labelColor} leading-tight truncate`}>
+                          {m.label}
+                        </div>
+                        <div className="text-[11px] sm:text-xs font-black text-[#0f172a] mt-0.5 leading-tight truncate">
+                          {m.value}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Tech stack tags */}
+                <div className="flex flex-wrap gap-1 sm:gap-1.5 pt-0.5">
+                  {activeProject.stack.slice(0, 6).map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-0.5 rounded-lg bg-[#fff9d4] text-[10px] sm:text-[11px] font-mono font-bold text-[#0f172a] border border-[#0f172a]/40"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action Buttons: Studi Kasus, Live Demo, GitHub */}
+                <div className="pt-2 border-t-2 border-[#e2d3b3] flex flex-wrap items-center gap-2 sm:gap-3">
+                  <button
+                    type="button"
+                    onClick={() => handleSelect(activeProject)}
+                    className="flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white text-[11px] sm:text-xs font-mono font-black border-2 border-[#0f172a] shadow-[2.5px_2.5px_0px_#0f172a] cursor-pointer transition-all hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none"
+                  >
+                    <BookOpen className="w-3.5 h-3.5" />
+                    <span>Buka Studi Kasus</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </button>
+
+                  {activeProject.demoUrl && (
+                    <a
+                      href={activeProject.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-[#fde047] hover:bg-[#facc15] text-[#0f172a] text-[11px] sm:text-xs font-mono font-black border-2 border-[#0f172a] shadow-[2.5px_2.5px_0px_#0f172a] transition-all hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>Live Demo</span>
+                    </a>
+                  )}
+
+                  {activeProject.githubUrl && (
+                    <a
+                      href={activeProject.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-[#fff9d4] hover:bg-[#faeed1] text-[#0f172a] text-[11px] sm:text-xs font-mono font-bold border-2 border-[#0f172a] shadow-[2px_2px_0px_#0f172a] transition-all hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none sm:ml-auto"
+                    >
+                      <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                      </svg>
+                      <span>GitHub</span>
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
 
-      {/* 2. Main Stage with Direction-Aware AnimatePresence */}
-      <div className="relative z-20 flex-1 flex items-center justify-center w-full min-h-[500px] overflow-hidden my-auto py-2">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={activeSlide}
-            custom={direction}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.15}
-            onDragEnd={handleDragEnd}
-            className="w-full h-full flex items-center justify-center"
-          >
-            {activeSlide < 3 && flagshipProjects[activeSlide] ? (
-              <FlagshipSlideCard
-                project={flagshipProjects[activeSlide]}
-                index={activeSlide}
-                depthLevel={currentDepth as 1 | 2 | 3}
-                hideBackground={true}
-                onSelectProject={handleSelect}
-              />
-            ) : (
-              <FilteredProjectDock
-                projects={projectsData}
-                selectedCategory={selectedCategory}
-                onSelectCategory={setSelectedCategory}
-                onSelectProject={handleSelect}
-                hideBackground={true}
-              />
-            )}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* 3. Tactile Footer Navigation Hint & Scroll Anchor */}
-      <div className="relative z-30 max-w-7xl mx-auto w-full px-4 sm:px-8 pt-2 pb-3">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 px-4 py-2 rounded-2xl bg-[#fffdf5]/90 backdrop-blur-sm border border-[#0f172a]/30 shadow-[2px_2px_0px_#0f172a]">
-          <div className="flex items-center gap-2 text-[11px] font-mono text-[#0f172a]">
-            <Sparkles className="w-3.5 h-3.5 text-[#0284c7] shrink-0" />
-            <span>
-              <strong>Tip Navigasi:</strong> Klik tab dermaga, panah keyboard <kbd className="px-1.5 py-0.5 rounded bg-[#faeed1] border border-[#0f172a]/40 font-bold">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-[#faeed1] border border-[#0f172a]/40 font-bold">→</kbd>, atau geser (swipe) untuk beralih proyek.
-            </span>
-          </div>
-
-          <button
-            type="button"
-            onClick={scrollToNextSection}
-            className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#fff9d4] hover:bg-[#fde047] text-[#0f172a] text-[11px] font-mono font-bold border border-[#0f172a] shadow-[1.5px_1.5px_0px_#0f172a] transition-all cursor-pointer shrink-0"
-          >
-            <span>Lanjut ke Tech Stack</span>
-            <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
-          </button>
-        </div>
-      </div>
-
-      {/* local fallback case study modal */}
-      {!onOpenProject && activeProject && (
+      {/* Local fallback modal */}
+      {!onOpenProject && activeProjectModal && (
         <ProjectCaseStudyModal
-          project={activeProject}
-          isOpen={!!activeProject}
+          project={activeProjectModal}
+          isOpen={!!activeProjectModal}
           onClose={() => setLocalActiveProject(null)}
         />
       )}
