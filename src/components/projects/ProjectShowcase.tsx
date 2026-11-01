@@ -35,14 +35,14 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
   return (
     <section
       id="projects"
-      className="relative min-h-screen bg-[#0284c7] select-none flex flex-col justify-between overflow-hidden"
+      className="relative min-h-screen bg-[#0284c7] select-none flex flex-col justify-start overflow-hidden py-4 sm:py-8"
     >
       {/* Dynamic ocean background */}
       <AnimatedOceanSlideBackground depthLevel={currentDepth} />
 
       {/* 1. Header */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-8 pt-20 sm:pt-24 pb-4 sm:pb-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-4 sm:pb-6 border-b-2 border-[#0f172a]/20">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-8 pt-20 sm:pt-24 pb-3 sm:pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-3 sm:pb-6 border-b-2 border-[#0f172a]/20">
           <div>
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#fde047] text-[#0f172a] text-xs font-mono font-black border-2 border-[#0f172a] shadow-[2.5px_2.5px_0px_#0f172a] w-fit mb-2 sm:mb-2.5">
               <Compass className="w-3.5 h-3.5 text-[#0f172a]" />
@@ -60,9 +60,9 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
       </div>
 
       {/* 2. Main Stage (Split View: Buttons on Left, Rich Display on Right) */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-8 pb-12 sm:pb-16 flex-1 flex flex-col justify-center">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-8 pb-10 sm:pb-16 flex-1 flex flex-col justify-center">
         {/* Mobile Horizontal Selector */}
-        <div className="flex lg:hidden items-center gap-2 overflow-x-auto no-scrollbar py-1 mb-4 w-full shrink-0">
+        <div className="flex lg:hidden items-center gap-2 overflow-x-auto no-scrollbar py-1 mb-3 sm:mb-4 w-full shrink-0">
           {projectsData.map((project, idx) => {
             const isSelected = activeProject.id === project.id;
             return (
@@ -70,17 +70,17 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
                 key={project.id}
                 type="button"
                 onClick={() => setActiveProjectId(project.id)}
-                className={`flex items-center gap-2 px-3.5 py-2 rounded-xl border-2 border-[#0f172a] text-xs font-mono transition-all shrink-0 whitespace-nowrap cursor-pointer ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border-2 border-[#0f172a] text-xs font-mono transition-all shrink-0 whitespace-nowrap cursor-pointer ${
                   isSelected
-                    ? 'bg-[#fde047] text-[#0f172a] shadow-[3px_3px_0px_#0f172a] font-black -translate-y-0.5'
+                    ? 'bg-[#fde047] text-[#0f172a] shadow-[2.5px_2.5px_0px_#0f172a] font-black -translate-y-0.5'
                     : 'bg-[#fffdf5]/95 hover:bg-[#fff9d4] text-[#0f172a] shadow-[1.5px_1.5px_0px_#0f172a] font-bold'
                 }`}
               >
-                <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-[#0f172a]/10">
+                <span className={`text-[10px] font-black px-1.5 py-0.2 rounded ${isSelected ? 'bg-[#0f172a]/15' : 'bg-[#0f172a]/10'}`}>
                   0{idx + 1}
                 </span>
                 <span>{project.title}</span>
-                <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'rotate-90' : ''}`} />
+                <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'rotate-90 text-[#0284c7]' : 'text-[#64748b]'}`} />
               </button>
             );
           })}
@@ -164,49 +164,49 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -12, scale: 0.99 }}
                 transition={{ duration: 0.18 }}
-                className="p-4 sm:p-6 rounded-2xl sm:rounded-[28px] bg-[#fffdf5] border-2 sm:border-3 border-[#0f172a] shadow-[6px_6px_0px_#0f172a] sm:shadow-[8px_8px_0px_#0f172a] flex flex-col justify-between space-y-3.5 sm:space-y-4"
+                className="p-3.5 sm:p-6 rounded-2xl sm:rounded-[28px] bg-[#fffdf5] border-2 sm:border-3 border-[#0f172a] shadow-[4px_4px_0px_#0f172a] sm:shadow-[8px_8px_0px_#0f172a] flex flex-col justify-between space-y-3 sm:space-y-4 overflow-hidden"
               >
                 {/* Browser preview mockup */}
                 <div
                   onClick={() => handleSelect(activeProject)}
-                  className="cursor-pointer group relative"
+                  className="cursor-pointer group relative w-full overflow-hidden"
                 >
                   <ProjectPreviewPlaceholder
                     project={activeProject}
                     isMobileFrame={false}
-                    className="h-[210px] min-[400px]:h-[240px] sm:h-auto sm:aspect-[16/9] w-full shadow-[4px_4px_0px_#0f172a] transition-all duration-300 group-hover:scale-[1.01]"
+                    className="aspect-[16/10] sm:aspect-[16/9] w-full transition-all duration-300 group-hover:scale-[1.01]"
                   />
 
-                  <div className="absolute bottom-3 right-3 px-3 py-1 rounded-xl bg-[#fde047] border-2 border-[#0f172a] text-xs font-mono font-black text-[#0f172a] shadow-[2px_2px_0px_#0f172a] opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 pointer-events-none">
-                    <Layers className="w-3.5 h-3.5" />
+                  <div className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 px-2.5 sm:px-3 py-1 rounded-lg sm:rounded-xl bg-[#fde047] border-2 border-[#0f172a] text-[10px] sm:text-xs font-mono font-black text-[#0f172a] shadow-[2px_2px_0px_#0f172a] opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 pointer-events-none">
+                    <Layers className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     <span>Buka Studi Kasus</span>
                   </div>
                 </div>
 
                 {/* Project Title, Role & Subtitle */}
                 <div className="space-y-1">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h3 className="text-lg sm:text-2xl lg:text-3xl font-black text-[#0f172a] tracking-tight leading-tight">
+                  <div className="flex flex-wrap items-center justify-between gap-1.5 sm:gap-2">
+                    <h3 className="text-base sm:text-2xl lg:text-3xl font-black text-[#0f172a] tracking-tight leading-tight">
                       {activeProject.title}
                     </h3>
 
-                    <span className="text-[10px] sm:text-xs font-mono font-bold text-[#0284c7] bg-[#e0f2fe] px-2.5 py-1 rounded-lg border border-[#0284c7]/40">
+                    <span className="text-[9.5px] sm:text-xs font-mono font-bold text-[#0284c7] bg-[#e0f2fe] px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg border border-[#0284c7]/40">
                       {activeProject.role}
                     </span>
                   </div>
 
-                  <p className="text-[11px] sm:text-xs font-mono font-bold text-[#8c6239] leading-snug">
+                  <p className="text-[10.5px] sm:text-xs font-mono font-bold text-[#8c6239] leading-snug">
                     {activeProject.subtitle}
                   </p>
                 </div>
 
                 {/* Summary */}
-                <p className="text-xs sm:text-sm text-[#334155] leading-relaxed font-medium line-clamp-3 sm:line-clamp-none">
+                <p className="text-[11px] sm:text-sm text-[#334155] leading-relaxed font-medium line-clamp-3 sm:line-clamp-none">
                   {activeProject.summary}
                 </p>
 
                 {/* 3 Metric cards */}
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
                   {activeProject.metrics.map((m, mIdx) => {
                     const stickerBg =
                       mIdx === 0
@@ -225,12 +225,12 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
                     return (
                       <div
                         key={mIdx}
-                        className={`p-1.5 sm:p-2.5 rounded-xl ${stickerBg} border-2 border-[#0f172a] text-center shadow-[2px_2px_0px_#0f172a] flex flex-col justify-center min-h-[46px] sm:min-h-[54px]`}
+                        className={`p-1 sm:p-2.5 rounded-lg sm:rounded-xl ${stickerBg} border-2 border-[#0f172a] text-center shadow-[1.5px_1.5px_0px_#0f172a] sm:shadow-[2px_2px_0px_#0f172a] flex flex-col justify-center min-h-[42px] sm:min-h-[54px]`}
                       >
-                        <div className={`text-[8.5px] sm:text-[10px] font-mono font-bold uppercase ${labelColor} leading-tight truncate`}>
+                        <div className={`text-[8px] sm:text-[10px] font-mono font-bold uppercase ${labelColor} leading-tight truncate`}>
                           {m.label}
                         </div>
-                        <div className="text-[11px] sm:text-xs font-black text-[#0f172a] mt-0.5 leading-tight truncate">
+                        <div className="text-[10px] sm:text-xs font-black text-[#0f172a] mt-0.5 leading-tight truncate">
                           {m.value}
                         </div>
                       </div>
@@ -243,7 +243,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
                   {activeProject.stack.slice(0, 6).map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 rounded-lg bg-[#fff9d4] text-[10px] sm:text-[11px] font-mono font-bold text-[#0f172a] border border-[#0f172a]/40"
+                      className="px-2 py-0.5 rounded-md sm:rounded-lg bg-[#fff9d4] text-[9.5px] sm:text-[11px] font-mono font-bold text-[#0f172a] border border-[#0f172a]/40"
                     >
                       {tech}
                     </span>
@@ -251,15 +251,15 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
                 </div>
 
                 {/* Action Buttons: Studi Kasus, Live Demo, GitHub */}
-                <div className="pt-2 border-t-2 border-[#e2d3b3] flex flex-wrap items-center gap-2 sm:gap-3">
+                <div className="pt-2 border-t-2 border-[#e2d3b3] flex flex-wrap items-center gap-1.5 sm:gap-3">
                   <button
                     type="button"
                     onClick={() => handleSelect(activeProject)}
-                    className="flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white text-[11px] sm:text-xs font-mono font-black border-2 border-[#0f172a] shadow-[2.5px_2.5px_0px_#0f172a] cursor-pointer transition-all hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none"
+                    className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-xl bg-[#0284c7] hover:bg-[#0369a1] text-white text-[10.5px] sm:text-xs font-mono font-black border-2 border-[#0f172a] shadow-[2px_2px_0px_#0f172a] sm:shadow-[2.5px_2.5px_0px_#0f172a] cursor-pointer transition-all hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none"
                   >
-                    <BookOpen className="w-3.5 h-3.5" />
+                    <BookOpen className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     <span>Buka Studi Kasus</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <ArrowUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </button>
 
                   {activeProject.demoUrl && (
@@ -267,9 +267,9 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
                       href={activeProject.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-[#fde047] hover:bg-[#facc15] text-[#0f172a] text-[11px] sm:text-xs font-mono font-black border-2 border-[#0f172a] shadow-[2.5px_2.5px_0px_#0f172a] transition-all hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none"
+                      className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-xl bg-[#fde047] hover:bg-[#facc15] text-[#0f172a] text-[10.5px] sm:text-xs font-mono font-black border-2 border-[#0f172a] shadow-[2px_2px_0px_#0f172a] sm:shadow-[2.5px_2.5px_0px_#0f172a] transition-all hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none"
                     >
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       <span>Live Demo</span>
                     </a>
                   )}
@@ -279,9 +279,9 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenProject 
                       href={activeProject.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-[#fff9d4] hover:bg-[#faeed1] text-[#0f172a] text-[11px] sm:text-xs font-mono font-bold border-2 border-[#0f172a] shadow-[2px_2px_0px_#0f172a] transition-all hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none sm:ml-auto"
+                      className="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-xl bg-[#fff9d4] hover:bg-[#faeed1] text-[#0f172a] text-[10.5px] sm:text-xs font-mono font-bold border-2 border-[#0f172a] shadow-[1.5px_1.5px_0px_#0f172a] sm:shadow-[2px_2px_0px_#0f172a] transition-all hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none sm:ml-auto"
                     >
-                      <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                      <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" viewBox="0 0 24 24">
                         <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                       </svg>
                       <span>GitHub</span>
