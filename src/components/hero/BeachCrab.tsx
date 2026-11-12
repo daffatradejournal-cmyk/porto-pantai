@@ -18,7 +18,7 @@ const CRAB_DIALOGUES = [
   'Lapangan voli sudah siap buat turnamen pantai hari ini!',
   'Awas kena capit tangguhku!',
   'Pasir pantainya hangat dan empuk banget hari ini ~',
-  'Kode buatan Daffa rapi dan kokoh banget!'
+  'Deru ombak pantai hari ini menenangkan banget ~'
 ];
 
 const createShuffledDeck = (items: string[], lastItem?: string): string[] => {

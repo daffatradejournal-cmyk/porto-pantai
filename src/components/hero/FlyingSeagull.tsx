@@ -10,7 +10,7 @@ const SEAGULL_DIALOGUES = [
   'Wasit udara melaporkan: Pertandingan voli berjalan seru dan adil!',
   'Langit cerah banget buat terbang santai di atas pantai ~',
   'Arus angin hari ini enak banget buat meluncur!',
-  'Portofolio yang keren terlihat jelas dari atas awan sini!'
+  'Pemandangan garis pantai terlihat jelas dari atas awan sini!'
 ];
 
 const createShuffledDeck = (items: string[], lastItem?: string): string[] => {

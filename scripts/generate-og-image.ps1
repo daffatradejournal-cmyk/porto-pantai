@@ -132,7 +132,7 @@ $g.DrawString("ID // MUHAMMAD DAFFA", $fontMonoSmall, $brushGold, [float]($photo
 # 4. Right Section (Header, Badges & Projects)
 $rightX = 460.0
 
-# 4a. Tag Badge "01 // PORTOFOLIO RESMI"
+# 4a. Tag Badge "01 // PORTOFOLIO WEB"
 $tagPathShadow = New-Object System.Drawing.Drawing2D.GraphicsPath
 Add-RoundedRect $tagPathShadow ($rightX + 3) (50 + 3) 220 34 10
 $g.FillPath($brushBlack, $tagPathShadow)
@@ -143,7 +143,7 @@ $g.FillPath($brushYellow, $tagPath)
 $g.DrawPath($penBlack2, $tagPath)
 
 $fontTag = [System.Drawing.Font]::new("Consolas", [float]10.5, [System.Drawing.FontStyle]::Bold)
-$g.DrawString("01 // PORTOFOLIO RESMI", $fontTag, $brushBlack, [float]($rightX + 14), [float]58)
+$g.DrawString("01 // PORTOFOLIO WEB", $fontTag, $brushBlack, [float]($rightX + 14), [float]58)
 
 # 4b. Name Title
 $fontTitle = [System.Drawing.Font]::new("Segoe UI Black", [float]38, [System.Drawing.FontStyle]::Bold)
@@ -208,11 +208,11 @@ $brushWhite = New-Object System.Drawing.SolidBrush ([System.Drawing.ColorTransla
 $fontUrlLink = [System.Drawing.Font]::new("Segoe UI Black", [float]14.5, [System.Drawing.FontStyle]::Bold)
 $brushYellowText = New-Object System.Drawing.SolidBrush ([System.Drawing.ColorTranslator]::FromHtml("#fde047"))
 
-$g.DrawString("KUNJUNGI WEBSITE PORTOFOLIO RESMI:", $fontUrlTitle, $brushWhite, [float]($rightX + 18), [float]($urlBannerY + 8))
+$g.DrawString("KUNJUNGI WEBSITE PORTOFOLIO:", $fontUrlTitle, $brushWhite, [float]($rightX + 18), [float]($urlBannerY + 8))
 $g.DrawString("muhammaddaffa.my.id", $fontUrlLink, $brushYellowText, [float]($rightX + 18), [float]($urlBannerY + 25))
 
 $fontUrlBadge = [System.Drawing.Font]::new("Consolas", [float]9, [System.Drawing.FontStyle]::Bold)
-$g.DrawString("LIVE & VERIFIED", $fontUrlBadge, $brushWhite, [float]($rightX + $urlBannerW - 155), [float]($urlBannerY + 18))
+$g.DrawString("ONLINE & AKTIF", $fontUrlBadge, $brushWhite, [float]($rightX + $urlBannerW - 155), [float]($urlBannerY + 18))
 
 # Save output
 $outputPath = "public/og-image.png"

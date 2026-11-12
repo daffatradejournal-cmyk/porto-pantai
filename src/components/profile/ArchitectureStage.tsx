@@ -30,9 +30,9 @@ export const ArchitectureStage: React.FC<ArchitectureStageProps> = ({ isFlooded 
       id: 'devops',
       icon: <Terminal className="w-5 h-5 text-[#8c6239]" />,
       title: 'DevOps & Development Workflow',
-      subtitle: 'Git, GitHub CI/CD & Vercel Edge Hosting',
-      desc: 'Alur kerja pengembangan modern dengan version control Git, repositori kolaboratif GitHub, automated CI/CD pipeline, edge serverless hosting di Vercel, serta ekosistem command line Linux untuk otomasi alur kerja.',
-      tags: ['Git Branching', 'GitHub CI/CD', 'Vercel Deployment', 'Linux CLI', 'Bash Scripting', 'Clean Code']
+      subtitle: 'Git, GitHub & Auto-Deploy Vercel',
+      desc: 'Alur kerja pengembangan terstruktur dengan version control Git, repositori GitHub, auto-deploy hosting di Vercel, serta ekosistem command line Linux.',
+      tags: ['Git Branching', 'GitHub', 'Auto-Deploy Vercel', 'Linux CLI', 'Bash Scripting', 'Modular Code']
     }
   ];
 
@@ -154,7 +154,7 @@ export const ArchitectureStage: React.FC<ArchitectureStageProps> = ({ isFlooded 
           className="p-4 rounded-2xl bg-[#fffdf5] border border-[#e8dbc0] shadow-sm"
         >
           <span className="text-xs font-bold text-[#0f172a] block">
-            Clean Architecture
+            Arsitektur Modular
           </span>
           <p className="text-[11px] text-[#64748b] mt-1 leading-relaxed">
             Struktur kode terorganisir dengan pemisahan client, REST API, dan basis data secara modular.

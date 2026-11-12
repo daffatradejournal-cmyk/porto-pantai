@@ -85,13 +85,11 @@ if (fs.existsSync(photoPath)) {
   doc.circle(photoCenterX, photoCenterY, photoSize / 2).clip();
 
   // 2. Aspect-Ratio Preserving Scaling (daffa.jpg is 768 x 1024, ratio 3:4)
-  // Scaling width to photoSize (64) -> height becomes 64 * 1024 / 768 = 85.33
-  // Setting Y-offset to frame the face naturally without distortion
   const scaledWidth = photoSize;
   const scaledHeight = photoSize * (1024 / 768);
   const offsetY = (scaledHeight - photoSize) * 0.28;
 
-  // Render image proportionally (NO GEPENG!)
+  // Render image proportionally
   doc.image(photoPath, photoX, photoY - offsetY, {
     width: scaledWidth
   });
@@ -134,8 +132,8 @@ doc
 doc
   .font('Helvetica-Bold')
   .fillColor(COLOR_PRIMARY)
-  .text('daffatradejournal@gmail.com', {
-    link: 'mailto:daffatradejournal@gmail.com'
+  .text('muhammaddaffatech@hotmail.com', {
+    link: 'mailto:muhammaddaffatech@hotmail.com'
   });
 
 doc
@@ -169,7 +167,7 @@ doc.y = headerTopY + headerHeight + 6;
 // ==========================================
 renderSectionHeader('Ringkasan Profesional');
 doc.font('Helvetica').fontSize(8.8).fillColor(COLOR_TEXT).text(
-  'Mahasiswa S1 Sistem Informasi Universitas Islam Indragiri (UNISI) angkatan 2026 yang memiliki keahlian dalam rekayasa sistem informasi, perancangan aplikasi web modern (full-stack), pemodelan basis data relasional, dan analisis proses bisnis. Memiliki rekam jejak praktis merancang serta meluncurkan sistem berbasis web secara mandiri dari hulu ke hilir, meliputi platform e-commerce dan rantai pasok ekspor komoditas daerah (PasarTembilahan), sistem kasir digital POS offline-first (Kasir Pintar), serta platform pelacak nutrisi berbasis microservice AI (Hitung Sehat v2). Memiliki etos belajar otodidak yang kuat, disiplin clean code, serta orientasi tinggi pada pemecahan masalah nyata.',
+  'Mahasiswa S1 Sistem Informasi Universitas Islam Indragiri (UNISI) angkatan 2026 yang berfokus pada pengembangan aplikasi web modern, pemodelan basis data relasional, dan analisis proses bisnis. Mulai belajar pemrograman secara mandiri sejak 2025 dan telah membangun 3 prototipe aplikasi web: prototipe e-commerce komoditas daerah (PasarTembilahan), aplikasi kasir web local-first (Kasir Pintar), serta aplikasi pelacak nutrisi terintegrasi AI (Hitung Sehat v2). Memiliki komitmen pada struktur kode yang rapi, modular, dan berorientasi pada pemecahan masalah.',
   36,
   doc.y,
   { width: contentWidth, align: 'justify', lineGap: 2 }
@@ -182,24 +180,24 @@ renderSectionHeader('Keahlian Teknis & Tools');
 
 const skills = [
   {
-    category: 'Frontend & Web Client',
-    items: 'TypeScript, JavaScript (ES6+), React 19, Next.js (App Router), Vite, Tailwind CSS v4, HTML5/CSS3, Responsive UI Design.'
+    category: 'Digunakan di Proyek (Frontend)',
+    items: 'TypeScript, JavaScript (ES6+), React 19, Next.js (App Router), Vite, Tailwind CSS v4, HTML5/CSS3, Responsive UI.'
   },
   {
-    category: 'Backend & Microservices',
-    items: 'Node.js, Express.js, Python, FastAPI, RESTful API Architecture, JWT Authentication, Microservices Integration.'
+    category: 'Digunakan di Proyek (Backend & AI)',
+    items: 'Node.js, Express.js, Python, FastAPI, Firebase Auth, Keras AI Model, Google Gemini API, RESTful API.'
   },
   {
-    category: 'Basis Data & Caching',
-    items: 'PostgreSQL, Supabase (RLS), MySQL, Firebase Auth/Firestore, Prisma ORM, Redis (In-Memory Cache).'
+    category: 'Digunakan di Proyek (Database & Storage)',
+    items: 'PostgreSQL, Supabase (RLS), Prisma ORM, Redis (In-Memory Cache), LocalStorage.'
   },
   {
-    category: 'DevOps & Tools',
-    items: 'Git, GitHub CI/CD, Vercel Edge Deployment, Linux CLI / Bash Scripting, HTML5 Barcode Scanner, Printer Thermal 58mm/80mm.'
+    category: 'Alat Kerja & Deployment',
+    items: 'Git, GitHub, Auto-Deploy Vercel, Linux CLI / Bash Scripting, HTML5 Barcode Scanner.'
   },
   {
     category: 'Kompetensi Sistem Informasi',
-    items: 'Analisis Proses Bisnis, Pemodelan Data Relasional (ERD & Normalisasi), Offline-First Architecture, Clean Architecture.'
+    items: 'Analisis Proses Bisnis, Pemodelan Data Relasional (ERD & Normalisasi), Local-First Architecture, Modular Architecture.'
   }
 ];
 
@@ -252,31 +250,31 @@ function renderProjectBlock(title, year, role, stack, liveUrl, repoUrl, points) 
 
 // Project 1: PasarTembilahan (Page 1)
 renderProjectBlock(
-  'PasarTembilahan — Platform E-Commerce & Rantai Pasok Ekspor Komoditas UMKM',
+  'PasarTembilahan — Prototipe E-Commerce & Rantai Pasok Komoditas UMKM',
   '2026',
-  'Lead System Analyst & Full-Stack Developer',
-  'Next.js (App Router), React 19, TypeScript, Tailwind CSS, Midtrans API, MySQL, Vercel',
+  'Developer & System Analyst (proyek mandiri)',
+  'Next.js (App Router), React 19, TypeScript, Tailwind CSS, Mock Payment, Vercel',
   'https://pasartembilahan.vercel.app/',
   'https://github.com/daffatradejournal-cmyk/studikasusimpor',
   [
-    'Merancang sistem informasi komoditas daerah untuk mendigitalisasi tata kelola perdagangan kelapa butir, kopra putih asapan, VCO, kopi liberika gambut, dan UMKM Indragiri Hilir langsung ke pasar nasional serta importir mancanegara (Singapura, Malaysia, Tiongkok, MEA).',
-    'Membangun algoritma kalkulator logistik kargo multimodal adaptif jalur perairan sungai (sampan/pompong parit) hingga kargo peti kemas laut (FCL/LCL) terintegrasi Pelabuhan Samudera Kuala Enok & Parit 21.',
-    'Mengintegrasikan payment gateway Midtrans Snap otomatis (VA, QRIS, e-Wallet) dan sistem B2B RFQ (Request for Quotation) untuk kontrak kuotasi kontainer ekspor partai besar.'
+    'Merancang studi kasus sistem informasi komoditas daerah yang terinspirasi kebutuhan UMKM lokal Indragiri Hilir (kelapa butir, kopra putih, VCO, kopi liberika, pinang) dengan simulasi alur pasar nasional dan ekspor.',
+    'Membangun algoritma estimasi kalkulator logistik kargo perairan sungai (sampan/pompong parit) hingga kargo laut kontainer (FCL/LCL) terintegrasi Pelabuhan Samudera Kuala Enok & Parit 21.',
+    'Mengintegrasikan simulasi pembayaran mock Midtrans dan modul B2B RFQ (Request for Quotation) untuk simulasi kuotasi ekspor komoditas.'
   ]
 );
 
 // Project 2: Kasir Pintar (Page 1)
 renderProjectBlock(
-  'Kasir Pintar — Aplikasi Web POS & Smart Stock Management UMKM (Offline-First)',
+  'Kasir Pintar — Prototipe Aplikasi Web POS & Manajemen Stok UMKM (Local-First)',
   '2026',
-  'Lead Full-Stack Developer & UI/UX Designer',
-  'React 19, Vite, TypeScript, Tailwind CSS, html5-qrcode, LocalStorage Engine, Vercel',
+  'Developer & System Analyst (proyek mandiri)',
+  'React 19, Vite, TypeScript, Tailwind CSS, html5-qrcode, LocalStorage, Vercel',
   'https://kasirpintartbh.vercel.app/',
   'https://github.com/daffatradejournal-cmyk/kasirpintartbh',
   [
-    'Mengembangkan aplikasi kasir digital Point of Sale (POS) berarsitektur 100% Offline-First untuk memodernisasi operasional kios pasar dan warung sembako dari pembukuan manual menjadi sistem otomatis tanpa ketergantungan internet.',
-    'Mengintegrasikan pemindai barcode kamera otomatis secara real-time menggunakan pustaka html5-qrcode untuk pemrosesan transaksi kasir berkecepatan tinggi (< 1 detik per item).',
-    'Mendesain tata letak cetak struk native printer thermal portabel 58mm/80mm, integrasi pengiriman e-receipt resmi WhatsApp 1-klik, indikator visual stok anti-kehabisan, dan dashboard analitik laba bersih harian.'
+    'Mengembangkan prototipe aplikasi kasir digital Point of Sale (POS) berarsitektur local-first dengan penyimpanan data di browser local storage dan diuji menggunakan data contoh.',
+    'Mengintegrasikan pemindai barcode kamera menggunakan pustaka html5-qrcode untuk pemindaian barcode produk lewat kamera ponsel atau laptop.',
+    'Menyediakan format cetak struk via browser, tautan struk WhatsApp, indikator visual stok, dan pencatatan laba harian.'
   ]
 );
 
@@ -289,14 +287,14 @@ doc.addPage();
 renderProjectBlock(
   'Hitung Sehat v2 — Platform Web Tracking Nutrisi, Kalori & AI Food Scanner',
   '2026',
-  'Lead Full-Stack Web Developer',
+  'Developer & System Analyst (proyek mandiri)',
   'React 19, Vite, TypeScript, Node.js, Express, Python FastAPI, Supabase, Prisma ORM, Redis, Gemini AI',
   'https://hitungsehat.vercel.app/',
   'https://github.com/daffatradejournal-cmyk/hitung-sehat-v2',
   [
-    'Merancang platform web pelacak nutrisi cerdas bertenaga AI dengan arsitektur microservices yang memisahkan frontend (React & Vite), modul backend utama (Node.js & Express), dan layanan inferensi citra makanan (Python FastAPI & Google Gemini API).',
-    'Mengimplementasikan persistensi data relasional terstruktur dengan Supabase PostgreSQL dan migrasi skema type-safe Prisma ORM, dilengkapi in-memory caching Redis untuk memangkas latensi respon query rekomendasi gizi.',
-    'Menyediakan fitur kalkulasi target BMI & kebutuhan protein adaptif, meal tracking harian, wawasan nutrisi berkala, serta Dual Access Mode (Mode Tamu instan dan Pengguna Terautentikasi Firebase).'
+    'Merancang platform web pelacak nutrisi dengan arsitektur microservices terpisah: frontend (React & Vite), modul backend (Node.js & Express), dan layanan inferensi (Python FastAPI, model Keras buatan sendiri, dan Google Gemini API).',
+    'Mengimplementasikan persistensi data relasional dengan Supabase PostgreSQL dan migrasi skema type-safe Prisma ORM, dilengkapi in-memory caching Redis untuk respons query rekomendasi gizi.',
+    'Menyediakan fitur kalkulasi target BMI & kebutuhan protein adaptif, meal tracking harian, wawasan nutrisi berkala, serta Dual Access Mode (Mode Tamu dan Login Pengguna via Firebase Auth).'
   ]
 );
 
@@ -313,7 +311,7 @@ doc.font('Helvetica-Bold').fontSize(8.5).fillColor(COLOR_SECONDARY).text('  [202
 
 doc.font('Helvetica-Bold').fontSize(8.6).fillColor(COLOR_SECONDARY).text('S1 Sistem Informasi (Mahasiswa Baru Angkatan 2026)  |  Indragiri Hilir, Riau', 36, doc.y + 1);
 doc.font('Helvetica').fontSize(8.3).fillColor(COLOR_TEXT).text(
-  'Fokus Studi: Analisis Proses Bisnis, Rekayasa Sistem Informasi Enterprise, Pemodelan Basis Data Relasional, Rekayasa Perangkat Lunak, dan Perancangan Arsitektur Web Skalabel.',
+  'Mahasiswa baru angkatan 2026. Fokus pembelajaran: Analisis Proses Bisnis, Pemodelan Basis Data Relasional, dan Rekayasa Perangkat Lunak.',
   { width: contentWidth, lineGap: 1.8 }
 );
 
@@ -331,7 +329,7 @@ const milestones = [
   {
     period: 'Pertengahan 2026',
     title: 'Inisiatif Solusi Digital UMKM & Rantai Pasok Daerah (PasarTembilahan & Kasir Pintar)',
-    desc: 'Merancang dan meluncurkan platform e-commerce ekspor komoditas serta sistem POS web offline-first yang siap operasional.'
+    desc: 'Merancang prototipe platform e-commerce komoditas serta sistem POS web local-first yang diuji dengan data contoh.'
   },
   {
     period: 'Awal 2026',
@@ -358,34 +356,17 @@ milestones.forEach((m) => {
   doc.moveDown(0.15);
 });
 
-// Verification Box on Page 2
+// Verification Note on Page 2
 doc.moveDown(0.8);
-const boxY = doc.y;
-const boxHeight = 44;
-
-doc
-  .roundedRect(36, boxY, contentWidth, boxHeight, 6)
-  .fillColor(COLOR_LIGHT_BG)
-  .strokeColor(COLOR_BORDER)
-  .lineWidth(0.7)
-  .fillAndStroke();
-
-doc
-  .font('Helvetica-Bold')
-  .fontSize(8)
-  .fillColor(COLOR_PRIMARY)
-  .text('INTEGRITAS DATA & VERIFIKASI PROYEK:', 46, boxY + 8);
-
 doc
   .font('Helvetica')
-  .fontSize(7.5)
+  .fontSize(8.2)
   .fillColor(COLOR_MUTED)
-  .text(
-    'Seluruh informasi, arsitektur sistem, dan proyek yang tercantum di atas adalah karya nyata yang dapat diverifikasi secara publik melalui repositori GitHub resmi (github.com/daffatradejournal-cmyk) serta tautan live deployment di Vercel.',
-    46,
-    doc.y + 2,
-    { width: contentWidth - 20, lineGap: 1.5 }
-  );
+  .text('Proyek dan kode tersedia di GitHub: github.com/daffatradejournal-cmyk', 36, doc.y, {
+    link: 'https://github.com/daffatradejournal-cmyk',
+    align: 'center',
+    width: contentWidth
+  });
 
 // ==========================================
 // 7. FOOTER PAGE NUMBERS (ATS COMPLIANT)

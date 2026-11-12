@@ -98,11 +98,11 @@ const layerDetailsMap: Record<
     title: 'Backend & Server Engine',
     subtitle: 'RESTful API & Microservices',
     description:
-      'Pengembangan arsitektur server dan API menggunakan Node.js, Express, dan Python FastAPI untuk pemrosesan data, integrasi AI, dan layanan backend scalable.',
+      'Pengembangan arsitektur server dan API menggunakan Node.js, Express, dan Python FastAPI untuk pemrosesan data, integrasi AI, dan layanan backend modular.',
     guarantees: [
-      'REST API terstruktur & scalable',
+      'REST API terstruktur & modular',
       'Integrasi model AI & pipeline data',
-      'Otentikasi aman & API tokens'
+      'Integrasi otentikasi pengguna Firebase Auth'
     ],
     role: 'Backend & AI Engineering'
   },
@@ -120,11 +120,11 @@ const layerDetailsMap: Record<
   },
   devops: {
     title: 'DevOps & Lingkungan Kerja',
-    subtitle: 'Cloud Deployment & CI/CD',
+    subtitle: 'Cloud Deployment & Hosting',
     description:
-      'Alur kerja pengembangan modern dengan Git, kolaborasi kode di GitHub, deployment cloud edge di Vercel, serta ekosistem terminal Linux.',
+      'Alur kerja pengembangan terstruktur dengan Git, kolaborasi kode di GitHub, deployment hosting di Vercel, serta ekosistem terminal Linux.',
     guarantees: [
-      'Continuous deployment via Vercel',
+      'Auto-deploy via Vercel',
       'Branching & version control Git/GitHub',
       'Automasi terminal & workflow Linux'
     ],

@@ -364,7 +364,7 @@ export const ContactSection: React.FC = () => {
               <span className="hidden sm:inline text-[#64748b]">•</span>
             </div>
             <span className="text-[10px] sm:text-xs text-[#64748b] sm:text-[#0f172a] font-normal sm:font-bold">
-              Full-Stack &amp; Mobile Developer
+              Web Developer
             </span>
           </div>
 

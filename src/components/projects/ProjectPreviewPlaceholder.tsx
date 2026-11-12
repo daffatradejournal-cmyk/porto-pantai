@@ -27,13 +27,13 @@ export const ProjectPreviewPlaceholder: React.FC<ProjectPreviewPlaceholderProps>
           <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#fde047] border border-[#0f172a] shrink-0" />
           <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#4ade80] border border-[#0f172a] shrink-0" />
           <div className="ml-1 sm:ml-2 px-2 sm:px-2.5 py-0.5 rounded-md bg-[#fffdf5] border border-[#0f172a]/50 text-[9.5px] sm:text-[11px] font-mono font-bold text-[#0f172a] truncate max-w-[120px] min-[400px]:max-w-[160px] sm:max-w-[240px]">
-            {isMobile ? `app://${project.id}.flutter` : (project.demoUrl ? project.demoUrl.replace(/^https?:\/\//, '').replace(/\/$/, '') : `https://${project.id}.app`)}
+            {isMobile ? `app://${project.id}.app` : (project.demoUrl ? project.demoUrl.replace(/^https?:\/\//, '').replace(/\/$/, '') : `https://${project.id}.app`)}
           </div>
         </div>
 
         <div className="flex items-center gap-1 sm:gap-1.5 text-[9px] sm:text-[10px] font-mono font-black px-1.5 py-0.5 sm:px-2.5 sm:py-0.5 rounded-md bg-[#fde047] text-[#0f172a] border border-[#0f172a] shrink-0 whitespace-nowrap">
           {isMobile ? <Smartphone className="w-2.5 h-2.5 sm:w-3 sm:h-3 shrink-0" /> : <Globe className="w-2.5 h-2.5 sm:w-3 sm:h-3 shrink-0" />}
-          <span>{isMobile ? 'FLUTTER NATIVE' : 'WEB PLATFORM'}</span>
+          <span>{isMobile ? 'MOBILE APP' : 'WEB PLATFORM'}</span>
         </div>
       </div>
 

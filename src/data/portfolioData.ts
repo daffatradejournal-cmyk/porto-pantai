@@ -4,9 +4,9 @@ export const profileData: ProfileData = {
   name: 'Muhammad Daffa',
   tagline: 'S1 Sistem Informasi • Web & System Developer',
   education: 'S1 Sistem Informasi • Universitas Islam Indragiri',
-  status: 'Available for Engineering Roles & Projects',
-  bio: 'Mahasiswa S1 Sistem Informasi yang berfokus pada pengembangan sistem informasi, perancangan aplikasi web modern, analisis proses bisnis, dan manajemen basis data dengan arsitektur yang andal dan clean code.',
-  experienceStart: 'Active Developer',
+  status: 'Open to internship, freelance & junior roles',
+  bio: 'Mahasiswa S1 Sistem Informasi yang berfokus pada pengembangan sistem informasi, perancangan aplikasi web modern, analisis proses bisnis, dan manajemen basis data dengan arsitektur yang terstruktur dan modular.',
+  experienceStart: 'Belajar coding sejak 2025',
   avatarUrl: '/daffa.jpg',
   interests: [
     'Sistem Informasi',
@@ -16,7 +16,7 @@ export const profileData: ProfileData = {
     'System Design'
   ],
   contact: {
-    email: 'daffatradejournal@gmail.com',
+    email: 'muhammaddaffatech@hotmail.com',
     github: 'https://github.com/daffatradejournal-cmyk',
     linkedin: 'https://www.linkedin.com/in/muhammad-daffa-898515404',
     location: 'Indragiri Hilir, Riau, Indonesia'
@@ -52,7 +52,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'nextdotjs',
     color: '#0f172a',
     roleTag: 'App Framework',
-    usageContext: 'Server-side rendering, routing terstruktur App Router, dan SEO optimization komoditas',
+    usageContext: 'Server-side rendering, routing terstruktur App Router, dan metadata SEO komoditas',
     projectLinks: ['pasartembilahan']
   },
   {
@@ -62,7 +62,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'vite',
     color: '#646CFF',
     roleTag: 'Modern Bundler',
-    usageContext: 'Peralatan build super cepat dan HMR instan untuk web app kasir POS dan tracking nutrisi',
+    usageContext: 'Peralatan build modern dan cepat untuk web app kasir POS dan tracking nutrisi',
     projectLinks: ['kasirpintar', 'hitungsehat']
   },
   {
@@ -94,7 +94,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'nodejs',
     color: '#22c55e',
     roleTag: 'Server Runtime',
-    usageContext: 'Runtime asynchronous I/O berkecepatan tinggi untuk orkestrasi microservice & backend core',
+    usageContext: 'Runtime asynchronous I/O untuk orkestrasi microservice & backend modular',
     projectLinks: ['hitungsehat']
   },
   {
@@ -104,7 +104,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'express',
     color: '#0f172a',
     roleTag: 'REST API Engine',
-    usageContext: 'Routing API endpoint, middleware validasi request, dan kontrol akses token otentikasi',
+    usageContext: 'Routing API endpoint, middleware validasi request, dan integrasi otentikasi Firebase Auth',
     projectLinks: ['hitungsehat']
   },
   {
@@ -136,7 +136,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'postgresql',
     color: '#2563eb',
     roleTag: 'Relational Core',
-    usageContext: 'Pemodelan data relasional, integritas referensial rekam nutrisi, dan kueri terindeks',
+    usageContext: 'Pemodelan data relasional dan relasi tabel rekam nutrisi',
     projectLinks: ['hitungsehat']
   },
   {
@@ -155,8 +155,8 @@ export const techStackData: TechItem[] = [
     layer: 'database',
     iconKey: 'mysql',
     color: '#0284c7',
-    roleTag: 'Transactional DB',
-    usageContext: 'Skema database relasional e-commerce komoditas, transaksi ACID, dan indexing inventaris',
+    roleTag: 'Relational Design',
+    usageContext: 'Perancangan skema relasional e-commerce komoditas dan pemodelan inventaris',
     projectLinks: ['pasartembilahan']
   },
   {
@@ -165,8 +165,8 @@ export const techStackData: TechItem[] = [
     layer: 'database',
     iconKey: 'firebase',
     color: '#f59e0b',
-    roleTag: 'Auth & Realtime',
-    usageContext: 'Layanan otentikasi pengguna aman dan sinkronisasi data cloud real-time',
+    roleTag: 'Auth Service',
+    usageContext: 'Layanan otentikasi pengguna berbasis Firebase Auth',
     projectLinks: ['hitungsehat']
   },
   {
@@ -176,7 +176,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'prisma',
     color: '#6366f1',
     roleTag: 'Type-Safe ORM',
-    usageContext: 'Migrasi skema database deklaratif dan query builder type-safe bebas runtime errors',
+    usageContext: 'Migrasi skema database deklaratif dan query builder type-safe',
     projectLinks: ['hitungsehat']
   },
   {
@@ -186,7 +186,7 @@ export const techStackData: TechItem[] = [
     iconKey: 'redis',
     color: '#DC382D',
     roleTag: 'In-Memory Cache',
-    usageContext: 'In-memory caching untuk respons rekomendasi gizi dan session guna memangkas latensi database',
+    usageContext: 'In-memory caching untuk respons rekomendasi gizi dan session data',
     projectLinks: ['hitungsehat']
   },
 
@@ -197,8 +197,8 @@ export const techStackData: TechItem[] = [
     layer: 'devops',
     iconKey: 'vercel',
     color: '#0f172a',
-    roleTag: 'Edge Deployment',
-    usageContext: 'Automated CI/CD deployment, edge serverless hosting, dan global CDN delivery',
+    roleTag: 'Web Hosting',
+    usageContext: 'Auto-deploy Vercel untuk hosting aplikasi web',
     projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
   {
@@ -217,8 +217,8 @@ export const techStackData: TechItem[] = [
     layer: 'devops',
     iconKey: 'github',
     color: '#181717',
-    roleTag: 'Repo & Collaboration',
-    usageContext: 'Hosting repositori Git, kolaborasi kode, manajemen issue, dan integrasi webhook CI/CD',
+    roleTag: 'Repo Hosting',
+    usageContext: 'Hosting repositori Git, kolaborasi kode, dan pelacakan commit',
     projectLinks: ['pasartembilahan', 'kasirpintar', 'hitungsehat']
   },
   {
@@ -237,36 +237,36 @@ export const projectsData: Project[] = [
   {
     id: 'pasartembilahan',
     title: 'PasarTembilahan',
-    subtitle: 'Platform E-Commerce & Rantai Pasok Ekspor Komoditas UMKM Indragiri Hilir',
+    subtitle: 'Prototipe E-Commerce & Rantai Pasok Komoditas UMKM Indragiri Hilir',
     category: 'fullstack',
-    summary: 'Platform e-commerce & rantai pasok komoditas daerah yang menghubungkan sentra petani kelapa, perkebunan gambut, dan UMKM Indragiri Hilir langsung ke pasar nasional dan ekspor global.',
-    description: 'Inisiatif rancang bangun sistem informasi & platform e-commerce komoditas yang dikembangkan secara mandiri untuk memodernisasi tata kelola perdagangan komoditas unggulan Kabupaten Indragiri Hilir (Negeri Hamparan Kelapa Dunia). Menghubungkan langsung petani kelapa butir, sentra kopra putih asapan, produsen VCO, kopi liberika gambut, hingga pengrajin lokal ke pasar konsumen nasional serta importir mancanegara (Singapura, Malaysia, Tiongkok, MEA) melalui gerbang logistik Pelabuhan Samudera Kuala Enok dan Parit 21.',
+    summary: 'Prototipe platform e-commerce & simulasi rantai pasok komoditas daerah yang terinspirasi kebutuhan UMKM lokal Indragiri Hilir.',
+    description: 'Studi kasus sistem informasi & platform e-commerce komoditas yang dikembangkan secara mandiri, terinspirasi kebutuhan UMKM komoditas unggulan Kabupaten Indragiri Hilir. Meliputi simulasi alur komoditas kelapa butir, kopra, dan produk turunan ke estimasi pasar konsumen nasional serta simulasi kuotasi ekspor melalui Pelabuhan Samudera Kuala Enok dan Parit 21.',
     architecture: [
-      'Frontend modern performa tinggi berbasis Next.js App Router, React 19, TypeScript, dan Tailwind CSS',
+      'Frontend web responsif berbasis Next.js App Router, React 19, TypeScript, dan Tailwind CSS',
       'Kalkulator kargo multimodal perairan sungai (sampan/pompong parit) hingga kargo laut kontainer (FCL/LCL)',
-      'Hub Perdagangan Ekspor B2B & RFQ (Request for Quotation) untuk kontrak kuotasi kontainer skala internasional',
-      'Integrasi payment gateway Midtrans Snap otomatis (Virtual Account, QRIS, & e-Wallet terverifikasi)',
-      'Seller Centre Petani & UMKM untuk kontrol inventaris komoditas, stok real-time, dan manajemen pemrosesan pesanan',
-      'Desain antarmuka responsif mengadopsi Shopee Design System yang familiar dan mudah digunakan oleh masyarakat lokal'
+      'Simulasi fitur kuotasi ekspor B2B & RFQ (Request for Quotation)',
+      'Simulasi alur pembayaran (mock checkout Midtrans)',
+      'Seller Centre UMKM untuk simulasi inventaris komoditas dan pemrosesan pesanan',
+      'Desain antarmuka responsif mengadopsi Shopee Design System yang familiar'
     ],
     stack: [
       'Next.js',
       'React',
       'TypeScript',
       'Tailwind CSS',
-      'Midtrans Payment',
+      'Mock Payment',
       'River & Sea Cargo',
       'B2B RFQ Engine',
-      'Vercel Cloud'
+      'Vercel'
     ],
     highlights: [
-      'Inisiatif Rancang Bangun Sistem Informasi E-Commerce Komoditas Daerah',
+      'Studi Kasus Rancang Bangun Sistem Informasi E-Commerce Komoditas Daerah',
       '11+ Komoditas Unggulan Inhil (Kelapa Butir, Kopra Putih Asapan, VCO, Kopi Liberika, Pinang Betara, Amplang Udang)',
       'Kalkulator Kargo Sungai-Laut Terintegrasi Pelabuhan Samudera Kuala Enok & Parit 21',
-      'Hub Ekspor Global Menjangkau 8 Negara Tujuan (Singapura, Malaysia, Tiongkok, MEA)'
+      'Simulasi 8 Negara Tujuan Ekspor (Singapura, Malaysia, Tiongkok, MEA)'
     ],
-    challenges: 'Merancang algoritma kalkulator logistik perairan sungai pasang-surut yang akurat khas geografis Indragiri Hilir serta mengintegrasikan alur transaksi ritel konsumen dan kuotasi ekspor partai besar (B2B) dalam satu ekosistem web yang efisien.',
-    role: 'Lead System Analyst & Full-Stack Developer',
+    challenges: 'Merancang algoritma estimasi kalkulator logistik perairan sungai pasang-surut khas geografis Indragiri Hilir serta mengintegrasikan alur transaksi ritel dan kuotasi ekspor dalam satu antarmuka web.',
+    role: 'Developer & System Analyst (proyek mandiri)',
     demoUrl: 'https://pasartembilahan.vercel.app/',
     githubUrl: 'https://github.com/daffatradejournal-cmyk/studikasusimpor',
     isPrivateRepo: false,
@@ -274,25 +274,25 @@ export const projectsData: Project[] = [
     imageFit: 'cover',
     featured: true,
     metrics: [
-      { label: 'Cakupan Pasar', value: 'Lokal, Nasional & Ekspor' },
-      { label: 'Arsitektur Sistem', value: 'Next.js & Midtrans API' },
+      { label: 'Cakupan Pasar', value: 'Simulasi Lokal & Ekspor' },
+      { label: 'Arsitektur Sistem', value: 'Next.js & Mock Payment' },
       { label: 'Jalur Logistik', value: 'Sungai & Kuala Enok' }
     ]
   },
   {
     id: 'kasirpintar',
     title: 'Kasir Pintar',
-    subtitle: 'Aplikasi Web POS & Smart Stock Management UMKM (Offline-First)',
+    subtitle: 'Prototipe Aplikasi Web POS & Manajemen Stok UMKM (Local-First)',
     category: 'fullstack',
-    summary: 'Aplikasi kasir pintar (Point of Sale) & manajemen inventaris cerdas berbasis web (offline-first) dengan pemindai barcode kamera, cetak struk thermal 58mm/80mm, e-receipt WhatsApp, dan rekap finansial real-time.',
-    description: 'Inisiatif rancang bangun aplikasi kasir digital (Point of Sale) & manajemen inventaris cerdas berbasis web yang dirancang khusus untuk memodernisasi kios pasar, warung sembako, dan ritel UMKM dari pembukuan manual menjadi sistem otomatis berkecepatan tinggi tanpa ketergantungan koneksi internet (100% Offline-First). Dilengkapi scan barcode kamera ponsel/laptop, kontrol stok visual anti-kehabisan barang, cetak struk thermal portabel 58mm/80mm, serta kalkulasi margin laba bersih otomatis.',
+    summary: 'Prototipe aplikasi web POS & inventaris (local-first) diuji dengan data contoh, dilengkapi scan barcode kamera, cetak struk thermal via browser, kirim struk lewat tautan WhatsApp, dan rekap finansial.',
+    description: 'Rancang bangun prototipe aplikasi kasir digital (Point of Sale) & manajemen inventaris berbasis web untuk membantu pencatatan kios atau ritel UMKM dengan penyimpanan lokal (local-first). Dilengkapi scan barcode kamera ponsel/laptop, kontrol stok visual, cetak struk via browser, serta kalkulasi margin laba bersih otomatis.',
     architecture: [
-      'Frontend web responsif performa tinggi dibangun dengan React 19, TypeScript, Tailwind CSS, dan Vite bundling',
-      'Arsitektur Offline-First Local Storage Engine dengan persistensi data lokal tanpa latensi dan tanpa ketergantungan koneksi internet',
-      'Integrasi kamera pemindai barcode otomatis (live scan) menggunakan library html5-qrcode untuk transaksi kasir kilat',
-      'Format cetak struk kasir native printer thermal portabel 58mm/80mm serta pengiriman e-receipt resmi WhatsApp 1-klik',
-      'Manajemen inventaris dinamis dengan indikator visual stok (habis/menipis/aman) dan tombol cepat kulakan/tambah stok',
-      'Dashboard analitik finansial real-time: rekap omzet kotor, laba bersih harian, dan fitur Void Nota dengan pengembalian stok otomatis'
+      'Frontend web responsif dibangun dengan React 19, TypeScript, Tailwind CSS, dan Vite',
+      'Arsitektur Local-First Engine dengan persistensi data di browser local storage',
+      'Integrasi kamera pemindai barcode menggunakan library html5-qrcode untuk pemindaian produk via kamera',
+      'Format cetak struk printer thermal via browser serta kirim struk lewat tautan WhatsApp',
+      'Manajemen inventaris dinamis dengan indikator visual stok (habis/menipis/aman) dan tombol tambah stok',
+      'Dashboard analitik finansial: rekap omzet kotor, laba bersih harian, dan fitur Void Nota dengan pengembalian stok otomatis'
     ],
     stack: [
       'React',
@@ -300,19 +300,19 @@ export const projectsData: Project[] = [
       'Tailwind CSS',
       'Vite',
       'Barcode Scanner',
-      'Thermal Print 58mm',
-      'Offline-First',
-      'Vercel Cloud'
+      'Thermal Print Format',
+      'Local-First',
+      'Vercel'
     ],
     highlights: [
-      'Inisiatif Rancang Bangun Sistem Kasir Digital & Manajemen Stok UMKM',
-      '100% Offline-First (Transaksi Super Cepat & Data Tersimpan Lokal)',
-      'Integrasi Scan Barcode Kamera & Pilihan Pembayaran Tunai / QRIS',
-      'Cetak Struk Printer Thermal 58mm/80mm & E-Receipt WhatsApp Otomatis',
+      'Prototipe Sistem Kasir Digital & Manajemen Stok UMKM',
+      'Penyimpanan Lokal (Local-First dengan Data Tersimpan di LocalStorage)',
+      'Integrasi Scan Barcode Kamera & Opsi Pembayaran Tunai / QRIS',
+      'Cetak Struk Format Thermal & Kirim Struk Lewat Tautan WhatsApp',
       'Analitik Keuangan Harian (Omzet, Laba Bersih, & Void Rollback)'
     ],
-    challenges: 'Merancang arsitektur POS yang sepenuhnya independen dari jaringan internet (offline-first) dengan integritas data local storage yang andal, mekanisme rollback stok otomatis saat transaksi dibatalkan (void), integrasi kamera barcode scanner lintas platform, serta layout cetak thermal printer 58mm yang rapi dan presisi.',
-    role: 'Lead Full-Stack Developer & UI/UX Designer',
+    challenges: 'Merancang alur POS yang beroperasi pada browser dengan keandalan penyimpanan local storage, mekanisme rollback stok saat transaksi dibatalkan (void), integrasi kamera barcode scanner, serta tata letak cetak thermal printer 58mm.',
+    role: 'Developer & System Analyst (proyek mandiri)',
     demoUrl: 'https://kasirpintartbh.vercel.app/',
     githubUrl: 'https://github.com/daffatradejournal-cmyk/kasirpintartbh',
     isPrivateRepo: false,
@@ -320,9 +320,9 @@ export const projectsData: Project[] = [
     imageFit: 'cover',
     featured: true,
     metrics: [
-      { label: 'Operasional', value: '100% Offline-First' },
-      { label: 'Format Output', value: 'Thermal & WhatsApp' },
-      { label: 'Kecepatan POS', value: 'Instan (< 1 Detik)' }
+      { label: 'Operasional', value: 'Local-First' },
+      { label: 'Format Output', value: 'Thermal & WA Link' },
+      { label: 'Fitur Utama', value: 'Scan Barcode Kamera' }
     ]
   },
   {
@@ -331,12 +331,12 @@ export const projectsData: Project[] = [
     subtitle: 'Platform Web Tracking Nutrisi, Kalori & AI Food Scanner (Hitung Sehat v2)',
     category: 'fullstack',
     summary: 'Aplikasi pencatat kalori dan nutrisi pintar bertenaga AI dengan scan foto makanan, kalkulasi target BMI & protein harian, log makanan, serta rekomendasi kesehatan personal.',
-    description: 'Inisiatif rancang bangun platform web pelacak nutrisi & kesehatan cerdas bertenaga AI (Hitung Sehat v2) yang dirancang untuk membantu pengguna memantau pola makan harian secara mudah, akurat, dan personal. Dilengkapi AI Food Scanner berbasis Computer Vision untuk mendeteksi nilai kalori dan makronutrien langsung dari foto piring makanan, kalkulasi target BMI & kebutuhan protein adaptif, meal logging harian terintegrasi, serta wawasan nutrisi mingguan.',
+    description: 'Inisiatif rancang bangun platform web pelacak nutrisi & kesehatan bertenaga AI (Hitung Sehat v2) yang dirancang untuk membantu pengguna memantau pola makan harian secara mudah dan personal. Dilengkapi AI Food Scanner untuk mendeteksi nilai kalori dan makronutrien dari foto piring makanan, kalkulasi target BMI & kebutuhan protein adaptif, meal logging harian terintegrasi, serta wawasan nutrisi mingguan.',
     architecture: [
       'Client web modern responsif menggunakan React 19, Vite, dan Tailwind CSS',
-      'Backend modular berbasis Node.js & Express terintegrasi Supabase PostgreSQL serta Prisma ORM',
-      'Sistem otentikasi aman menggunakan Firebase Auth',
-      'Microservice AI berbasis Python FastAPI terintegrasi model TensorFlow/Keras dan Google Gemini API',
+      'Backend modular berbasis Node.js & Express terintegrasi Supabase PostgreSQL serta Prisma ORM type-safe',
+      'Sistem otentikasi pengguna menggunakan Firebase Auth',
+      'Microservice AI berbasis Python FastAPI terintegrasi model Keras buatan sendiri dan Google Gemini API',
       'Mesin rekomendasi harian adaptif berdasarkan target kalori dan kalkulasi BMI pengguna',
       'Dual Access Mode: Mode Tamu (Guest Mode) untuk analisis cepat dan Mode Pengguna Terautentikasi'
     ],
@@ -348,17 +348,17 @@ export const projectsData: Project[] = [
       'Supabase',
       'Prisma ORM',
       'Firebase Auth',
-      'TensorFlow',
+      'Keras AI Model',
       'Python'
     ],
     highlights: [
-      'Inisiatif Rancang Bangun Platform Nutrisi & Kesehatan Berbasis AI (Hitung Sehat v2)',
-      'AI Food Scanner Otomatis dengan Computer Vision & Google Gemini API',
+      'Rancang Bangun Platform Nutrisi & Kesehatan Berbasis AI (Hitung Sehat v2)',
+      'AI Food Scanner Otomatis dengan Model Keras & Google Gemini API',
       'Kalkulator Target BMI, Kebutuhan Kalori & Estimasi Protein Personal',
       'Daily Meal Tracking, Weekly Insights & Akses Mode Tamu Cepat'
     ],
-    challenges: 'Merancang integrasi antar-layanan microservice (frontend React, backend Express, dan service AI Python FastAPI) agar mampu memproses analisis citra makanan secara akurat dengan latensi rendah, serta memastikan sinkronisasi data log nutrisi harian tetap konsisten.',
-    role: 'Lead Web Full-Stack Developer',
+    challenges: 'Merancang integrasi antar-layanan (frontend React, backend Express, dan service AI Python FastAPI) agar mampu memproses analisis citra makanan dengan waktu respons yang stabil, serta memastikan data log nutrisi harian tetap konsisten.',
+    role: 'Developer & System Analyst (proyek mandiri)',
     githubUrl: 'https://github.com/daffatradejournal-cmyk/hitung-sehat-v2',
     demoUrl: 'https://hitungsehat.vercel.app',
     imageUrl: '/projects/hitungsehat.png',
@@ -385,25 +385,25 @@ export const experienceData: ExperienceItem[] = [
     highlights: [
       'Rekayasa Sistem Informasi & Analisis Proses Bisnis',
       'Perancangan Skema Basis Data Relasional & Manajemen SQL',
-      'Penerapan Prinsip Clean Architecture & Software Engineering'
+      'Penerapan Prinsip Arsitektur Perangkat Lunak Terstruktur & Modular'
     ],
     tech: ['Sistem Informasi', 'System Analysis', 'Database Design', 'SQL', 'Software Engineering', 'System Architecture']
   },
   {
     id: 'exp-flagship-projects',
     period: 'Pertengahan 2026',
-    role: 'Lead Web Developer & System Designer',
+    role: 'Developer & System Analyst (proyek mandiri)',
     organization: 'Inisiatif Solusi Digital UMKM & Rantai Pasok Daerah',
     badge: 'Proyek Mandiri Flagship',
     category: 'project',
     description:
-      'Merancang dan membangun dua solusi sistem informasi berbasis web untuk kebutuhan nyata masyarakat lokal: PasarTembilahan (platform e-commerce & rantai pasok ekspor komoditas kelapa Inhil) dan Kasir Pintar (aplikasi POS web 100% offline-first dengan integrasi scan barcode kamera serta printer thermal 58mm/80mm).',
+      'Merancang dan membangun dua solusi sistem informasi berbasis web terinspirasi kebutuhan UMKM lokal: PasarTembilahan (prototipe platform e-commerce & simulasi rantai pasok komoditas kelapa Inhil) dan Kasir Pintar (aplikasi web POS local-first dengan integrasi scan barcode kamera serta cetak struk).',
     highlights: [
-      'Digitalisasi E-Commerce Komoditas Daerah & Jalur Ekspor Kuala Enok',
-      'Sistem Kasir Offline-First Tanpa Ketergantungan Internet',
-      'Integrasi Hardware Printer Thermal & Kamera Barcode Scanner'
+      'Simulasi E-Commerce Komoditas Daerah & Jalur Ekspor Kuala Enok',
+      'Sistem Kasir Local-First dengan Penyimpanan di LocalStorage',
+      'Integrasi Cetak Struk Browser & Kamera Barcode Scanner'
     ],
-    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'POS Offline-First', 'Midtrans API', 'RESTful API']
+    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'POS Local-First', 'Mock Payment', 'RESTful API']
   },
   {
     id: 'exp-fullstack-ai',
@@ -411,13 +411,13 @@ export const experienceData: ExperienceItem[] = [
     role: 'Full-Stack Web Explorer',
     organization: 'Eksplorasi Fullstack Web & Microservice AI',
     badge: 'Eksplorasi Teknologi',
-    category: 'bootcamp',
+    category: 'project',
     description:
-      'Mendalami arsitektur aplikasi web modern yang lebih kompleks melalui pengembangan proyek Hitung Sehat v2. Mengimplementasikan pemisahan frontend (React & Vite), backend modular (Node.js & Express, Supabase PostgreSQL, Prisma ORM), serta microservice inferensi citra makanan berbasis Python FastAPI dan Google Gemini AI.',
+      'Mendalami arsitektur aplikasi web modern melalui pengembangan proyek Hitung Sehat v2. Mengimplementasikan pemisahan frontend (React & Vite), backend modular (Node.js & Express, Supabase PostgreSQL, Prisma ORM), serta microservice inferensi citra makanan berbasis Python FastAPI dan Google Gemini AI.',
     highlights: [
       'Arsitektur Terpisah Client, Backend Express, dan Service AI FastAPI',
       'Implementasi Type-Safe Database Migration Menggunakan Prisma ORM',
-      'Pemanfaatan In-Memory Caching Redis untuk Mengurangi Latensi API'
+      'Pemanfaatan In-Memory Caching Redis untuk Menyimpan Hasil Rekomendasi Gizi'
     ],
     tech: ['React', 'Vite', 'Node.js', 'Express.js', 'Python', 'FastAPI', 'Supabase', 'Prisma ORM', 'Redis']
   },
@@ -431,8 +431,8 @@ export const experienceData: ExperienceItem[] = [
     description:
       'Memulai langkah pertama di dunia pemrograman secara otodidak pada tahun 2025. Mengasah logika pemrograman, algoritma dasar, fundamental web (HTML5, semantic markup, modern CSS, JavaScript ES6+), pengenalan lingkungan Unix/Linux terminal, serta manajemen versi kode menggunakan Git dan GitHub.',
     highlights: [
-      'Pemahaman Kuat Logika Pemrograman & Algoritma Dasar',
-      'Penguasaan Fundamental Web Modern (HTML5, CSS3, JavaScript)',
+      'Logika Pemrograman & Algoritma Dasar',
+      'Fundamental Web Modern (HTML5, CSS3, JavaScript)',
       'Manajemen Repositori & Version Control Berbasis Git & GitHub',
       'Navigasi CLI Linux & Otomasi Alur Kerja Pengembangan'
     ],

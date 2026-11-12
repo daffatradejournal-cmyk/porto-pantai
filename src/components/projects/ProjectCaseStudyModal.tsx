@@ -75,7 +75,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
             <div>
               <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
                 <span className="text-[10px] sm:text-xs font-mono font-black uppercase tracking-wider text-[#0f172a] bg-[#fde047] px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg border-2 border-[#0f172a]">
-                  {project.category === 'fullstack' ? 'FULL-STACK WEB ARCHITECTURE' : 'MOBILE FLUTTER SYSTEM'}
+                  {project.category === 'fullstack' ? 'FULL-STACK WEB ARCHITECTURE' : 'WEB APPLICATION SYSTEM'}
                 </span>
                 <span className="text-[10px] sm:text-xs font-mono font-bold text-[#64748b]">
                   // {project.role}

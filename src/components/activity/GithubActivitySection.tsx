@@ -67,7 +67,7 @@ export const GithubActivitySection: React.FC = () => {
           </div>
 
           <p className="max-w-md text-xs sm:text-sm font-medium text-[#475569] leading-relaxed">
-            Rekam jejak commit, kontribusi open source, dan konsistensi pengembangan kode di GitHub.
+            Rekam jejak commit dan konsistensi pengembangan kode di GitHub.
           </p>
         </motion.div>
 
